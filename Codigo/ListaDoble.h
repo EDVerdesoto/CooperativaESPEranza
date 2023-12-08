@@ -20,6 +20,9 @@ public:
     void set_cabeza(Nodo<T>*);
     Nodo<T>* get_cola();
     void set_cola(Nodo<T>*);
+    void insertar_cola(T valor);
+    void imprimir();
+    bool esta_vacia();
 
 protected:
 private:

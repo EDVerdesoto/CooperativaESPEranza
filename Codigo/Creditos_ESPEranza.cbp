@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="CalculosCredito.cpp" />
+		<Unit filename="CalculosCredito.h" />
+		<Unit filename="Credito.cpp" />
+		<Unit filename="Credito.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="ListaDoble.cpp" />

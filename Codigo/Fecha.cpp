@@ -78,6 +78,53 @@ void Fecha::set_segundos(int nuevo_segundos){
     segundos = nuevo_segundos;
 }
 
+char* Fecha::to_string(){
+    char sfecha[22];
+    int i = 0;
+    int aux;
+    while(i<4){
+        aux = anuario;
+        sfecha[i] = (aux%10) - '0';
+        aux = aux/10;
+        i++;
+    }
+    sfecha[i]= '/';
+    while(i<7){
+        aux = mes;
+        sfecha[i] = (aux%10) - '0';
+        aux = aux/10;
+        i++;
+    }
+    sfecha[i]= '/';
+    while(i<10){
+        aux = dia;
+        sfecha[i] = (aux%10) - '0';
+        aux = aux/10;
+        i++;
+    }
+    sfecha[i]= ' ';
+    while(i<13){
+        aux = hora;
+        sfecha[i] = (aux%10) - '0';
+        aux = aux/10;
+        i++;
+    }
+    sfecha[i]= ':';
+    while(i<16){
+        aux = minutos;
+        sfecha[i] = (aux%10) - '0';
+        aux = aux/10;
+        i++;
+    }
+    sfecha[i]= ':';
+    while(i<19){
+        aux = segundos;
+        sfecha[i] = (aux%10) - '0';
+        aux = aux/10;
+        i++;
+    }
+    return sfecha;
+}
 
 bool operator<(Fecha fecha1, Fecha fecha2){
     bool menor;

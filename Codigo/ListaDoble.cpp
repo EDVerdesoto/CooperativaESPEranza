@@ -37,3 +37,31 @@ template <typename T>
 void ListaDoble<T>::set_cola(Nodo<T>* nueva_cola){
     cola = nueva_cola;
 }
+
+template <typename T>
+void ListaDoble<T>::insertar_cola(T valor){
+    Nodo<T>* nuevo_nodo;
+    if(esta_vacia()){
+        nuevo_nodo = new Nodo<T>(valor, nullptr, nullptr);
+        cabeza = nuevo_nodo;
+    }
+    else{
+        nuevo_nodo = new Nodo<T>(valor, nullptr, cola);
+        cola->set_siguiente(nuevo_nodo);
+    }
+    cola = nuevo_nodo;
+}
+
+template <typename T>
+void ListaDoble<T>::imprimir(){
+    Nodo<T>* aux = cabeza;
+    while(aux!=nullptr){
+        printf("\n %f", aux->get_valor());
+        aux = aux->get_siguiente();
+    }
+}
+
+template <typename T>
+bool ListaDoble<T>::esta_vacia(){
+    return (cabeza == nullptr);
+}

@@ -6,10 +6,10 @@
  * Purpose: Declaracion de clase Fecha
  ***********************************************************************/
 
-#include "Nodo.h"
-
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
+
+#include "Nodo.h"
 
 class Fecha{
     public:
@@ -28,6 +28,7 @@ class Fecha{
         void set_minutos(int);
         int get_segundos();
         void set_segundos(int);
+        char* to_string();
 
     protected:
 
@@ -38,7 +39,6 @@ class Fecha{
         int hora;
         int minutos;
         int segundos;
-        char* fecha_t;
 };
 
 #endif // FECHA_H_INCLUDED
