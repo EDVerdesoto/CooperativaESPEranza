@@ -2,15 +2,18 @@
  UFA - ESPE
  * Module:  Credito.cpp
  * Author:  Joan Cobeña, Edison Verdesoto
- * Modified: jueves, 7 de diciembre de 2023 01:11:27 p. m.
+ * Modified: jueves, 7 de diciembre de 2023
  * Purpose: Implementacion de clase Credito
  ***********************************************************************/
 
 #include "Credito.h"
 
-Credito::Credito(int num_cuotas, double _monto){
+Credito::Credito(int num_cuotas, double _monto, Fecha _fecha_realizado){
     n_cuotas_pagar = num_cuotas;
     monto = _monto;
+    meses_gracia = 1;
+    intervalo_pagos_mes = 1;
+    fecha_realizado = _fecha_realizado;
 }
 
 int Credito::get_n_cuotas_pagar(){
@@ -52,6 +55,19 @@ void Credito::set_saldo(double nuevo_saldo){
 void Credito::set_valor_cuota(double nuevo_valor_cuota){
     valor_cuota = nuevo_valor_cuota;
 }
+
+int Credito::get_meses_gracia(){
+    return meses_gracia;
+}
+
+int Credito::get_intervalo_pagos_mes(){
+    return intervalo_pagos_mes;
+}
+
+Fecha Credito::get_fecha_realizado(){
+    return fecha_realizado;
+}
+
 
 char* Credito::to_string(){
 

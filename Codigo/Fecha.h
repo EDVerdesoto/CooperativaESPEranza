@@ -9,6 +9,7 @@
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
 
+#include <iostream>
 #include "Nodo.h"
 
 class Fecha{
@@ -28,7 +29,11 @@ class Fecha{
         void set_minutos(int);
         int get_segundos();
         void set_segundos(int);
-        char* to_string();
+        bool es_dia_habil();
+        bool es_feriado();
+        bool es_finde();
+        std::string to_string();
+        void imprimir();
 
     protected:
 

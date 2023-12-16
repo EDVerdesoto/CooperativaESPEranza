@@ -6,16 +6,18 @@
  * Purpose: Implementacion de clase Fecha
  ***********************************************************************/
 
+#include <iostream>
 #include "Fecha.h"
+#include <ctime>
+#include <iomanip>
 
 Fecha::Fecha(){
-
 }
 
 Fecha::Fecha(int _anuario, int _mes, int _dia){
     anuario = _anuario;
-    mes = _mes;
-    dia = _dia;
+    set_mes(_mes);
+    set_dia(_dia);
     hora = 0;
     minutos = 0;
     segundos = 1;
@@ -43,7 +45,11 @@ int Fecha::get_mes(){
 }
 
 void Fecha::set_mes(int nuevo_mes){
-    mes = nuevo_mes;
+    int meses_pasados = (nuevo_mes >12) ? 12 : 0;
+
+    mes = nuevo_mes - meses_pasados;
+
+    if(meses_pasados>0)set_anuario(anuario+1);
 }
 
 int Fecha::get_dia(){
@@ -51,7 +57,28 @@ int Fecha::get_dia(){
 }
 
 void Fecha::set_dia(int nuevo_dia){
-    dia = nuevo_dia;
+    int ndias_mes_pasado = 0;
+
+    if(nuevo_dia>28){
+        if (mes==2){
+            if(anuario%4!=0){
+                ndias_mes_pasado = 28;
+            }
+            else {
+                ndias_mes_pasado = (nuevo_dia > 29) ? 29 : 0;
+            }
+        }
+        else if (((mes < 8) && mes%2!=0)||(mes >= 8) && mes%2==0){
+            ndias_mes_pasado = (nuevo_dia > 31) ? 31 : 0;
+        }
+        else {
+            ndias_mes_pasado = (nuevo_dia > 30) ? 30 : 0;
+        }
+    }
+
+    dia = nuevo_dia - ndias_mes_pasado;
+
+    if(ndias_mes_pasado>0)set_mes(mes+1);
 }
 
 int Fecha::get_hora(){
@@ -78,54 +105,88 @@ void Fecha::set_segundos(int nuevo_segundos){
     segundos = nuevo_segundos;
 }
 
-char* Fecha::to_string(){
-    char sfecha[22];
-    int i = 0;
-    int aux;
-    while(i<4){
-        aux = anuario;
-        sfecha[i] = (aux%10) - '0';
-        aux = aux/10;
-        i++;
-    }
-    sfecha[i]= '/';
-    while(i<7){
-        aux = mes;
-        sfecha[i] = (aux%10) - '0';
-        aux = aux/10;
-        i++;
-    }
-    sfecha[i]= '/';
-    while(i<10){
-        aux = dia;
-        sfecha[i] = (aux%10) - '0';
-        aux = aux/10;
-        i++;
-    }
-    sfecha[i]= ' ';
-    while(i<13){
-        aux = hora;
-        sfecha[i] = (aux%10) - '0';
-        aux = aux/10;
-        i++;
-    }
-    sfecha[i]= ':';
-    while(i<16){
-        aux = minutos;
-        sfecha[i] = (aux%10) - '0';
-        aux = aux/10;
-        i++;
-    }
-    sfecha[i]= ':';
-    while(i<19){
-        aux = segundos;
-        sfecha[i] = (aux%10) - '0';
-        aux = aux/10;
-        i++;
-    }
+std::string Fecha::to_string(){
+    std::string sfecha = "XD";
+
     return sfecha;
 }
 
+void Fecha::imprimir(){
+    printf("%d", dia);
+    printf("/%d", mes);
+    printf("/%d", anuario);
+}
+
+bool Fecha::es_dia_habil(){
+    bool habil = true;
+    if(es_finde()){
+        habil = false;
+    }
+    else if(es_feriado()){
+        habil = false;
+    }
+    return habil;
+}
+
+bool Fecha::es_feriado(){
+    bool es_feriado = false;
+
+    if(mes==1){
+        if(dia ==1) es_feriado = true;
+    }
+    else if(mes==2){
+        if(dia == 12 || dia == 13) es_feriado = true;
+    }
+
+    else if(mes==3){
+        if(dia == 29) es_feriado = true;
+    }
+    else if(mes==4){
+
+    }
+    else if(mes==5){
+        if(dia == 1 || dia == 24) es_feriado = true;
+    }
+    else if(mes==6){
+
+    }
+    else if(mes==7){
+
+    }
+    else if(mes==8){
+        if(dia == 10)es_feriado = true;
+    }
+    else if(mes==9){
+         if(dia == 26)es_feriado = true;
+    }
+    else if(mes==10){
+         if(dia == 9)es_feriado = true;
+    }
+    else if(mes==11){
+        if(dia == 2 || dia == 3)es_feriado = true;
+    }
+
+    else if(mes==12){
+        if(dia == 24 || dia == 25 || dia == 31) es_feriado = true;
+    }
+
+    return es_feriado;
+}
+
+bool Fecha::es_finde(){
+    std::tm tm_fecha = {};
+    tm_fecha.tm_mday = dia;
+    tm_fecha.tm_mon = mes - 1;
+    tm_fecha.tm_year = anuario - 1900;
+
+    std::mktime(&tm_fecha);
+
+    int dia_semana = tm_fecha.tm_wday;
+
+    return (dia_semana == 0 || dia_semana == 6);
+}
+
+/*
 bool operator<(Fecha fecha1, Fecha fecha2){
     bool menor;
     if(fecha1.get_anuario()<fecha2.get_anuario()){
@@ -251,4 +312,4 @@ bool operator>(Fecha fecha1, Fecha fecha2){
 
     return mayor;
 }
-
+*/

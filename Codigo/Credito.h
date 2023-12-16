@@ -2,7 +2,7 @@
  UFA - ESPE
  * Module:  Credito.h
  * Author:  Joan Cobeña, Edison Verdesoto
- * Modified: jueves, 7 de diciembre de 2023 01:11:27 p. m.
+ * Modified: jueves, 7 de diciembre de 2023
  * Purpose: Declaracion de clase Credito
  ***********************************************************************/
 
@@ -13,7 +13,8 @@
 
 class Credito{
     public:
-        Credito(int num_cuotas, double _monto);
+        Credito(){};
+        Credito(int num_cuotas, double _monto, Fecha);
         int get_n_cuotas_pagar();
         int get_cuotas_pagadas();
         double get_monto();
@@ -24,6 +25,11 @@ class Credito{
         void set_monto(double);
         void set_saldo(double);
         void set_valor_cuota(double);
+        int get_meses_gracia();
+        int get_intervalo_pagos_mes();
+        Fecha get_fecha_realizado();
+        void set_meses_gracia(int);
+        void set_intervalo_pagos_mes(int);
         char* to_string();
     protected:
 
@@ -33,7 +39,9 @@ class Credito{
         double monto;
         double saldo;
         double valor_cuota;
-        Fecha primer_cuota;
+        int meses_gracia;
+        int intervalo_pagos_mes;
+        Fecha fecha_realizado;
 };
 
 

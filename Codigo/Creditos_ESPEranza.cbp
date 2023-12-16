@@ -42,6 +42,8 @@
 		<Unit filename="ListaDoble.h" />
 		<Unit filename="Nodo.cpp" />
 		<Unit filename="Nodo.h" />
+		<Unit filename="TablaAmortizacion.cpp" />
+		<Unit filename="TablaAmortizacion.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menus.h" />
 		<Extensions>

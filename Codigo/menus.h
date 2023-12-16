@@ -31,7 +31,6 @@ int desplegar_menu(char** opciones, int nopciones){
     int colores[2] = {15, 191};
 
     auto imprimir_opciones = [&](){
-
         auto imprimir_boton = [&ANCHO_BOTON](char* opcion){
             short int caracteres_en_opcion = 0;
             while (opcion[caracteres_en_opcion] != '\0') {

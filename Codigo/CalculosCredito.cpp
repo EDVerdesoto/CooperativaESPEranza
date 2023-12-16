@@ -2,7 +2,7 @@
  UFA - ESPE
  * Module:  CalculosCredito.cpp
  * Author:  Joan Cobeña, Edison Verdesoto
- * Modified: jueves, 7 de diciembre de 2023 01:11:27 p. m.
+ * Modified: jueves, 7 de diciembre de 2023
  * Purpose: Implementacion de clase CalculosCredito
  ***********************************************************************/
 
@@ -11,7 +11,7 @@
 #include "Nodo.cpp"
 #include <cmath>
 
-CalculosCredito::CalculosCredito(double _tasa_interes, double _tasa_seguros){
+CalculosCredito::CalculosCredito(double _tasa_interes){
     tasa_interes = _tasa_interes;
 }
 

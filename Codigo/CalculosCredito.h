@@ -2,7 +2,7 @@
  UFA - ESPE
  * Module:  CalculosCredito.h
  * Author:  Joan Cobeña, Edison Verdesoto
- * Modified: jueves, 7 de diciembre de 2023 01:11:27 p. m.
+ * Modified: jueves, 7 de diciembre de 2023
  * Purpose: Declaracion de clase CalculosCredito
  ***********************************************************************/
 
@@ -13,7 +13,7 @@
 
 class CalculosCredito{
     public:
-        CalculosCredito(double, double);
+        CalculosCredito(double);
         double calcular_valor_cuotas(int, double);
         void calcular_valor_intereses(int, double, double, ListaDoble<double>*);
         void calcular_capitales_pagados(double, ListaDoble<double>*, Nodo<double>*);
