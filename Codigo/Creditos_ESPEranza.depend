@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1702847051 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1702847051 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\calculoscredito.h
+	"ListaDoble.h"
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\listadoble.h
+	"Nodo.h"
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\nodo.h
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\listadoble.cpp
+	"ListaDoble.h"
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\nodo.cpp
+	"Nodo.h"
+
+1702051781 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\listadoble.cpp
+	"ListaDoble.h"
+
+1702051781 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\nodo.cpp
+	"Nodo.h"
+
+1702864358 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\main.cpp
+	<iostream>
+	<ctime>
+	"menus.h"
+
+1702864358 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\menus.h
+	<iostream>
+	<conio.h>
+	<windows.h>
+	"validaciones.h"
+	"Fecha.h"
+	"Credito.h"
+	"TablaAmortizacion.h"
+
+1702864358 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\validaciones.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<stdio.h>
+	<string.h>
+	<cstring>
+
+1702864578 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1702864358 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\credito.h
+	"Fecha.h"
+
+1702847051 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+

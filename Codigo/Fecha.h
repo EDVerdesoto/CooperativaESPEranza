@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include "Nodo.h"
+#include <ctime>
+#include <iomanip>
 
 class Fecha{
     public:
@@ -33,6 +35,8 @@ class Fecha{
         bool es_feriado();
         bool es_finde();
         std::string to_string();
+        std::string to_string_documento();
+        std::time_t string_to_fecha(const std::wstring& dateTime);
         void imprimir();
 
     protected:
