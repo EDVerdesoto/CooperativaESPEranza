@@ -36,7 +36,7 @@ class Fecha{
         bool es_finde();
         std::string to_string();
         std::string to_string_documento();
-        std::time_t string_to_fecha(const std::wstring& dateTime);
+        void string_to_fecha(std::string to_string_documento());
         void imprimir();
 
     protected:

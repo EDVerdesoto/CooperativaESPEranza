@@ -148,9 +148,6 @@ std::string Fecha::to_string_documento(){
 }
 
 
-std::time_t Fecha::string_to_fecha(const std::wstring& dateTime){
-
-}
 
 void Fecha::imprimir(){
     printf("%d", dia);
