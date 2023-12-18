@@ -7,6 +7,7 @@
  ***********************************************************************/
 
 #include <iostream>
+#include <iomanip>
 #include "TablaAmortizacion.h"
 #include "CalculosCredito.h"
 #include "Fecha.h"
@@ -77,14 +78,17 @@ void TablaAmortizacion::imprimir(){
     Nodo<double>* valor_cuota = valor_cuotas->get_cabeza();
     Nodo<Fecha>* aux_fecha_pagar = fechas_pago->get_cabeza();
     Fecha fecha_pagar;
-    std::cout<<"No. Cuota|Valor Cuota|Pago al capital|Intereses|Saldo capital|Fecha de pago";
+    int ancho_ord = 10, ancho_vcuota = 12, ancho_capital = 12, ancho_interes = 10, ancho_saldo = 15, ancho_fecha = 14;
+
+    std::cout<< '|'<<std::setw(ancho_ord)<<"No. Cuota"<< '|'<<std::setw(ancho_vcuota)<<"Valor Cuota";
+    std::cout<<'|'<<std::setw(ancho_capital)<<"Pago capital"<<'|'<<std::setw(ancho_interes)<<"Intereses";
+    std::cout<<'|'<<std::setw(ancho_saldo)<<"Saldo capital"<<'|'<<std::setw(ancho_fecha)<<"Fecha de pago"<<'|';
     printf("\n");
     while(n_mostrados < n_mostrar){
         fecha_pagar = aux_fecha_pagar->get_valor();
-        std::cout<<ord->get_valor()<<"\t|\t"<<valor_cuota->get_valor();
-        std::cout<<"\t|\t"<<capital_pag->get_valor()<<"\t|\t"<<interes->get_valor();
-        std::cout<<"\t|\t"<<saldo_cap->get_valor()<<"\t|\t";
-        fecha_pagar.imprimir();
+        std::cout<< '|'<<std::setw(ancho_ord)<<ord->get_valor()<<'|'<<std::setw(ancho_vcuota)<<valor_cuota->get_valor();
+        std::cout<<'|'<<std::setw(ancho_capital)<<capital_pag->get_valor()<<'|'<<std::setw(ancho_interes)<<interes->get_valor();
+        std::cout<<'|'<<std::setw(ancho_saldo)<<saldo_cap->get_valor()<<'|'<<std::setw(ancho_fecha)<<fecha_pagar.to_string()<<'|';
         printf("\n");
 
         ord = ord->get_siguiente();

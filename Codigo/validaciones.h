@@ -49,23 +49,21 @@ double ingresar_reales(const char* msj) {
 
     while ((c = getch()) != 13) {
         if(c == 8 || i<11){
-            if ((c >= '0' && c <= '9') || (c == '.' && !hay_punto)|| c == 8 || c == '-') {
+            if ((c >= '0' && c <= '9') || (c == '.' && !hay_punto)|| c == 8) {
                 if(!((c == '.')&& i == 0)){
-                    if(!((c == '-') && i != 0)){
-                        if (c == 8) {
-                            i = borrar(datos, i);
-                            if((i+1) == posicion_punto){
-                                hay_punto = false;
-                            }
+                    if (c == 8) {
+                        i = borrar(datos, i);
+                        if((i+1) == posicion_punto){
+                            hay_punto = false;
                         }
-                        else {
-                            printf("%c", c);
-                            datos[i++] = c;
+                    }
+                    else {
+                        printf("%c", c);
+                        datos[i++] = c;
 
-                            if (c == '.') {
-                                posicion_punto = i;
-                                hay_punto = true;
-                            }
+                        if (c == '.') {
+                            posicion_punto = i;
+                            hay_punto = true;
                         }
                     }
                 }

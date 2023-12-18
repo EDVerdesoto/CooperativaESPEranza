@@ -58,7 +58,7 @@ void Fecha::set_mes(int nuevo_mes){
     int meses_pasados = (nuevo_mes >12) ? 12 : 0;
 
     mes = nuevo_mes - meses_pasados;
-
+    set_dia(dia);
     if(meses_pasados>0)set_anuario(anuario+1);
 }
 
@@ -119,8 +119,8 @@ std::string Fecha::to_string(){
     auto t = std::time(nullptr);
     std::tm tm_fecha = {};
     tm_fecha.tm_mday = dia;
-    tm_fecha.tm_mon = mes;
-    tm_fecha.tm_year = anuario;
+    tm_fecha.tm_mon = mes - 1;
+    tm_fecha.tm_year = anuario - 1900;
 
     std::mktime(&tm_fecha);
 
@@ -132,24 +132,34 @@ std::string Fecha::to_string(){
 }
 
 std::string Fecha::to_string_documento(){
-    auto t = std::time(nullptr);
     std::tm tm_fecha = {};
     tm_fecha.tm_mday = dia;
-    tm_fecha.tm_mon = mes;
-    tm_fecha.tm_year = anuario;
+    tm_fecha.tm_mon = mes-1;
+    tm_fecha.tm_year = anuario-1900;
+    tm_fecha.tm_hour = hora;
+    tm_fecha.tm_min = minutos;
+    tm_fecha.tm_sec = segundos;
 
     std::mktime(&tm_fecha);
 
     std::ostringstream oss;
-    oss << std::put_time(&tm_fecha, "%Y-%m-%dT_%H-%M-%SZ");
+    oss << std::put_time(&tm_fecha, "%Y-%m-%d_%H-%M-%S");
     auto str = oss.str();
 
     return oss.str();
 }
 
 
-std::time_t Fecha::string_to_fecha(const std::wstring& dateTime){
+void Fecha::string_to_fecha(const std::string fecha_string){
+    std::tm tm_fecha = {};
+    std::istringstream ss(fecha_string);
 
+    ss >> std::get_time(&tm_fecha, "%Y-%m-%d");
+    std::mktime(&tm_fecha);
+
+    dia = tm_fecha.tm_mday;
+    mes = tm_fecha.tm_mon + 1;
+    anuario = tm_fecha.tm_year + 1900;
 }
 
 void Fecha::imprimir(){
