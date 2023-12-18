@@ -108,3 +108,60 @@
 	"Imagen.h"
 	<conio.h>
 
+1702885596 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\calculoscredito.h
+	"ListaDoble.h"
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\listadoble.h
+	"Nodo.h"
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\nodo.h
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\listadoble.cpp
+	"ListaDoble.h"
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\nodo.cpp
+	"Nodo.h"
+
+1702885596 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\credito.cpp
+	"Credito.h"
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\credito.h
+	"Fecha.h"
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1702885596 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+	<iomanip>
+
+1702885596 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\listadoble.cpp
+	"ListaDoble.h"
+
+1702885596 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\nodo.cpp
+	"Nodo.h"
+
+1702885596 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\tablaamortizacion.cpp
+	<iostream>
+	"TablaAmortizacion.h"
+	"CalculosCredito.h"
+	"Fecha.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+
+1702885596 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\parte semi final\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+

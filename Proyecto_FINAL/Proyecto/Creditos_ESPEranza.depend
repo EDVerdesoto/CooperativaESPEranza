@@ -1,0 +1,222 @@
+# depslib dependency file v1.0
+1702090136 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1702090128 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\calculoscredito.h
+	"ListaDoble.h"
+
+1702013539 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\listadoble.h
+	"Nodo.h"
+
+1701977144 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\nodo.h
+
+1702015744 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\listadoble.cpp
+	"ListaDoble.h"
+
+1701974393 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\nodo.cpp
+	"Nodo.h"
+
+1702859686 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\credito.cpp
+	"Credito.h"
+
+1702859681 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\credito.h
+	"Fecha.h"
+
+1702881643 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1702886157 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\easybmp.cpp
+	"EasyBMP.h"
+
+1702886157 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\easybmp.h
+	<iostream>
+	<cmath>
+	<cctype>
+	<cstring>
+	<stdio.h>
+	<cstdio>
+	"EasyBMP_DataStructures.h"
+	"EasyBMP_BMP.h"
+	"EasyBMP_VariousBMPutilities.h"
+
+1702886157 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\easybmp_datastructures.h
+
+1702886157 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\easybmp_bmp.h
+
+1702886157 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\easybmp_variousbmputilities.h
+
+1702888026 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+	<iomanip>
+
+1702885596 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\imagen.cpp
+	"Imagen.h"
+	<conio.h>
+
+1702886658 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\imagen.h
+	<string>
+	<windows.h>
+	"EasyBMP.h"
+
+1702015744 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\listadoble.cpp
+	"ListaDoble.h"
+
+1702879163 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\main.cpp
+	<iostream>
+	<ctime>
+	"menus.h"
+
+1702890042 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\menus.h
+	<iostream>
+	<conio.h>
+	<windows.h>
+	"GestorArchivos.h"
+	"validaciones.h"
+	"Fecha.h"
+	"Credito.h"
+	"TablaAmortizacion.h"
+	"Imagen.h"
+
+1702882802 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\gestorarchivos.h
+	<iostream>
+	<fstream>
+	<string>
+	"Credito.h"
+	"Fecha.h"
+
+1702872036 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\validaciones.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<stdio.h>
+	<string.h>
+	<cstring>
+
+1702479886 d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+
+1701974393 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\nodo.cpp
+	"Nodo.h"
+
+1702866389 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\creditos_esperanza\tablaamortizacion.cpp
+	<iostream>
+	<iomanip>
+	"TablaAmortizacion.h"
+	"CalculosCredito.h"
+	"Fecha.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+
+1702090138 source:f:\proyecto\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1702090130 f:\proyecto\calculoscredito.h
+	"ListaDoble.h"
+
+1702013540 f:\proyecto\listadoble.h
+	"Nodo.h"
+
+1701977146 f:\proyecto\nodo.h
+
+1702015746 f:\proyecto\listadoble.cpp
+	"ListaDoble.h"
+
+1701974394 f:\proyecto\nodo.cpp
+	"Nodo.h"
+
+1702859688 source:f:\proyecto\credito.cpp
+	"Credito.h"
+
+1702859682 f:\proyecto\credito.h
+	"Fecha.h"
+
+1702881644 f:\proyecto\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1702886158 source:f:\proyecto\easybmp.cpp
+	"EasyBMP.h"
+
+1702886158 f:\proyecto\easybmp.h
+	<iostream>
+	<cmath>
+	<cctype>
+	<cstring>
+	<stdio.h>
+	<cstdio>
+	"EasyBMP_DataStructures.h"
+	"EasyBMP_BMP.h"
+	"EasyBMP_VariousBMPutilities.h"
+
+1702886158 f:\proyecto\easybmp_datastructures.h
+
+1702886158 f:\proyecto\easybmp_bmp.h
+
+1702886158 f:\proyecto\easybmp_variousbmputilities.h
+
+1702885598 source:f:\proyecto\imagen.cpp
+	"Imagen.h"
+	<conio.h>
+
+1702886660 f:\proyecto\imagen.h
+	<string>
+	<windows.h>
+	"EasyBMP.h"
+
+1702015746 source:f:\proyecto\listadoble.cpp
+	"ListaDoble.h"
+
+1702879164 source:f:\proyecto\main.cpp
+	<iostream>
+	<ctime>
+	"menus.h"
+
+1702890068 f:\proyecto\menus.h
+	<iostream>
+	<conio.h>
+	<windows.h>
+	"GestorArchivos.h"
+	"validaciones.h"
+	"Fecha.h"
+	"Credito.h"
+	"TablaAmortizacion.h"
+	"Imagen.h"
+
+1702882804 f:\proyecto\gestorarchivos.h
+	<iostream>
+	<fstream>
+	<string>
+	"Credito.h"
+	"Fecha.h"
+
+1702872038 f:\proyecto\validaciones.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<stdio.h>
+	<string.h>
+	<cstring>
+
+1702479888 f:\proyecto\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+
+1701974394 source:f:\proyecto\nodo.cpp
+	"Nodo.h"
+

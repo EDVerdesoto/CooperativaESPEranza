@@ -36,6 +36,11 @@
 		<Unit filename="CalculosCredito.h" />
 		<Unit filename="Credito.cpp" />
 		<Unit filename="Credito.h" />
+		<Unit filename="EasyBMP.cpp" />
+		<Unit filename="EasyBMP.h" />
+		<Unit filename="EasyBMP_BMP.h" />
+		<Unit filename="EasyBMP_DataStructures.h" />
+		<Unit filename="EasyBMP_VariousBMPutilities.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="GestorArchivos.h" />
@@ -49,15 +54,6 @@
 		<Unit filename="TablaAmortizacion.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menus.h" />
-		<Unit filename="obj/Debug/Bibliotecas/EasyBMP.o" />
-		<Unit filename="obj/Debug/CalculosCredito.o" />
-		<Unit filename="obj/Debug/Credito.o" />
-		<Unit filename="obj/Debug/Fecha.o" />
-		<Unit filename="obj/Debug/Imagen.o" />
-		<Unit filename="obj/Debug/ListaDoble.o" />
-		<Unit filename="obj/Debug/Nodo.o" />
-		<Unit filename="obj/Debug/TablaAmortizacion.o" />
-		<Unit filename="obj/Debug/main.o" />
 		<Unit filename="validaciones.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

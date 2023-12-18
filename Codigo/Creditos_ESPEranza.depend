@@ -149,3 +149,100 @@
 	"Credito.h"
 	"Fecha.h"
 
+1702090136 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1702090128 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\calculoscredito.h
+	"ListaDoble.h"
+
+1702013539 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\listadoble.h
+	"Nodo.h"
+
+1701977144 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\nodo.h
+
+1702015744 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\listadoble.cpp
+	"ListaDoble.h"
+
+1701974393 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\nodo.cpp
+	"Nodo.h"
+
+1702859686 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\credito.cpp
+	"Credito.h"
+
+1702859681 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\credito.h
+	"Fecha.h"
+
+1702881643 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1702882481 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+	<iomanip>
+
+1702884561 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\imagen.cpp
+	"Imagen.h"
+	<conio.h>
+
+1702884561 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\imagen.h
+	<string>
+	<windows.h>
+	"../../../../../Bibliotecas/EasyBMP.h"
+
+1702015744 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\listadoble.cpp
+	"ListaDoble.h"
+
+1702879163 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\main.cpp
+	<iostream>
+	<ctime>
+	"menus.h"
+
+1702884444 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\menus.h
+	<iostream>
+	<conio.h>
+	<windows.h>
+	"GestorArchivos.h"
+	"validaciones.h"
+	"Fecha.h"
+	"Credito.h"
+	"TablaAmortizacion.h"
+
+1702882802 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\gestorarchivos.h
+	<iostream>
+	<fstream>
+	<string>
+	"Credito.h"
+	"Fecha.h"
+
+1702872036 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\validaciones.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<stdio.h>
+	<string.h>
+	<cstring>
+
+1702479886 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+
+1701974393 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\nodo.cpp
+	"Nodo.h"
+
+1702866389 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\codigo\tablaamortizacion.cpp
+	<iostream>
+	<iomanip>
+	"TablaAmortizacion.h"
+	"CalculosCredito.h"
+	"Fecha.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+

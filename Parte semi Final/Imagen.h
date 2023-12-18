@@ -9,7 +9,7 @@
 #define IMAGEN_H
 #include <string>
 #include <windows.h>
-#include "../../../../../Bibliotecas/EasyBMP.h"
+#include "Easy"
 
 
 class Imagen{
