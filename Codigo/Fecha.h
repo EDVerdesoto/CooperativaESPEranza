@@ -36,11 +36,7 @@ class Fecha{
         bool es_finde();
         std::string to_string();
         std::string to_string_documento();
-<<<<<<< HEAD
         void string_to_fecha(const std::string);
-=======
-        void string_to_fecha(std::string to_string_documento());
->>>>>>> 587086ee3da88a0073a36ccb62f325b8ba28bf78
         void imprimir();
 
     protected:
