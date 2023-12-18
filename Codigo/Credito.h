@@ -14,7 +14,7 @@
 class Credito{
     public:
         Credito(){};
-        Credito(int num_cuotas, double _monto, Fecha);
+        Credito(int num_cuotas, double _monto, Fecha, double _tasa_interes);
         int get_n_cuotas_pagar();
         int get_cuotas_pagadas();
         double get_monto();
@@ -30,6 +30,8 @@ class Credito{
         Fecha get_fecha_realizado();
         void set_meses_gracia(int);
         void set_intervalo_pagos_mes(int);
+        double get_tasa_interes();
+        void set_tasa_interes(double);
         char* to_string();
     protected:
 
@@ -37,6 +39,7 @@ class Credito{
         int n_cuotas_pagar;
         int cuotas_pagadas;
         double monto;
+        double tasa_interes;
         double saldo;
         double valor_cuota;
         int meses_gracia;

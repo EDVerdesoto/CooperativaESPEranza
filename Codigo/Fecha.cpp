@@ -12,6 +12,16 @@
 #include <iomanip>
 
 Fecha::Fecha(){
+    std::time_t tiempo_actual = std::time(nullptr);
+    std::tm tm_actual = *std::localtime(&tiempo_actual);
+    std::mktime(&tm_actual);
+
+    dia = tm_actual.tm_mday;
+    mes = tm_actual.tm_mon + 1;
+    anuario = tm_actual.tm_year + 1900;
+    hora = tm_actual.tm_hour;
+    minutos = tm_actual.tm_min;
+    segundos = tm_actual.tm_sec;
 }
 
 Fecha::Fecha(int _anuario, int _mes, int _dia){

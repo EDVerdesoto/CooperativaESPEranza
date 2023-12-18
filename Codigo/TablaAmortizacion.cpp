@@ -25,7 +25,7 @@ TablaAmortizacion::TablaAmortizacion(Credito credito_usar){
 }
 
 void TablaAmortizacion::llenar_tabla_amortizacion(){
-    CalculosCredito calculos(15);
+    CalculosCredito calculos(credito.get_tasa_interes());
     double v_cuotas = calculos.calcular_valor_cuotas(credito.get_n_cuotas_pagar(), credito.get_monto());
     int n_ord = 1;
     while(n_ord<=credito.get_n_cuotas_pagar()){
@@ -93,6 +93,7 @@ void TablaAmortizacion::imprimir(){
         capital_pag = capital_pag->get_siguiente();
         valor_cuota = valor_cuota->get_siguiente();
         aux_fecha_pagar = aux_fecha_pagar->get_siguiente();
+        n_mostrados++;
     }
 }
 

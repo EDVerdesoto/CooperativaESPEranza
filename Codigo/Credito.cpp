@@ -8,12 +8,13 @@
 
 #include "Credito.h"
 
-Credito::Credito(int num_cuotas, double _monto, Fecha _fecha_realizado){
+Credito::Credito(int num_cuotas, double _monto, Fecha _fecha_realizado, double _tasa_interes){
     n_cuotas_pagar = num_cuotas;
     monto = _monto;
     meses_gracia = 1;
     intervalo_pagos_mes = 1;
     fecha_realizado = _fecha_realizado;
+    tasa_interes = _tasa_interes;
 }
 
 int Credito::get_n_cuotas_pagar(){
@@ -68,6 +69,13 @@ Fecha Credito::get_fecha_realizado(){
     return fecha_realizado;
 }
 
+double Credito::get_tasa_interes(){
+    return tasa_interes;
+}
+
+void Credito::set_tasa_interes(double nueva_tasa){
+    tasa_interes = nueva_tasa;
+}
 
 char* Credito::to_string(){
 
