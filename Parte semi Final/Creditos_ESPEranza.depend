@@ -1,0 +1,110 @@
+# depslib dependency file v1.0
+1702883673 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1702847051 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\calculoscredito.h
+	"ListaDoble.h"
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\listadoble.h
+	"Nodo.h"
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\nodo.h
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\listadoble.cpp
+	"ListaDoble.h"
+
+1702051781 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\nodo.cpp
+	"Nodo.h"
+
+1702051781 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\listadoble.cpp
+	"ListaDoble.h"
+
+1702051781 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\nodo.cpp
+	"Nodo.h"
+
+1702875708 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\main.cpp
+	<iostream>
+	<ctime>
+	"menus.h"
+
+1702882957 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\menus.h
+	<iostream>
+	<conio.h>
+	<windows.h>
+	"validaciones.h"
+	"Fecha.h"
+	"Credito.h"
+	"TablaAmortizacion.h"
+	"Imagen.h"
+
+1702864971 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\validaciones.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<stdio.h>
+	<string.h>
+	<cstring>
+
+1702864933 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1702864358 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\credito.h
+	"Fecha.h"
+
+1702847051 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+
+1702884390 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\credito.cpp
+	"Credito.h"
+
+1702883379 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+	<iomanip>
+
+1702864358 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\tablaamortizacion.cpp
+	<iostream>
+	"TablaAmortizacion.h"
+	"CalculosCredito.h"
+	"Fecha.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+
+1702883375 d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\imagen.h
+	<string>
+	<windows.h>
+	"../../../../../Bibliotecas/EasyBMP.h"
+
+1702872407 source:d:\bibliotecas\easybmp.cpp
+	"EasyBMP.h"
+
+1702872406 d:\bibliotecas\easybmp.h
+	<iostream>
+	<cmath>
+	<cctype>
+	<cstring>
+	<stdio.h>
+	<cstdio>
+	"EasyBMP_DataStructures.h"
+	"EasyBMP_BMP.h"
+	"EasyBMP_VariousBMPutilities.h"
+
+1702872407 d:\bibliotecas\easybmp_datastructures.h
+
+1702872407 d:\bibliotecas\easybmp_bmp.h
+
+1702872407 d:\bibliotecas\easybmp_variousbmputilities.h
+
+1702873167 source:d:\uninversidad\tercersemestre\estructura\cooperativaesperanza\codigo\imagen.cpp
+	"Imagen.h"
+	<conio.h>
+
