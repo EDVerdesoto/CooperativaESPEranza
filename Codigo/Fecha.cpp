@@ -116,9 +116,40 @@ void Fecha::set_segundos(int nuevo_segundos){
 }
 
 std::string Fecha::to_string(){
-    std::string sfecha = "XD";
+    auto t = std::time(nullptr);
+    std::tm tm_fecha = {};
+    tm_fecha.tm_mday = dia;
+    tm_fecha.tm_mon = mes;
+    tm_fecha.tm_year = anuario;
 
-    return sfecha;
+    std::mktime(&tm_fecha);
+
+    std::ostringstream oss;
+    oss << std::put_time(&tm_fecha, "%Y-%m-%d");
+    auto str = oss.str();
+
+    return oss.str();
+}
+
+std::string Fecha::to_string_documento(){
+    auto t = std::time(nullptr);
+    std::tm tm_fecha = {};
+    tm_fecha.tm_mday = dia;
+    tm_fecha.tm_mon = mes;
+    tm_fecha.tm_year = anuario;
+
+    std::mktime(&tm_fecha);
+
+    std::ostringstream oss;
+    oss << std::put_time(&tm_fecha, "%Y-%m-%dT_%H-%M-%SZ");
+    auto str = oss.str();
+
+    return oss.str();
+}
+
+
+std::time_t Fecha::string_to_fecha(const std::wstring& dateTime){
+
 }
 
 void Fecha::imprimir(){
