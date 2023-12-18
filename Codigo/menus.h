@@ -1,3 +1,10 @@
+/***********************************************************************
+ UFA - ESPE
+ * Module:  menus.cpp
+ * Author:  Joan Cobeña, Edison Verdesoto
+ * Modified: domingo, 17 de diciembre de 2023 11:06:27 p. m.
+ * Purpose: menu de consolas
+ ***********************************************************************/
 #ifndef MENUS_H_INCLUDED
 #define MENUS_H_INCLUDED
 
@@ -10,12 +17,17 @@
 #include "Fecha.h"
 #include "Credito.h"
 #include "TablaAmortizacion.h"
+#include "Imagen.h"
 
 void visibilidad_cursor(bool);
 void mover_cursor(int x, int y);
 void ingresar_datos_credito();
 void consultar_cuota();
+<<<<<<< HEAD
 void elegir_backup();
+=======
+Imagen imagen("Sin título.bmp");
+>>>>>>> 587086ee3da88a0073a36ccb62f325b8ba28bf78
 
 void mover_cursor(int x, int y){
     HANDLE manejo_consola = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -120,7 +132,7 @@ void desplegar_menu_principal(){
         else if(opcion == 4)
             elegir_backup();
         else if(opcion == 5);
-        else if(opcion == 6);
+        else if(opcion == 6)imagen.imprimirImagenEnConsola();
 
         visibilidad_cursor(false);
     }while(opcion != NUM_OPCIONES);

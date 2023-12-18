@@ -150,6 +150,7 @@ std::string Fecha::to_string_documento(){
 }
 
 
+<<<<<<< HEAD
 void Fecha::string_to_fecha(const std::string fecha_string){
     std::tm tm_fecha = {};
     std::istringstream ss(fecha_string);
@@ -161,6 +162,8 @@ void Fecha::string_to_fecha(const std::string fecha_string){
     mes = tm_fecha.tm_mon + 1;
     anuario = tm_fecha.tm_year + 1900;
 }
+=======
+>>>>>>> 587086ee3da88a0073a36ccb62f325b8ba28bf78
 
 void Fecha::imprimir(){
     printf("%d", dia);
