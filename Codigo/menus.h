@@ -13,6 +13,7 @@
 void visibilidad_cursor(bool);
 void mover_cursor(int x, int y);
 void ingresar_datos_credito();
+void consultar_cuota();
 
 void mover_cursor(int x, int y){
     HANDLE manejo_consola = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -107,7 +108,7 @@ void desplegar_menu_principal(){
         system("cls");
         opcion = desplegar_menu(OPCIONES, NUM_OPCIONES);
         if(opcion == 1)ingresar_datos_credito();
-        else if(opcion == 2);
+        else if(opcion == 2)consultar_cuota();
         else if(opcion == 3);
         else if(opcion == 4);
         else if(opcion == 5);
@@ -121,19 +122,77 @@ void desplegar_menu_principal(){
 void ingresar_datos_credito(){
     system("cls");
     Fecha sacado;
-    double monto, tasa_interes;
-    int ncuotas;
+    double monto = 0 , tasa_interes = 0;
+    int cursorx = 0, cursory = 0;
+    int ncuotas = 0;
 
     visibilidad_cursor(true);
-    monto = ingresar_reales("Ingrese el monto del credito");
-    ncuotas = ingresar_enteros("\nIngrese el numero de cuotas a pagar del credito");
-    tasa_interes = ingresar_reales("\nIngrese la tasa de interes del credito");
-    visibilidad_cursor(false);
 
+    while(monto<=0 || monto > 99999999.99){
+        mover_cursor(cursorx, cursory+1);
+        printf("                ");
+        cursory = 0;
+        mover_cursor(cursorx, cursory);
+        monto = ingresar_reales("Ingrese el monto del credito");
+
+        if(monto<=0 || monto > 99999999.99){
+            mover_cursor(cursorx, cursory+3);
+            printf("El monto debe ser mayor a 0 y menor a 100M");
+        }else{
+            mover_cursor(cursorx, cursory+3);
+            printf("                                                           ");
+        }
+    }
+
+    cursory = cursory + 2;
+    while(ncuotas<=0 || ncuotas > 500){
+        mover_cursor(cursorx, cursory+1);
+        printf("                ");
+        mover_cursor(cursorx, cursory);
+        ncuotas = ingresar_enteros("Ingrese el numero de cuotas a pagar del credito");
+
+        if(ncuotas<=0 || ncuotas > 500){
+            mover_cursor(cursorx, cursory+3);
+            printf("El numero de cuotas debe ser mayor a 0 y menor a 500");
+        }else{
+            mover_cursor(cursorx, cursory+3);
+            printf("                                                           ");
+        }
+    }
+    cursory = cursory + 2;
+    while(tasa_interes<=0 || tasa_interes>99.99){
+        mover_cursor(cursorx, cursory+1);
+        printf("                ");
+        mover_cursor(cursorx, cursory);
+        tasa_interes = ingresar_reales("Ingrese la tasa de interes del credito");
+
+        if(tasa_interes<=0 || tasa_interes>99.99){
+            mover_cursor(cursorx, cursory+3);
+            printf("La tasa de interes debe ser mayor a 0 y menor a 100%");
+        }else{
+            mover_cursor(cursorx, cursory+3);
+            printf("                                                           ");
+        }
+    }
+
+    mover_cursor(cursorx, cursory+1);
+    visibilidad_cursor(false);
     Credito credito(ncuotas, monto, sacado, tasa_interes);
     TablaAmortizacion tabla(credito);
     printf("\n");
     tabla.imprimir();
+    system("pause");
+}
+
+void consultar_cuota(){
+    system("cls");
+    int id_credito;
+
+    visibilidad_cursor(true);
+    id_credito = ingresar_enteros("\nIngrese el numero de cuotas a pagar del credito");
+
+
+
     system("pause");
 }
 
