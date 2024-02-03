@@ -310,4 +310,40 @@ std::string ingresar_string() {
     entrada[i] = '\0';
 	return entrada;
 }
+
+bool es_cedula_valida(std::string cedula){
+    int suma_verif = 0;
+    int digito_verificador = cedula[9]-'0';
+    int decena_prox;
+    int digito_actual_sum;
+
+    for(int i = 0; i < 9; i++){
+        digito_actual_sum = cedula[i]-'0';
+
+        if(i % 2 == 0){
+            digito_actual_sum *= 2;
+
+            if(digito_actual_sum > 9)
+                digito_actual_sum -= 9;
+        }
+
+        if(i==2){
+            if(((suma_verif*10)+digito_actual_sum)<1 || ((suma_verif*10)+digito_actual_sum)>30){
+                return false;
+            }
+        }
+
+        suma_verif += digito_actual_sum;
+    }
+
+    decena_prox = (suma_verif/10);
+
+    if(suma_verif % 10 != 0)
+        decena_prox += 1;
+
+    decena_prox *= 10;
+
+    return (decena_prox-suma_verif == digito_verificador);
+}
+
 #endif // VALIDACIONES_H_INCLUDED

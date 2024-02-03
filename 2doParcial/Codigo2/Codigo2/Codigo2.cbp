@@ -32,7 +32,41 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Arbol_Bplus.cpp" />
+		<Unit filename="Arbol_Bplus.h" />
+		<Unit filename="CalculosCredito.cpp" />
+		<Unit filename="CalculosCredito.h" />
+		<Unit filename="Cliente.cpp" />
+		<Unit filename="Cliente.h" />
+		<Unit filename="Credito.cpp" />
+		<Unit filename="Credito.h" />
+		<Unit filename="Cuenta.cpp" />
+		<Unit filename="Cuenta.h" />
+		<Unit filename="EasyBMP.cpp" />
+		<Unit filename="EasyBMP.h" />
+		<Unit filename="EasyBMP_BMP.h" />
+		<Unit filename="EasyBMP_DataStructures.h" />
+		<Unit filename="EasyBMP_VariousBMPutilities.h" />
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
+		<Unit filename="GestorArchivos.h" />
+		<Unit filename="Imagen.cpp" />
+		<Unit filename="Imagen.h" />
+		<Unit filename="ListaDoble.cpp" />
+		<Unit filename="ListaDoble.h" />
+		<Unit filename="Movimientos.cpp" />
+		<Unit filename="Movimientos.h" />
+		<Unit filename="Nodo.cpp" />
+		<Unit filename="Nodo.h" />
+		<Unit filename="NodoB.cpp" />
+		<Unit filename="NodoB.h" />
+		<Unit filename="Persona.cpp" />
+		<Unit filename="Persona.h" />
+		<Unit filename="TablaAmortizacion.cpp" />
+		<Unit filename="TablaAmortizacion.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="menus.h" />
+		<Unit filename="validaciones.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
