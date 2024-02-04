@@ -11,6 +11,7 @@
 #include "Credito.h"
 #include "TablaAmortizacion.h"
 #include "Imagen.h"
+#include "Persona.h"
 
 void visibilidad_cursor(bool);
 void mover_cursor(int x, int y);
@@ -18,6 +19,7 @@ void ingresar_datos_credito();
 void consultar_cuota();
 void elegir_backup();
 void abrir_menu_ayuda();
+void ingresar_datos_usuario();
 bool operator<(Fecha fecha1, Fecha fecha2);
 
 void mover_cursor(int x, int y){
@@ -105,18 +107,41 @@ int desplegar_menu(const char** opciones, int nopciones){
 }
 
 void desplegar_menu_principal(){
-    const int NUM_OPCIONES = 7;
-    const char* OPCIONES[NUM_OPCIONES] = {"Generar credito y tabla","Consultar credito","Hacer Backup","Restaurar Backup","Ayuda","Ver imagen del grupo de devs", "Salir"};
+    const int NUM_OPCIONES = 8;
+    const char* OPCIONES[NUM_OPCIONES] = {"Crear personas y clientes","Generar credito y tabla","Consultar credito","Hacer Backup","Restaurar Backup","Ayuda","Ver imagen del grupo de devs", "Salir"};
+
+    int NUM_OPCIONES_SUB;
+    int opcion_sub;
 
     int opcion;
     do{
         system("cls");
         opcion = desplegar_menu(OPCIONES, NUM_OPCIONES);
-        if(opcion == 1)
-            ingresar_datos_credito();
+        if (opcion == 1){
+            NUM_OPCIONES_SUB = 3;
+            const char* OPCIONES_SUB[NUM_OPCIONES_SUB] = {"Crear persona","Abrir cuenta","Volver al menu principal"};
+            do{
+
+                system("cls");
+                opcion_sub =  desplegar_menu(OPCIONES_SUB, NUM_OPCIONES_SUB);
+                system("cls");
+                if(opcion_sub == 1){
+                    ingresar_datos_usuario();
+                }
+                else if(opcion_sub == 2){
+
+                }
+                visibilidad_cursor(false);
+
+            }while(opcion_sub != NUM_OPCIONES);
+
+
+        }
         else if(opcion == 2)
+            ingresar_datos_credito();
+        else if(opcion == 3)
             consultar_cuota();
-        else if(opcion == 3){
+        else if(opcion == 4){
             system("cls");
             Fecha fecha;
             if(!crear_backup(fecha)){
@@ -126,11 +151,11 @@ void desplegar_menu_principal(){
             }
             system("pause");
         }
-        else if(opcion == 4)
-            elegir_backup();
         else if(opcion == 5)
+            elegir_backup();
+        else if(opcion == 6)
             abrir_menu_ayuda();
-        else if(opcion == 6){
+        else if(opcion == 7){
             //Imagen imagen("Sin titulo.bmp");
             //imagen.imprimirImagenEnConsola();
             system("pause");
@@ -285,7 +310,24 @@ void elegir_backup(){
     system("pause");
 }
 
+void ingresar_datos_usuario(){
+    system("cls");
 
+    std::string nombre = ingresar_string("Ingrese el nombre de la persona");
+    printf("\n");
+    std::string apellido = ingresar_string("Ingrese el apellido de la persona");
+    printf("\n");
+    std::string cedula = ingresar_numeros_cedula("Ingrese el No. de cedula de la persona");
+    printf("\n");
+
+    Persona persona(nombre,apellido,cedula);
+    if(!guardar_persona(persona)){
+         printf("No se ha podido guardar la informacion de la persona en el archivo");
+    }
+
+
+    system("pause");
+}
 
 void ingresar_datos_credito(){
     system("cls");

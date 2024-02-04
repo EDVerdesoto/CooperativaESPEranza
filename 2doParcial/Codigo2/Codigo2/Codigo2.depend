@@ -236,3 +236,190 @@
 	"ListaDoble.cpp"
 	"Nodo.cpp"
 
+1707023796 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\arbol_bplus.cpp
+	<iostream>
+	<string>
+	"Arbol_Bplus.h"
+	"Nodo.cpp"
+	"ListaDoble.cpp"
+	"NodoB.h"
+	"Cuenta.h"
+	"Cliente.h"
+
+1707020047 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\arbol_bplus.h
+	"NodoB.h"
+	"ListaDoble.h"
+
+1707020046 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\nodob.h
+	"ListaDoble.h"
+	"Cuenta.h"
+
+1706677910 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\listadoble.h
+	"Nodo.h"
+
+1701977144 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\nodo.h
+
+1701974393 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\nodo.cpp
+	"Nodo.h"
+
+1706837713 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\listadoble.cpp
+	<iostream>
+	"ListaDoble.h"
+
+1707023632 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1702913949 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\calculoscredito.h
+	"ListaDoble.h"
+
+1702913949 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\credito.cpp
+	"Credito.h"
+
+1702913949 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\credito.h
+	"Fecha.h"
+
+1706939298 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1707023632 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\cuenta.cpp
+	<iostream>
+	"Movimientos.h"
+	"Cuenta.h"
+	"Cliente.h"
+	<math.h>
+
+1706936035 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\movimientos.h
+	"Cuenta.h"
+	"Cliente.h"
+
+1707013116 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\cuenta.h
+	<iostream>
+	"Cliente.h"
+
+1707013492 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\cliente.h
+	"Persona.h"
+
+1707013279 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\persona.h
+	"Fecha.h"
+
+1702913949 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\easybmp.cpp
+	"EasyBMP.h"
+
+1702913949 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\easybmp.h
+	<iostream>
+	<cmath>
+	<cctype>
+	<cstring>
+	<stdio.h>
+	<cstdio>
+	"EasyBMP_DataStructures.h"
+	"EasyBMP_BMP.h"
+	"EasyBMP_VariousBMPutilities.h"
+
+1702913949 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\easybmp_datastructures.h
+
+1702913949 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\easybmp_bmp.h
+
+1702913949 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\easybmp_variousbmputilities.h
+
+1706942022 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+	<iomanip>
+
+1706837713 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\listadoble.cpp
+	<iostream>
+	"ListaDoble.h"
+
+1702913950 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\main.cpp
+	<iostream>
+	<ctime>
+	"menus.h"
+
+1707017534 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\menus.h
+	<iostream>
+	<conio.h>
+	<windows.h>
+	"GestorArchivos.h"
+	"validaciones.h"
+	"Fecha.h"
+	"Credito.h"
+	"TablaAmortizacion.h"
+	"Imagen.h"
+	"Persona.h"
+
+1707023288 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\gestorarchivos.h
+	<iostream>
+	<fstream>
+	<string>
+	"Credito.h"
+	"Fecha.h"
+	"Persona.h"
+
+1707015959 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\validaciones.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<stdio.h>
+	<string.h>
+	<cstring>
+	<cctype>
+
+1707020047 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+
+1702913949 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\imagen.h
+	<string>
+	<windows.h>
+	"EasyBMP.h"
+
+1706936034 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\movimientos.cpp
+	"Movimientos.h"
+
+1701974393 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\nodo.cpp
+	"Nodo.h"
+
+1707020047 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\nodob.cpp
+	"NodoB.h"
+	"ListaDoble.h"
+
+1707013408 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\persona.cpp
+	"Persona.h"
+
+1707020111 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\tablaamortizacion.cpp
+	<iostream>
+	<iomanip>
+	"TablaAmortizacion.h"
+	"CalculosCredito.h"
+	"Fecha.h"
+	"ListaDoble.h"
+	"Nodo.h"
+
+1707013492 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\cliente.cpp
+	<iostream>
+	<fstream>
+	"Cuenta.h"
+	"Cliente.h"
+
+1707023461 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\cuenta.cpp
+	<iostream>
+	"Movimientos.h"
+	"Cuenta.h"
+	"Cliente.cpp"
+	<math.h>
+
+1707013492 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\codigo2\codigo2\cliente.cpp
+	<iostream>
+	<fstream>
+	"Cuenta.h"
+	"Cliente.h"
+

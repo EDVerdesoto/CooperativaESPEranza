@@ -50,8 +50,6 @@
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="GestorArchivos.h" />
-		<Unit filename="Imagen.cpp" />
-		<Unit filename="Imagen.h" />
 		<Unit filename="ListaDoble.cpp" />
 		<Unit filename="ListaDoble.h" />
 		<Unit filename="Movimientos.cpp" />

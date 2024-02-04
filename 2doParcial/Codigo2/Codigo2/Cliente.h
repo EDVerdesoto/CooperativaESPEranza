@@ -17,12 +17,15 @@ class Cliente
 {
 public:
    void apertura_cuenta(void);
-   void generar_ID_cliente(char ID[7], int i, bool &guardado);
    std::string es_moroso(void);
+
+   void generar_ID_cliente(char ID[7], int i, bool &guardado);
    std::string generar_ID(std::string nombre, int i);
    void guardar_ID_en_archivo(const std::string &archivo, const std::string &ID);
    bool ID_existe_en_archivo(const std::string &archivo, const std::string &ID);
-   Cuenta** cuenta;
+
+   Persona* get_persona();
+   std::string get_id();
 
 protected:
 private:

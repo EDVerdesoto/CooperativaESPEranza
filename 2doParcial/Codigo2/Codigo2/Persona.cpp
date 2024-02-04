@@ -8,29 +8,13 @@
 
 #include "Persona.h"
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::getId()
-// Purpose:    Implementation of Persona::getId()
-// Return:     std::string
-////////////////////////////////////////////////////////////////////////
+Persona::Persona(std::string _nombre, std::string _apellido, std::string _cedula){
+    nombre = _nombre;
+    apellido = _apellido;
+    cedula = _cedula;
 
-std::string Persona::get_id(void)
-{
-   return id;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::setId(std::string newId)
-// Purpose:    Implementation of Persona::setId()
-// Parameters:
-// - newId
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Persona::set_id(std::string newId)
-{
-   id = newId;
-}
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Persona::getNombre()

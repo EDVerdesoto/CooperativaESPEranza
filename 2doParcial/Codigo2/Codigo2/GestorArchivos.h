@@ -7,10 +7,12 @@
 #include <string>
 #include "Credito.h"
 #include "Fecha.h"
+#include "Persona.h"
 
 int contar_lineas(const std::string& nombre_archivo);
 bool esta_vacio(const std::string& nombre_archivo);
 bool crear_backup(Fecha fecha);
+
 
 bool existe_credito(int num_credito){
     std::string nombre_original = "Creditos.csv";
@@ -75,6 +77,26 @@ bool guardar_credito(Credito credito){
     Fecha fecha;
     crear_backup(fecha);
     return true;
+}
+
+bool guardar_persona(Persona persona){
+    std::string nombre_original = "Personas.csv";
+    std::ofstream archivo_original(nombre_original, std::ios::app);
+
+    if(!archivo_original){
+        return false;
+    }
+    else{
+        if(esta_vacio(nombre_original)){
+            archivo_original<<"Cedula,Nombre,Apellido\n";
+        }
+
+        archivo_original<<persona.get_cedula()<<","<<persona.get_nombre()<<","<<persona.get_apellido()<<"\n";
+    }
+
+    archivo_original.close();
+    return true;
+
 }
 
 bool crear_backup(Fecha fecha){

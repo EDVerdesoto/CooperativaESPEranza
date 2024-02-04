@@ -6,6 +6,7 @@
  * Purpose: Implementation of the class Cliente
  ***********************************************************************/
 #include <iostream>
+#include <fstream>
 #include "Cuenta.h"
 #include "Cliente.h"
 
@@ -20,6 +21,16 @@ void Cliente::apertura_cuenta(void)
 {
    // TODO : implement
 }
+
+
+Persona* Cliente::get_persona(){
+    return persona;
+}
+
+std::string Cliente::get_id(){
+    return ID_cliente;
+}
+
 
 ////////////////////////////////////////////////////////////////////////
 // Name:       Cliente::generar_ID_cliente()

@@ -12,8 +12,16 @@
 #include "Cliente.h"
 #include <math.h>
 
-Cuenta::Cuenta(Persona* _persona){
-    persona = _persona;
+Cuenta::Cuenta(){
+
+}
+
+Cuenta::Cuenta(Cliente* _cliente){
+    cliente = _cliente;
+}
+
+Cliente* Cuenta::get_cliente(){
+    return cliente;
 }
 
 int cifrar_numero(int numero, int cifra){
@@ -50,6 +58,7 @@ int verificador(int digitos_anteriores){
 
 void Cuenta::generar_ID_cuenta(){
     int primeros_digitos;
+    Persona* persona = cliente->get_persona();
     primeros_digitos = persona->get_nombre().at(0) - persona->get_apellido().at(0);
     if(primeros_digitos<0)primeros_digitos*=-1;
     primeros_digitos += 1;

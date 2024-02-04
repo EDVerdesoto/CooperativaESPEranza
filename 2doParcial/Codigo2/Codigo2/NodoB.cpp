@@ -1,8 +1,8 @@
 #include "NodoB.h"
-#include "ListaDoble.cpp"
+#include "ListaDoble.h"
 
 NodoB::NodoB(){
-    claves = new ListaDoble<int>;
+    claves = new ListaDoble<Cuenta*>;
     hijos = new ListaDoble<Arbol_Bplus*>;
 }
 
@@ -10,7 +10,7 @@ bool NodoB::es_hoja(){
     return hijos->esta_vacia();
 }
 
-ListaDoble<int>* NodoB::get_claves(){
+ListaDoble<Cuenta*>* NodoB::get_claves(){
     return claves;
 }
 

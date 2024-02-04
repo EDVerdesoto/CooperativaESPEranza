@@ -14,24 +14,20 @@
 class Persona
 {
 public:
-   std::string get_id(void);
-   void set_id(std::string newId);
-   std::string get_nombre(void);
-   void set_nombre(std::string newNombre);
-   std::string get_apellido(void);
-   void set_apellido(std::string newApellido);
-   std::string get_cedula(void);
-   void set_cedula(std::string newCedula);
-   Fecha get_fecha(void);
-   void set_fecha(Fecha newFecha);
+    Persona(std::string,std::string,std::string);
+    std::string get_nombre(void);
+    void set_nombre(std::string newNombre);
+    std::string get_apellido(void);
+    void set_apellido(std::string newApellido);
+    std::string get_cedula(void);
+    void set_cedula(std::string newCedula);
+
 
 protected:
 private:
-   std::string id;
-   std::string nombre;
-   std::string apellido;
-   std::string cedula;
-   Fecha Fecha;
+    std::string nombre;
+    std::string apellido;
+    std::string cedula;
 
 
 };

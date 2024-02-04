@@ -17,14 +17,16 @@ class Movimientos;
 class Cuenta
 {
 public:
-    Cuenta(Persona*);
+    Cuenta();
+    Cuenta(Cliente*);
     void generar_ID_cuenta();
     Movimientos** movimientos;
+    Cliente* get_cliente();
 
 protected:
 private:
    int num_cuenta;
-   Persona* persona;
+   Cliente* cliente;
 
 
 };

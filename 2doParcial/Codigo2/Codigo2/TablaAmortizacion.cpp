@@ -11,8 +11,8 @@
 #include "TablaAmortizacion.h"
 #include "CalculosCredito.h"
 #include "Fecha.h"
-#include "ListaDoble.cpp"
-#include "Nodo.cpp"
+#include "ListaDoble.h"
+#include "Nodo.h"
 
 TablaAmortizacion::TablaAmortizacion(Credito credito_usar){
     credito = credito_usar;
