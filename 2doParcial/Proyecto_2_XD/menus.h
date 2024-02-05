@@ -16,6 +16,8 @@
 #include "Nodo.cpp"
 #include "TablaHash.h"
 #include "Movimientos.h"
+#include "Cuenta.h"
+#include "arbolBinario.h"
 
 void visibilidad_cursor(bool);
 void mover_cursor(int x, int y);
@@ -23,7 +25,7 @@ void ingresar_datos_credito();
 void consultar_cuota();
 void elegir_backup();
 void abrir_menu_ayuda();
-void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula);
+void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula, ArbolBinario<Cuenta*>* arbol_cuentas);
 void ingresar_datos_usuario(TablaHash<Persona*>* personas);
 void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula);
 bool operator<(Fecha fecha1, Fecha fecha2);
@@ -223,6 +225,8 @@ void desplegar_menu_principal()
     TablaHash<Persona*>* personas = cargar_personas_al_hash(13);
     TablaHash<Cuenta*>* cuentas_por_cedula = new TablaHash<Cuenta*>(13);
     TablaHash<Cuenta*>* cuentas = cargar_cuentas_al_hash(13, personas, cuentas_por_cedula);
+    ArbolBinario<Cuenta*>* arbol_cuentas = new ArbolBinario<Cuenta*>;
+    cargar_cuentas_al_arbol(personas,arbol_cuentas);
 
     int opcion;
     do
@@ -245,7 +249,7 @@ void desplegar_menu_principal()
                 }
                 else if(opcion_sub == 2)
                 {
-                    abrir_cuenta(personas, cuentas, cuentas_por_cedula);
+                    abrir_cuenta(personas, cuentas, cuentas_por_cedula, arbol_cuentas);
                 }
                 visibilidad_cursor(false);
 
@@ -294,7 +298,7 @@ void desplegar_menu_principal()
 
 void abrir_menu_ayuda()
 {
-    const char* nombreArchivo = "Menu de ayuda tabla de amortizacion.pdf";
+    const char* nombreArchivo = R"(E:\\html\\index.html)";
 
     ShellExecuteA(nullptr, "open", nombreArchivo, nullptr, nullptr, SW_SHOWNORMAL);
 }
@@ -552,7 +556,7 @@ void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuenta
     }
 }
 
-void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula)
+void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula, ArbolBinario<Cuenta*>* arbol_cuentas)
 {
     std::string cedula;
     bool cedula_existente, cuenta_existente;
@@ -564,12 +568,14 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
     Nodo<Cuenta*>* cuenta_nodo;
     Cuenta* cuenta;
     Persona* persona;
+    ListaDoble<Cuenta*>* lista_cuentas;
     const char* opciones[2] = {"Si", "No"};
     const char* volver[2] = {"Volver al menu anterior", "Probar con otra cedula"};
 
     do
     {
         system("cls");
+        visibilidad_cursor(true);
         cedula = ingresar_numeros_cedula("Ingrese el No. de cedula de la persona");
         printf("\n");
         persona_nodo = personas->buscar_cedula_persona(cedula);
@@ -583,6 +589,7 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
             if(opcion==1)
             {
                 system("cls");
+                visibilidad_cursor(true);
                 std::cout<<cedula<<std::endl;
                 std::string nombre = ingresar_string("Ingrese el nombre de la persona");
                 printf("\n");
@@ -641,6 +648,7 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
             system("cls");
             printf("\nAbriendo cuenta para: \n");
             persona->imprimir();
+            visibilidad_cursor(true);
             monto_inicial = ingresar_reales("\nIngrese el monto incicial que va a depositar en la cuenta");
 
             if(monto_inicial<MONTO_MINIMO)
@@ -657,8 +665,7 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
         Movimientos* movimientos = new Movimientos(cuenta);
         movimientos->deposito(monto_inicial);
         guardar_cuenta(*cuenta);
-        cuentas->insertar(cuenta, cuenta->get_num_cuenta());
-
+        arbol_cuentas->insertar(cuenta, 1);
     }
 }
 

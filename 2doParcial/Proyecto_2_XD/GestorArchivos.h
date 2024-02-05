@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <direct.h>
+#include "arbolBinario.cpp"
 
 int contar_lineas(const std::string& nombre_archivo);
 bool esta_vacio(const std::string& nombre_archivo);
@@ -144,6 +145,69 @@ TablaHash<Persona*>* cargar_personas_al_hash(int tam)
     _chdir(ruta_inicial.c_str());
 
     return personas;
+
+}
+
+void cargar_cuentas_al_arbol(TablaHash<Persona*>* personas, ArbolBinario<Cuenta*>* arbol_ID)
+{
+    std::string ruta;
+    std::string ruta_inicial;
+    std::string nombreCarpeta = "Informacion";
+    char tmp[256];
+
+    getcwd(tmp, 256);
+    ruta_inicial = std::string(tmp);
+
+    if (_chdir(nombreCarpeta.c_str()) != 0)
+    {
+        return;
+    }
+
+    getcwd(tmp, 256);
+    ruta = std::string(tmp);
+
+    std::string nombre_original = ruta + "//" + "Cuentas.csv";
+
+    std::ifstream archivo_original(nombre_original);
+    std::string linea;
+
+    Persona* persona;
+    Cliente* cliente;
+    Cuenta* cuenta;
+    int num_cuenta;
+
+    //obtener primera linea
+    std::getline(archivo_original, linea);
+
+    while (std::getline(archivo_original, linea))
+    {
+        std::istringstream ss(linea);
+
+        std::string snocuenta;
+        std::string ssaldo;
+        std::string id;
+        std::string cedula;
+        std::string nombre;
+        std::string apellido;
+
+        std::getline(ss, snocuenta, ',');
+        std::getline(ss, ssaldo, ',');
+        std::getline(ss, id, ',');
+        std::getline(ss, cedula, ',');
+        std::getline(ss, nombre, ',');
+        std::getline(ss, apellido, ',');
+
+        persona = personas->buscar_cedula_persona(cedula)->get_valor();
+        cliente = new Cliente(persona, id);
+        num_cuenta = std::stoi(snocuenta);
+        cuenta = new Cuenta(cliente, num_cuenta, std::stof(ssaldo));
+
+        arbol_ID->insertar(cuenta, 1);
+
+    }
+
+    archivo_original.close();
+    _chdir(ruta_inicial.c_str());
 
 }
 

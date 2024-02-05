@@ -22,7 +22,7 @@ public:
     Cuenta(Cliente*);
     int generar_ID_cuenta();
     Movimientos** movimientos;
-
+    std::string getter_general(int dato);
     int get_num_cuenta();
     double get_saldo();
     Cliente* get_cliente();
