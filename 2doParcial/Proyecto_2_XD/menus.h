@@ -883,7 +883,7 @@ void ingresar_datos_credito(TablaHash<Credito*>* creditos, Cuenta* cuenta)
     }else{
         creditos->insertar(credito, cuenta->get_num_cuenta());
         Movimientos movimientos(cuenta);
-        movimientos->deposito(monto);
+        movimientos.deposito(monto);
     }
 }
 

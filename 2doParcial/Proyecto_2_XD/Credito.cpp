@@ -7,6 +7,7 @@
  ***********************************************************************/
 
 #include "Credito.h"
+#include "Fecha.h"
 
 Credito::Credito(int num_cuotas, double _monto, Fecha _fecha_realizado, double _tasa_interes, Cuenta* _cuenta)
 {
@@ -20,7 +21,7 @@ Credito::Credito(int num_cuotas, double _monto, Fecha _fecha_realizado, double _
     cuenta = _cuenta;
 }
 
-Credito::Credito(int num_cuotas, double _monto, Fecha, double _tasa_interes, Cuenta* _cuenta, int _cuotas_pagadas){
+Credito::Credito(int num_cuotas, double _monto, Fecha _fecha_realizado, double _tasa_interes, Cuenta* _cuenta, int _cuotas_pagadas){
     n_cuotas_pagar = num_cuotas;
     cuotas_pagadas = _cuotas_pagadas;
     monto = _monto;

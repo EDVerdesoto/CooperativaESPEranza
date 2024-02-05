@@ -71,6 +71,7 @@ TablaHash<Credito*>* cargar_creditos_al_hash(int tam, TablaHash<Cuenta*>* cuenta
         std::string ncuotas;
         std::string interes;
         std::string sfecha;
+        std::string pagadas;
 
         std::getline(ss, num_cuenta, ',');
         std::getline(ss, monto, ',');
@@ -414,7 +415,8 @@ bool actualizar_credito(Credito credito)
         return false;
     } else {
         if (!esta_vacio(nombre_original)) {
-            int num_cuenta = credito.get_cuenta.get_num_cuenta();
+            Cuenta cuenta = *credito.get_cuenta();
+            int num_cuenta = credito.get_cuenta()->get_num_cuenta();
             std::string linea;
             std::string snocuenta;
 

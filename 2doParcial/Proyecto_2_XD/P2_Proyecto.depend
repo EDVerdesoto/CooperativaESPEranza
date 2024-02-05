@@ -260,10 +260,11 @@
 	<ctime>
 	<iomanip>
 
-1707136126 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\credito.cpp
+1707148084 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\credito.cpp
 	"Credito.h"
+	"Fecha.h"
 
-1707136363 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\credito.h
+1707146624 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\credito.h
 	"Fecha.h"
 	"Cuenta.h"
 
@@ -313,7 +314,7 @@
 	<ctime>
 	"menus.h"
 
-1707146344 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\menus.h
+1707148196 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\menus.h
 	<iostream>
 	<conio.h>
 	<windows.h>
@@ -331,7 +332,7 @@
 	"Cuenta.h"
 	"arbolBinario.h"
 
-1707145804 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\gestorarchivos.h
+1707148187 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\gestorarchivos.h
 	<iostream>
 	<fstream>
 	<string>
