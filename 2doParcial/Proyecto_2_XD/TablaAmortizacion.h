@@ -34,6 +34,7 @@ public:
     void set_pagos_capital(ListaDoble<double>* nuevo_pagos_capital);
     void set_valor_cuotas(ListaDoble<double>* nuevo_valor_cuotas);
     void set_fechas_pago(ListaDoble<Fecha>* nuevo_fechas_pago);
+    Fecha get_sig_pago(ListaDoble<Fecha>* fechas_pago, int cuotas_pagadas);
 private:
     Credito credito;
     ListaDoble<int>* cuotas_ord;

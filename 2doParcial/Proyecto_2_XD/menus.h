@@ -19,9 +19,10 @@
 #include "Cuenta.h"
 #include "arbolBinario.h"
 
+
 void visibilidad_cursor(bool);
 void mover_cursor(int x, int y);
-void ingresar_datos_credito();
+void ingresar_datos_credito(TablaHash<Credito*>* creditos, Cuenta* cuenta);
 void consultar_cuota();
 void elegir_backup();
 void abrir_menu_ayuda();
@@ -479,13 +480,15 @@ void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuenta
     int num_cuenta_buscar;
     Nodo<Cuenta*>* cuenta_nodo;
     Cuenta* cuenta;
+    Nodo<Credito*>* credito_nodo;
+    Credito* credito;
     const int NUM_OPCIONES = 6;
     const char* opciones[NUM_OPCIONES] = {"Depositar","Retirar","Consultar Saldos","Pagar cuota credito","Obtener credito","Volver al menu principal"};
     int opcion;
     int opcion_volver;
     bool cuenta_existente;
     const char* volver[2] = {"Volver al menu anterior", "Probar con otro numero de cuenta"};
-
+    TablaAmortizacion* tabla_amortizacion;
     do{
         system("cls");
         num_cuenta_buscar = ingresar_enteros("Ingrese el numero de cuenta");
@@ -576,10 +579,29 @@ void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuenta
                 system("pause");
             }
             else if(opcion == 4){
-                creditos->buscar(cuenta, cuenta->get_num_cuenta());
+                system("cls");
+                credito_nodo = creditos->buscar_credito(cuenta->get_num_cuenta());
+                if(credito_nodo == nullptr){
+                    printf("\nLa cuenta actual no tiene credito asignado\n");
+                }
+                else{
+                    credito = credito_nodo->get_valor();
+                    printf("\nLa cuenta: \n");
+                    cuenta->imprimir();
+
+                    tabla_amortizacion = new TablaAmortizacion(*credito);
+                    printf("\nTiene una deuda total de: %.2f\n", tabla_amortizacion->get_saldos_capital()->get_cabeza()->get_valor());
+                    printf("\nEl valor de la cuota es de: %.2f\n", tabla_amortizacion->get_valor_cuotas()->get_cabeza()->get_valor());
+                    printf("\nLa cuota se cobrará automaticámente el: ");
+                    std::cout<<tabla_amortizacion->get_sig_pago(tabla_amortizacion->get_fechas_pago(), credito->get_cuotas_pagadas()).to_string()<<std::endl;
+
+                }
+                system("pause");
             }
             else if(opcion == 5){
-
+                system("cls");
+                ingresar_datos_credito(creditos, cuenta);
+                system("pause");
             }
             system("cls");
 
@@ -606,7 +628,6 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
     do
     {
         system("cls");
-        visibilidad_cursor(true);
         cedula = ingresar_numeros_cedula("Ingrese el No. de cedula de la persona");
         printf("\n");
         persona_nodo = personas->buscar_cedula_persona(cedula);
@@ -678,7 +699,6 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
             system("cls");
             printf("\nAbriendo cuenta para: \n");
             persona->imprimir();
-            visibilidad_cursor(true);
             monto_inicial = ingresar_reales("\nIngrese el monto incicial que va a depositar en la cuenta");
 
             if(monto_inicial<MONTO_MINIMO)
@@ -757,14 +777,13 @@ void ingresar_datos_usuario(TablaHash<Persona*>* personas)
     }
 }
 
-void ingresar_datos_credito()
+void ingresar_datos_credito(TablaHash<Credito*>* creditos, Cuenta* cuenta)
 {
     system("cls");
     Fecha sacado;
     double monto = 0, tasa_interes = 0;
     int cursorx = 0, cursory = 0;
     int ncuotas = 0;
-    Cuenta* cuenta;
 
     visibilidad_cursor(true);
 
@@ -829,64 +848,18 @@ void ingresar_datos_credito()
 
     mover_cursor(cursorx, cursory+1);
     visibilidad_cursor(false);
-    Credito credito(ncuotas, monto, sacado, tasa_interes, cuenta);
-    TablaAmortizacion tabla(credito);
+    Credito* credito = new Credito(ncuotas, monto, sacado, tasa_interes, cuenta);
+    TablaAmortizacion tabla(*credito);
     printf("\n");
     tabla.imprimir();
 
-    if(!guardar_credito(credito))
+    if(!guardar_credito(*credito))
     {
         printf("No se ha podido guardar la informacion del credito en el archivo");
     }
-
-    system("pause");
+    creditos->insertar(credito, cuenta->get_num_cuenta());
 }
-/*
-void consultar_cuota()
-{
-    system("cls");
-    int id_credito;
-    Credito credito_consult;
 
-    visibilidad_cursor(true);
-    id_credito = ingresar_enteros("Ingrese el numero del credito");
-
-    if(existe_credito(id_credito))
-    {
-        Fecha fecha_act, fecha_sigpago;
-
-        credito_consult = obtener_credito(id_credito);
-        TablaAmortizacion tabla(credito_consult);
-
-        Nodo<Fecha>* fecha_sig = tabla.get_fechas_pago()->get_cabeza();
-        Nodo<double>* saldo_pendiente = tabla.get_saldos_capital()->get_cabeza();
-        while(fecha_sig!= nullptr && (fecha_sig->get_valor() < fecha_act))
-        {
-            fecha_sig = fecha_sig->get_siguiente();
-            saldo_pendiente = saldo_pendiente->get_siguiente();
-        }
-        if(fecha_sig != nullptr)
-        {
-            fecha_sigpago = fecha_sig->get_valor();
-            std::cout<<"\nSaldo pendiente: "<<saldo_pendiente->get_valor();
-            std::cout<<"\nSiguiente fecha de pago: "<<fecha_sigpago.to_string();
-        }
-        else
-        {
-            std::cout<<"\nSaldo pendiente: 0";
-        }
-        printf("\n\n");
-        tabla.imprimir();
-    }
-    else
-    {
-        printf("\nNo existe el credito solicitado\n");
-    }
-
-
-    system("pause");
-}
-*/
 
 bool operator<(Fecha fecha1, Fecha fecha2)
 {

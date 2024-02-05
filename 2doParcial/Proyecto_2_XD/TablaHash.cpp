@@ -4,6 +4,7 @@
 #include "Persona.h"
 #include "Cuenta.h"
 #include "Nodo.h"
+#include "Credito.h"
 
 template <typename T>
 TablaHash<T>::TablaHash(int t)
@@ -36,11 +37,10 @@ void TablaHash<T>::insertar(T dato, int hashear)
 }
 
 template <typename T>
-void TablaHash<T>::buscar(T dato, int hashear)
+Nodo<T>* TablaHash<T>::buscar(T dato, int hashear)
 {
     int pos_hash = hashear % tam;
-    printf("Lista %d de la tabla hash ", pos_hash);
-    listas_indices[pos_hash]->buscar(dato);
+    return listas_indices[pos_hash]->buscar(dato);
 }
 
 template <typename T>
@@ -151,7 +151,23 @@ Nodo<T>* TablaHash<T>::buscar(int hashear_cadena,std::string tipo)
         return cuenta_nodo;
     }
 }
+template <typename T>
+Nodo<T>* TablaHash<T>::buscar_credito(int num_cuenta){
+    int pos_hash = num_cuenta % tam;
 
+    Nodo<Credito*>* cuenta_nodo = listas_indices[pos_hash]->get_cabeza();
+
+    while(cuenta_nodo!=nullptr)
+    {
+        if (cuenta_nodo->get_valor()->get_cuenta()->get_num_cuenta() == num_cuenta)
+        {
+            return cuenta_nodo;
+        }
+        cuenta_nodo = cuenta_nodo->get_siguiente();
+    }
+
+    return cuenta_nodo;
+}
 
 template <typename T>
 void TablaHash<T>::eliminar(T dato)

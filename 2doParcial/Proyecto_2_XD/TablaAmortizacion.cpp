@@ -14,6 +14,16 @@
 #include "ListaDoble.cpp"
 #include "Nodo.cpp"
 
+
+Fecha TablaAmortizacion::get_sig_pago(ListaDoble<Fecha>* fechas_pago, int cuotas_pagadas){
+
+    Nodo<Fecha>* fecha_nodo = fechas_pago->get_cabeza();
+    for(int i = 0; i<cuotas_pagadas; i++){
+        fecha_nodo->get_siguiente();
+    }
+    return fecha_nodo->get_valor();
+}
+
 TablaAmortizacion::TablaAmortizacion(Credito credito_usar)
 {
     credito = credito_usar;

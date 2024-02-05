@@ -81,7 +81,7 @@ TablaHash<Credito*>* cargar_creditos_al_hash(int tam, TablaHash<Cuenta*>* cuenta
         cuenta = cuentas->buscar(std::stoi(num_cuenta))->get_valor();
         Fecha fecha;
         fecha.string_to_fecha(sfecha);
-        credito = new Credito(std::stoi(ncuotas),std::stof(monto),fecha,std::stof(interes),cuenta);
+        credito = new Credito(std::stoi(ncuotas),std::stof(monto),fecha, std::stof(interes), cuenta);
         creditos->insertar(credito, cuenta->get_num_cuenta());
     }
 

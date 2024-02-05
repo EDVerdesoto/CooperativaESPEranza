@@ -12,9 +12,10 @@ public:
     TablaHash(int);
     void insertar(T, int);
     void insertar(T dato, std::string hashear_cadena);
-    void buscar(T, int);
+    Nodo<T>* buscar(T, int);
     Nodo<T>* buscar_cedula_persona(std::string hashear_cadena);
     Nodo<T>* buscar_cedula_cuenta(std::string hashear_cadena);
+    Nodo<T>* buscar_credito(int);
     Nodo<T>* buscar(int hashear, std::string tipo);
     Nodo<T>* buscar(int);
     void eliminar(T);

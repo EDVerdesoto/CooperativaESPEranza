@@ -313,7 +313,7 @@
 	<ctime>
 	"menus.h"
 
-1707140882 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\menus.h
+1707146344 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\menus.h
 	<iostream>
 	<conio.h>
 	<windows.h>
@@ -331,7 +331,7 @@
 	"Cuenta.h"
 	"arbolBinario.h"
 
-1707137215 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\gestorarchivos.h
+1707145804 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\gestorarchivos.h
 	<iostream>
 	<fstream>
 	<string>
@@ -344,15 +344,16 @@
 	<direct.h>
 	"arbolBinario.cpp"
 
-1707113752 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.cpp
+1707145656 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.cpp
 	"TablaHash.h"
 	<iostream>
 	"ListaDoble.h"
 	"Persona.h"
 	"Cuenta.h"
 	"Nodo.h"
+	"Credito.h"
 
-1707113701 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.h
+1707145638 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.h
 	<string>
 	"ListaDoble.h"
 
@@ -382,7 +383,7 @@
 	<cstring>
 	<cctype>
 
-1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablaamortizacion.h
+1707144522 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablaamortizacion.h
 	"ListaDoble.h"
 	"Credito.h"
 	"Fecha.h"
@@ -406,7 +407,7 @@
 1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\persona.cpp
 	"Persona.h"
 
-1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablaamortizacion.cpp
+1707146025 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablaamortizacion.cpp
 	<iostream>
 	<iomanip>
 	"TablaAmortizacion.h"
@@ -415,13 +416,14 @@
 	"ListaDoble.cpp"
 	"Nodo.cpp"
 
-1707113752 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.cpp
+1707145656 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.cpp
 	"TablaHash.h"
 	<iostream>
 	"ListaDoble.h"
 	"Persona.h"
 	"Cuenta.h"
 	"Nodo.h"
+	"Credito.h"
 
 1707129173 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\arbolbinario.cpp
 	"arbolBinario.h"
