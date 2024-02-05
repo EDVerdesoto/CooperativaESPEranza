@@ -10,12 +10,13 @@
 #define CREDITO_H_INCLUDED
 
 #include "Fecha.h"
+#include "Cuenta.h"
 
 class Credito
 {
 public:
     Credito() {};
-    Credito(int num_cuotas, double _monto, Fecha, double _tasa_interes);
+    Credito(int num_cuotas, double _monto, Fecha, double _tasa_interes, Cuenta* _cuenta);
     int get_n_cuotas_pagar();
     int get_cuotas_pagadas();
     double get_monto();
@@ -33,7 +34,8 @@ public:
     void set_intervalo_pagos_mes(int);
     double get_tasa_interes();
     void set_tasa_interes(double);
-    char* to_string();
+    Cuenta* get_cuenta();
+
 protected:
 
 private:
@@ -46,6 +48,7 @@ private:
     int meses_gracia;
     int intervalo_pagos_mes;
 
+    Cuenta* cuenta;
     Fecha fecha_realizado;
 
 };

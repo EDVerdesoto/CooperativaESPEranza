@@ -27,7 +27,7 @@ void elegir_backup();
 void abrir_menu_ayuda();
 void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula, ArbolBinario<Cuenta*>* arbol_cuentas);
 void ingresar_datos_usuario(TablaHash<Persona*>* personas);
-void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula);
+void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula, TablaHash<Credito*>* creditos);
 bool operator<(Fecha fecha1, Fecha fecha2);
 
 void mover_cursor(int x, int y)
@@ -225,6 +225,7 @@ void desplegar_menu_principal()
     TablaHash<Persona*>* personas = cargar_personas_al_hash(13);
     TablaHash<Cuenta*>* cuentas_por_cedula = new TablaHash<Cuenta*>(13);
     TablaHash<Cuenta*>* cuentas = cargar_cuentas_al_hash(13, personas, cuentas_por_cedula);
+    TablaHash<Credito*>* creditos = cargar_creditos_al_hash(13, cuentas);
     ArbolBinario<Cuenta*>* arbol_cuentas = new ArbolBinario<Cuenta*>;
     cargar_cuentas_al_arbol(personas,arbol_cuentas);
 
@@ -259,29 +260,21 @@ void desplegar_menu_principal()
 
         }
         else if(opcion == 2){
-            hacer_transacciones(cuentas, cuentas_por_cedula);
+            hacer_transacciones(cuentas, cuentas_por_cedula, creditos);
         }
         else if(opcion == 3){
 
         }
         else if(opcion == 4)
         {
-            system("cls");
-            Fecha fecha;
-            if(!crear_backup(fecha))
-            {
-                printf("\nHubo un error al crear el backup\n");
-            }
-            else
-            {
-                printf("\nSe creo el backup exitosamente\n");
-            }
-            system("pause");
+
         }
-        else if(opcion == 5)
+        else if(opcion == 5){
             elegir_backup();
-        else if(opcion == 6)
+        }
+        else if(opcion == 6){
             abrir_menu_ayuda();
+        }
         else if(opcion == 7)
         {
             system("cls");
@@ -480,7 +473,7 @@ void elegir_backup()
     system("pause");
 }
 
-void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula){
+void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula, TablaHash<Credito*>* creditos){
     const double MONTO_MINIMO = 5.0;
     double monto;
     int num_cuenta_buscar;
@@ -521,7 +514,7 @@ void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuenta
 
                     if(monto<MONTO_MINIMO)
                     {
-                        printf("\nEl monto minimo requerido para abrir una cuenta es de %f USD\nIngrese de nuevo\n", MONTO_MINIMO);
+                        printf("\nEl monto minimo requerido para depositar es de %.2f USD\nIngrese de nuevo\n", MONTO_MINIMO);
                         system("pause");
                     }
                 }
@@ -532,20 +525,58 @@ void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuenta
                         printf("\nHubo un error al actualizar la cuenta");
                         movimientos.borrar_ultimo();
                         printf("\nLa transaccion no fue realizada\n");
+                        system("pause");
+                    }else{
+                        printf("\nTransaccion exitosa\n");
+                        system("pause");
                     }
                 }else{
-                    printf("\nHubo un error al cargar el movimiento la transaccion no fue realizada\n");
+                    printf("\nHubo un error al cargar el movimiento, la transaccion no fue realizada\n");
+                    system("pause");
                 }
 
             }
             else if(opcion == 2){
+                do
+                {
+                    system("cls");
+                    monto = ingresar_reales("Ingrese el monto que va a retirar de la cuenta");
+
+                    if(monto<MONTO_MINIMO)
+                    {
+                        printf("\nEl monto minimo requerido para retiros es de %.2f USD\nIngrese de nuevo\n", MONTO_MINIMO);
+                        system("pause");
+                    }
+                    else if(monto>cuenta->get_saldo()){
+                        printf("\nEl monto que desea retirar es mayor que su saldo, saldo actual: %.2f USD\nIngrese de nuevo\n", cuenta->get_saldo());
+                        system("pause");
+                    }
+
+                }while(monto<MONTO_MINIMO || monto>cuenta->get_saldo());
+                if(movimientos.retiro(monto)){
+                    if(!actualizar_cuenta(*cuenta)){
+                        printf("\nHubo un error al actualizar la cuenta");
+                        movimientos.borrar_ultimo();
+                        printf("\nLa transaccion no fue realizada\n");
+                        system("pause");
+                    }
+                    else{
+                        printf("\nTransaccion exitosa\n");
+                        system("pause");
+                    }
+                }else{
+                    printf("\nHubo un error al cargar el movimiento, la transaccion no fue realizada\n");
+                    system("pause");
+                }
 
             }
             else if(opcion == 3){
-
+                system("cls");
+                printf("\nSALDO ACTUAL: \n%.2f USD\n", cuenta->get_saldo());
+                system("pause");
             }
             else if(opcion == 4){
-
+                creditos->buscar(cuenta, cuenta->get_num_cuenta());
             }
             else if(opcion == 5){
 
@@ -600,6 +631,7 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
                 if(!guardar_persona(*persona))
                 {
                     printf("\nNo se ha podido guardar la informacion de la persona en el archivo\n");
+                    system("pause");
                 }
 
                 personas->insertar(persona, cedula);
@@ -670,7 +702,10 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
         cuenta = new Cuenta(cliente);
         Movimientos* movimientos = new Movimientos(cuenta);
         movimientos->deposito(monto_inicial);
-        guardar_cuenta(*cuenta);
+        if(!guardar_cuenta(*cuenta)){
+            printf("\nNo se ha podido guardar la informacion de la cuenta en el archivo\n");
+            system("pause");
+        }
         cuentas_por_cedula->insertar(cuenta, cuenta->get_cliente()->get_persona()->get_cedula());
         cuentas->insertar(cuenta, cuenta->get_num_cuenta());
         arbol_cuentas->insertar(cuenta, 1);
@@ -681,6 +716,9 @@ void ingresar_datos_usuario(TablaHash<Persona*>* personas)
 {
     std::string cedula;
     bool cedula_existente;
+    int opcion;
+    const char* volver[2] = {"Volver al menu anterior", "Probar con otra cedula"};
+
     do
     {
         system("cls");
@@ -688,25 +726,35 @@ void ingresar_datos_usuario(TablaHash<Persona*>* personas)
         printf("\n");
         cedula_existente = (personas->buscar_cedula_persona(cedula) != nullptr);
 
-        if(cedula_existente)printf("\nCedula ya existente\n"), system("pause");
+        if(cedula_existente){
+            printf("\nCedula ya existente\n");
+            system("pause");
+            system("cls");
+            opcion = desplegar_menu(volver,2,0,1);
+            if(opcion == 1){
+                break;
+            }
+        }
     }
     while(cedula_existente);
+    if(!cedula_existente){
+        std::string nombre = ingresar_string("Ingrese el nombre de la persona");
+        printf("\n");
+        std::string apellido = ingresar_string("Ingrese el apellido de la persona");
+        printf("\n");
 
-    std::string nombre = ingresar_string("Ingrese el nombre de la persona");
-    printf("\n");
-    std::string apellido = ingresar_string("Ingrese el apellido de la persona");
-    printf("\n");
+        Persona* persona = new Persona(nombre,apellido,cedula);
 
-    Persona* persona = new Persona(nombre,apellido,cedula);
+        if(!guardar_persona(*persona))
+        {
+            printf("No se ha podido guardar la informacion de la persona en el archivo");
+        }
 
-    if(!guardar_persona(*persona))
-    {
-        printf("No se ha podido guardar la informacion de la persona en el archivo");
+        personas->insertar(persona, cedula);
+
+        system("pause");
+
     }
-
-    personas->insertar(persona, cedula);
-
-    system("pause");
 }
 
 void ingresar_datos_credito()
@@ -716,6 +764,7 @@ void ingresar_datos_credito()
     double monto = 0, tasa_interes = 0;
     int cursorx = 0, cursory = 0;
     int ncuotas = 0;
+    Cuenta* cuenta;
 
     visibilidad_cursor(true);
 
@@ -780,7 +829,7 @@ void ingresar_datos_credito()
 
     mover_cursor(cursorx, cursory+1);
     visibilidad_cursor(false);
-    Credito credito(ncuotas, monto, sacado, tasa_interes);
+    Credito credito(ncuotas, monto, sacado, tasa_interes, cuenta);
     TablaAmortizacion tabla(credito);
     printf("\n");
     tabla.imprimir();
@@ -792,7 +841,7 @@ void ingresar_datos_credito()
 
     system("pause");
 }
-
+/*
 void consultar_cuota()
 {
     system("cls");
@@ -837,6 +886,7 @@ void consultar_cuota()
 
     system("pause");
 }
+*/
 
 bool operator<(Fecha fecha1, Fecha fecha2)
 {

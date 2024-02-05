@@ -148,7 +148,7 @@ void ListaDoble<T>::insertar_entre(T valor_busq, T valor)
 }
 
 template <typename T>
-void ListaDoble<T>::buscar(T valor_busq)
+Nodo<T>* ListaDoble<T>::buscar(T valor_busq)
 {
     Nodo<T>* aux = cabeza;
     int pos = 0;
@@ -162,7 +162,7 @@ void ListaDoble<T>::buscar(T valor_busq)
         aux = aux->get_siguiente();
         pos++;
     }
-    if(aux==nullptr)printf("\n No se encontro el dato en la lista");
+    return aux;
 }
 
 template <typename T>

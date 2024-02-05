@@ -152,12 +152,13 @@ int Movimientos::contar_movimientos()
 void Movimientos::generar_comprobante(){
     int num = contar_movimientos();
     int ascii_tipo = (int) tipo;
-    num = ascii_tipo*1000+num;
+    num = ascii_tipo*100+num;
     std::string snum = "0000";
     int i = 3;
     while(num > 0){
         snum.at(i) = num%10 + '0';
         num /= 10;
+        i--;
     }
 
     comprobante = snum + cuenta->get_cliente()->get_id();
@@ -273,7 +274,7 @@ bool Movimientos::retiro(double retirado)
 {
     tipo = 'R';
     generar_comprobante();
-    if(retirado>monto)
+    if(retirado>cuenta->get_saldo())
     {
         return false;
     }

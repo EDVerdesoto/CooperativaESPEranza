@@ -31,64 +31,112 @@ bool existe_credito(int num_credito)
     }
 }
 
-Credito obtener_credito(int num_credito)
+TablaHash<Credito*>* cargar_creditos_al_hash(int tam, TablaHash<Cuenta*>* cuentas)
 {
-    std::string nombre_original = "Creditos.csv";
+   TablaHash<Credito*>* creditos = new TablaHash<Credito*>(tam);
+
+    std::string ruta;
+    std::string ruta_inicial;
+    std::string nombreCarpeta = "Informacion";
+    char tmp[256];
+
+    getcwd(tmp, 256);
+    ruta_inicial = std::string(tmp);
+
+    if (_chdir(nombreCarpeta.c_str()) != 0)
+    {
+        return creditos;
+    }
+
+    getcwd(tmp, 256);
+    ruta = std::string(tmp);
+
+    std::string nombre_original = ruta + "//" + "Creditos.csv";
+
     std::ifstream archivo_original(nombre_original);
     std::string linea;
-    int contador = 0;
-    while (std::getline(archivo_original, linea)&&(contador<num_credito))
+
+    Cuenta* cuenta;
+    Credito* credito;
+
+    //obtener primera linea
+    std::getline(archivo_original, linea);
+
+    while (std::getline(archivo_original, linea))
     {
-        contador++;
+        std::istringstream ss(linea);
+
+        std::string num_cuenta;
+        std::string monto;
+        std::string ncuotas;
+        std::string interes;
+        std::string sfecha;
+
+        std::getline(ss, num_cuenta, ',');
+        std::getline(ss, monto, ',');
+        std::getline(ss, ncuotas, ',');
+        std::getline(ss, interes, ',');
+        std::getline(ss, sfecha, ',');
+
+        cuenta = cuentas->buscar(std::stoi(num_cuenta))->get_valor();
+        Fecha fecha;
+        fecha.string_to_fecha(sfecha);
+        credito = new Credito(std::stoi(ncuotas),std::stof(monto),fecha,std::stof(interes),cuenta);
+        creditos->insertar(credito, cuenta->get_num_cuenta());
     }
-    std::istringstream ss(linea);
 
-    std::string snum;
-    std::string smonto;
-    std::string sncuotas;
-    std::string stasa;
-    std::string sfecha;
+    archivo_original.close();
+    _chdir(ruta_inicial.c_str());
 
-    std::getline(ss, snum, ',');
-    std::getline(ss, smonto, ',');
-    std::getline(ss, sncuotas, ',');
-    std::getline(ss, stasa, ',');
-    std::getline(ss, sfecha, ',');
-
-    Fecha fecha_obt;
-    fecha_obt.string_to_fecha(sfecha);
-
-    return Credito(std::stoi(sncuotas), std::stof(smonto), fecha_obt, std::stof(stasa));
+    return creditos;
 }
 
 bool guardar_credito(Credito credito)
 {
-    int num_credito;
+    std::string ruta;
+    std::string ruta_inicial;
+    std::string nombreCarpeta = "Informacion";
+    char tmp[256];
 
-    std::string nombre_original = "Creditos.csv";
+    getcwd(tmp, 256);
+    ruta_inicial = std::string(tmp);
+
+    if(_mkdir(nombreCarpeta.c_str()) != 0)
+    {
+        if (_chdir(nombreCarpeta.c_str()) != 0)
+        {
+            return false;
+        }
+    }
+    else
+    {
+        _chdir(nombreCarpeta.c_str());
+    }
+
+    getcwd(tmp, 256);
+    ruta = std::string(tmp);
+
+    std::string nombre_original = ruta + "//" + "Creditos.csv";
     std::ofstream archivo_original(nombre_original, std::ios::app);
 
     if(!archivo_original)
     {
+        _chdir(ruta_inicial.c_str());
         return false;
     }
     else
     {
         if(esta_vacio(nombre_original))
         {
-            archivo_original<<"ID,Monto,No. Cuotas,Tasa Interes,Fecha obtenido\n";
-            num_credito = contar_lineas(nombre_original)+1;
+            archivo_original<<"No. de Cuenta,Monto,No. Cuotas,Tasa Interes,Fecha obtenido\n";
         }
-        else
-        {
-            num_credito = contar_lineas(nombre_original);
-        }
-        archivo_original<<num_credito<<","<<credito.get_monto()<<","<<credito.get_n_cuotas_pagar()<<","<<credito.get_tasa_interes()<<","<<credito.get_fecha_realizado().to_string()<<"\n";
+
+        archivo_original<<credito.get_cuenta()->get_num_cuenta()<<","<<credito.get_monto()<<","<<credito.get_n_cuotas_pagar()<<","<<credito.get_tasa_interes()<<","<<credito.get_fecha_realizado().to_string()<<"\n";
     }
 
     archivo_original.close();
-    Fecha fecha;
-    crear_backup(fecha);
+    _chdir(ruta_inicial.c_str());
+
     return true;
 }
 
@@ -454,10 +502,9 @@ bool guardar_cuenta(Cuenta cuenta)
     return true;
 }
 
-bool crear_backup(Fecha fecha)
+bool crear_backup(Fecha fecha, const std::string& nombre_original)
 {
     bool creado;
-    std::string nombre_original = "Creditos.csv";
     std::string nombre_backup = fecha.to_string_documento()+".csv";
 
     std::ifstream archivo_original(nombre_original);

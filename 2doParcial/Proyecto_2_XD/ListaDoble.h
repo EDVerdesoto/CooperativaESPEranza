@@ -23,7 +23,7 @@ public:
     void insertar_entre(T valor_busq, T valor);
     void insertar_cabeza(T valor);
     void insertar_cola(T valor);
-    void buscar(T);
+    Nodo<T>* buscar(T);
     void eliminar(T valor);
     void imprimir();
     int tam();
