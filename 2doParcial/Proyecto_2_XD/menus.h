@@ -586,21 +586,45 @@ void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuenta
                 }
                 else{
                     credito = credito_nodo->get_valor();
+                    tabla_amortizacion = new TablaAmortizacion(*credito);
+                    double valor_cuota = tabla_amortizacion->get_valor_cuotas()->get_cabeza()->get_valor();
+                    const char* menusino[2] = {"Pagar ahora","Volver"};
+                    int opcion;
                     printf("\nLa cuenta: \n");
                     cuenta->imprimir();
-
-                    tabla_amortizacion = new TablaAmortizacion(*credito);
                     printf("\nTiene una deuda total de: %.2f\n", tabla_amortizacion->get_saldos_capital()->get_cabeza()->get_valor());
-                    printf("\nEl valor de la cuota es de: %.2f\n", tabla_amortizacion->get_valor_cuotas()->get_cabeza()->get_valor());
-                    printf("\nLa cuota se cobrará automaticámente el: ");
+                    printf("\nEl valor de la cuota es de: %.2f\n", valor_cuota);
+                    printf("\nLa cuota se cobrara automaticámente el: ");
                     std::cout<<tabla_amortizacion->get_sig_pago(tabla_amortizacion->get_fechas_pago(), credito->get_cuotas_pagadas()).to_string()<<std::endl;
+                    system("pause");
+                    system("cls");
+                    opcion = desplegar_menu(menusino, 2, 0, 1);
+                    if(opcion == 1){
+                        if(movimientos.retiro(valor_cuota)){
+                            if(!actualizar_cuenta(*cuenta) || !actualizar_credito(*credito)){
+                                printf("\nHubo un error al actualizar los archivos");
+                                movimientos.borrar_ultimo();
+                                printf("\nLa transaccion no fue realizada\n");
 
+                            }else{
+                                printf("\nTransaccion exitosa\n");
+                            }
+                            system("pause");
+                        }else{
+                            printf("\nLa transaccion no fue realizada\n");
+                        }
+                    }
                 }
-                system("pause");
             }
             else if(opcion == 5){
                 system("cls");
-                ingresar_datos_credito(creditos, cuenta);
+                credito_nodo = creditos->buscar_credito(cuenta->get_num_cuenta());
+                if(credito_nodo == nullptr){
+                    ingresar_datos_credito(creditos, cuenta);
+                }
+                else{
+                    printf("\nLa cuenta ya tiene un credito\n");
+                }
                 system("pause");
             }
             system("cls");
@@ -855,9 +879,12 @@ void ingresar_datos_credito(TablaHash<Credito*>* creditos, Cuenta* cuenta)
 
     if(!guardar_credito(*credito))
     {
-        printf("No se ha podido guardar la informacion del credito en el archivo");
+        printf("No se ha podido guardar la informacion del credito en el archivo, no se dio el credito");
+    }else{
+        creditos->insertar(credito, cuenta->get_num_cuenta());
+        Movimientos movimientos(cuenta);
+        movimientos->deposito(monto);
     }
-    creditos->insertar(credito, cuenta->get_num_cuenta());
 }
 
 

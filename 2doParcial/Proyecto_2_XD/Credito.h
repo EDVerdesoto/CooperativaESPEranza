@@ -17,6 +17,7 @@ class Credito
 public:
     Credito() {};
     Credito(int num_cuotas, double _monto, Fecha, double _tasa_interes, Cuenta* _cuenta);
+    Credito(int num_cuotas, double _monto, Fecha, double _tasa_interes, Cuenta* _cuenta, int _cuotas_pagadas);
     int get_n_cuotas_pagar();
     int get_cuotas_pagadas();
     double get_monto();

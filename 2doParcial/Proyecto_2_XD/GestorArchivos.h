@@ -77,11 +77,12 @@ TablaHash<Credito*>* cargar_creditos_al_hash(int tam, TablaHash<Cuenta*>* cuenta
         std::getline(ss, ncuotas, ',');
         std::getline(ss, interes, ',');
         std::getline(ss, sfecha, ',');
+        std::getline(ss, pagadas, ',');
 
         cuenta = cuentas->buscar(std::stoi(num_cuenta))->get_valor();
         Fecha fecha;
         fecha.string_to_fecha(sfecha);
-        credito = new Credito(std::stoi(ncuotas),std::stof(monto),fecha, std::stof(interes), cuenta);
+        credito = new Credito(std::stoi(ncuotas),std::stof(monto),fecha, std::stof(interes), cuenta, std::stoi(pagadas));
         creditos->insertar(credito, cuenta->get_num_cuenta());
     }
 
@@ -128,10 +129,11 @@ bool guardar_credito(Credito credito)
     {
         if(esta_vacio(nombre_original))
         {
-            archivo_original<<"No. de Cuenta,Monto,No. Cuotas,Tasa Interes,Fecha obtenido\n";
+            archivo_original<<"No. de Cuenta,Monto,No. Cuotas,Tasa Interes,Fecha obtenido,Cuotas Pagadas\n";
         }
 
-        archivo_original<<credito.get_cuenta()->get_num_cuenta()<<","<<credito.get_monto()<<","<<credito.get_n_cuotas_pagar()<<","<<credito.get_tasa_interes()<<","<<credito.get_fecha_realizado().to_string()<<"\n";
+        archivo_original<<credito.get_cuenta()->get_num_cuenta()<<","<<credito.get_monto()<<","<<credito.get_n_cuotas_pagar()<<","
+        <<credito.get_tasa_interes()<<","<<credito.get_fecha_realizado().to_string()<<","<<credito.get_cuotas_pagadas()<<"\n";
     }
 
     archivo_original.close();
@@ -375,6 +377,81 @@ bool guardar_persona(Persona persona)
     return true;
 
 }
+
+bool actualizar_credito(Credito credito)
+{
+    std::string ruta;
+    std::string ruta_inicial;
+    std::string nombreCarpeta = "Informacion";
+    char tmp[256];
+
+    getcwd(tmp, 256);
+    ruta_inicial = std::string(tmp);
+
+    if(_mkdir(nombreCarpeta.c_str()) != 0)
+    {
+        if (_chdir(nombreCarpeta.c_str()) != 0)
+        {
+            return false;
+        }
+    }
+    else
+    {
+        _chdir(nombreCarpeta.c_str());
+    }
+
+    getcwd(tmp, 256);
+    ruta = std::string(tmp);
+
+    std::string nombre_original = ruta + "//" + "Creditos.csv";
+    std::string nombre_temporal = ruta + "//" + "Creditos_temp.csv";
+
+    std::fstream archivo_original(nombre_original, std::ios::in);
+    std::ofstream archivo_temporal(nombre_temporal);
+
+    if (!archivo_original || !archivo_temporal) {
+        _chdir(ruta_inicial.c_str());
+        return false;
+    } else {
+        if (!esta_vacio(nombre_original)) {
+            int num_cuenta = credito.get_cuenta.get_num_cuenta();
+            std::string linea;
+            std::string snocuenta;
+
+            std::getline(archivo_original, linea);  // Leer la cabecera
+            archivo_temporal << linea << "\n";  // Escribir la cabecera en el nuevo archivo
+
+            while (std::getline(archivo_original, linea)) {
+                std::istringstream ss(linea);
+                std::getline(ss, snocuenta, ',');
+
+                if (num_cuenta == std::stoi(snocuenta)) {
+                    // Escribir la nueva línea en el nuevo archivo
+                    archivo_temporal << cuenta.get_num_cuenta() << "," << cuenta.get_saldo() << ","
+                        << cuenta.get_cliente()->get_id() << "," << cuenta.get_cliente()->get_persona()->get_cedula() << ","
+                        << cuenta.get_cliente()->get_persona()->get_nombre() << "," << cuenta.get_cliente()->get_persona()->get_apellido() << "\n";
+                } else {
+                    // Conservar la línea original
+                    archivo_temporal << linea << "\n";
+                }
+            }
+        }
+
+        archivo_original.close();
+        archivo_temporal.close();
+
+        std::remove(nombre_original.c_str());
+
+        if (std::rename(nombre_temporal.c_str(), nombre_original.c_str()) == 0) {
+            _chdir(ruta_inicial.c_str());
+            return true;
+        } else {
+            _chdir(ruta_inicial.c_str());
+            return false;
+        }
+    }
+}
+
 
 bool actualizar_cuenta(Cuenta cuenta)
 {
