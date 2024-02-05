@@ -11,13 +11,9 @@
 #include <ctime>
 #include <iomanip>
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha()
-// Purpose:    formato de fecha
-// Parameters:
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Constructor predeterminado de Fecha que establece la fecha actual.
+ */
 Fecha::Fecha(){
     std::time_t tiempo_actual = std::time(nullptr);
     std::tm tm_actual = *std::localtime(&tiempo_actual);
@@ -31,16 +27,12 @@ Fecha::Fecha(){
     segundos = tm_actual.tm_sec;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha(int _anuario, int _mes, int _dia)
-// Purpose:    setea la fecha
-// Parameters:
-// - _anuario
-// - _mes
-// - _dia
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Constructor de Fecha que establece la fecha con los parámetros proporcionados.
+ * @param _anuario Año de la fecha
+ * @param _mes Mes de la fecha
+ * @param _dia Día de la fecha
+ */
 Fecha::Fecha(int _anuario, int _mes, int _dia){
     anuario = _anuario;
     set_mes(_mes);
@@ -50,18 +42,15 @@ Fecha::Fecha(int _anuario, int _mes, int _dia){
     segundos = 1;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Fecha(int _anuario, int _mes, int _dia, int _hora, int _minutos, int _segundos)
-// Purpose:    setea la fecha
-// Parameters:
-// - _anuario
-// - _mes
-// - _dia
-// - _hora
-// -_minutos
-// -_segundos
-// Return:
-////////////////////////////////////////////////////////////////////////
+/**
+ * @brief Constructor de Fecha que establece la fecha y la hora con los parámetros proporcionados.
+ * @param _anuario Año de la fecha
+ * @param _mes Mes de la fecha
+ * @param _dia Día de la fecha
+ * @param _hora Hora de la fecha
+ * @param _minutos Minutos de la fecha
+ * @param _segundos Segundos de la fecha
+ */
 Fecha::Fecha(int _anuario, int _mes, int _dia, int _hora, int _minutos, int _segundos){
     anuario = _anuario;
     mes = _mes;
@@ -71,48 +60,34 @@ Fecha::Fecha(int _anuario, int _mes, int _dia, int _hora, int _minutos, int _seg
     segundos = _segundos;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       get_anuario()
-// Purpose:    getter anuario
-// Parameters:
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene el año de la fecha
+ * @return Año de la fecha
+ */
 int Fecha::get_anuario(){
     return anuario;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       set_anuario(int nuevo_anuario)
-// Purpose:    setter anuario
-// Parameters:
-// - nuevo_anuario
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece el año de la fecha
+ * @param nuevo_anuario Nuevo año de la fecha
+ */
 void Fecha::set_anuario(int nuevo_anuario){
     anuario = nuevo_anuario;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       get_mes()
-// Purpose:    getter mes
-// Parameters:
-// Return:     int
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene el mes de la fecha
+ * @return Mes de la fecha
+ */
 int Fecha::get_mes(){
     return mes;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       set_mes(int nuevo_mes)
-// Purpose:    setter mes
-// Parameters:
-// - nuevo_mes
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece el mes de la fecha
+ * @param nuevo_mes Nuevo mes de la fecha
+ */
 void Fecha::set_mes(int nuevo_mes){
     int meses_pasados = (nuevo_mes >12) ? 12 : 0;
 
@@ -121,25 +96,18 @@ void Fecha::set_mes(int nuevo_mes){
     if(meses_pasados>0)set_anuario(anuario+1);
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       get_dia()
-// Purpose:    getter dia
-// Parameters:
-// Return:      int
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene el día de la fecha
+ * @return Día de la fecha
+ */
 int Fecha::get_dia(){
     return dia;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       set_dia(int nuevo_dia)
-// Purpose:    setter dia
-// Parameters:
-// - nuevo_dia
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece el día de la fecha
+ * @param nuevo_dia Nuevo día de la fecha
+ */
 void Fecha::set_dia(int nuevo_dia){
     int ndias_mes_pasado = 0;
 
@@ -165,83 +133,58 @@ void Fecha::set_dia(int nuevo_dia){
     if(ndias_mes_pasado>0)set_mes(mes+1);
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       get_hora()
-// Purpose:    getter hora
-// Parameters:
-// Return:      int
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene la hora de la fecha
+ * @return Hora de la fecha
+ */
 int Fecha::get_hora(){
     return hora;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       set_hora(int nueva_hora)
-// Purpose:    setter hora
-// Parameters:
-// - nueva_hora
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece la hora de la fecha
+ * @param nueva_hora Nueva hora de la fecha
+ */
 void Fecha::set_hora(int nueva_hora){
     hora = nueva_hora;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       get_minutos()
-// Purpose:    getter minutos
-// Parameters:
-// Return:      int
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene los minutos de la fecha
+ * @return Minutos de la fecha
+ */
 int Fecha::get_minutos(){
     return minutos;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       set_minutos(int nuevo_minuto)
-// Purpose:    setter minuto
-// Parameters:
-// - nuevo_minuto
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece los minutos de la fecha
+ * @param nuevo_minuto Nuevo minuto de la fecha
+ */
 void Fecha::set_minutos(int nuevo_minutos){
     minutos = nuevo_minutos;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       get_segundos()
-// Purpose:    getter segundos
-// Parameters:
-// Return:      int
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene los segundos de la fecha
+ * @return Segundos de la fecha
+ */
 int Fecha::get_segundos(){
     return segundos;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       set_segundos(int nuevo_segundos)
-// Purpose:    setter segundos
-// Parameters:
-// - nuevo_segundos
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece los segundos de la fecha
+ * @param nuevo_segundos Nuevos segundos de la fecha
+ */
 void Fecha::set_segundos(int nuevo_segundos){
     segundos = nuevo_segundos;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       to_string()
-// Purpose:    pasar de formato fecha a string
-// Parameters:
-// Return:     string
-////////////////////////////////////////////////////////////////////////
-
-
+/**
+ * @brief Convierte la fecha a un string con formato "YYYY-MM-DD"
+ * @return Fecha en formato string
+ */
 std::string Fecha::to_string(){
     auto t = std::time(nullptr);
     std::tm tm_fecha = {};
@@ -258,13 +201,10 @@ std::string Fecha::to_string(){
     return oss.str();
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       to_string_documento()
-// Purpose:    pasar de formato fecha a string del documento
-// Parameters:
-// Return:     string
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Convierte la fecha a un string con formato "YYYY-MM-DDTHH:MM:SSZ"
+ * @return Fecha en formato string para documentos
+ */
 std::string Fecha::to_string_documento(){
     auto t = std::time(nullptr);
     std::tm tm_fecha = {};
@@ -285,6 +225,10 @@ std::string Fecha::to_string_documento(){
     return oss.str();
 }
 
+/**
+ * @brief Convierte un string en formato "YYYY-MM-DD" a la fecha correspondiente
+ * @param fecha_string String de fecha en formato "YYYY-MM-DD"
+ */
 void Fecha::string_to_fecha(const std::string fecha_string){
     std::tm tm_fecha = {};
     std::istringstream ss(fecha_string);
@@ -298,26 +242,19 @@ void Fecha::string_to_fecha(const std::string fecha_string){
 }
 
 
-////////////////////////////////////////////////////////////////////////
-// Name:       imprimir()
-// Purpose:    imprime la fecha
-// Parameters:
-// Return:
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Imprime la fecha en formato "DD/MM/YYYY"
+ */
 void Fecha::imprimir(){
     printf("%d", dia);
     printf("/%d", mes);
     printf("/%d", anuario);
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       es_dia_habil()
-// Purpose:    valida si hay dia habil
-// Parameters:
-// Return:     bool
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Valida si la fecha es un día hábil
+ * @return true si es día hábil, false si no lo es
+ */
 bool Fecha::es_dia_habil(){
     bool habil = true;
     if(es_finde()){
@@ -329,13 +266,10 @@ bool Fecha::es_dia_habil(){
     return habil;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       es_feriado()
-// Purpose:    valida si hay feriados
-// Parameters:
-// Return:     bool
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Valida si la fecha es un feriado
+ * @return true si es feriado, false si no lo es
+ */
 bool Fecha::es_feriado(){
     bool es_feriado = false;
 
@@ -381,13 +315,10 @@ bool Fecha::es_feriado(){
     return es_feriado;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       es_finde()
-// Purpose:    valida si es fin de semana
-// Parameters:
-// Return:     bool
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Valida si la fecha es un fin de semana
+ * @return true si es fin de semana, false si no lo es
+ */
 bool Fecha::es_finde(){
     std::tm tm_fecha = {};
     tm_fecha.tm_mday = dia;

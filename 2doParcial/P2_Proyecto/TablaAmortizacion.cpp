@@ -14,6 +14,10 @@
 #include "ListaDoble.cpp"
 #include "Nodo.cpp"
 
+/**
+ * @brief Constructor de la clase TablaAmortizacion.
+ * @param credito_usar Objeto Credito para el cual se generará la tabla.
+ */
 TablaAmortizacion::TablaAmortizacion(Credito credito_usar){
     credito = credito_usar;
     cuotas_ord = new ListaDoble<int>();
@@ -25,6 +29,9 @@ TablaAmortizacion::TablaAmortizacion(Credito credito_usar){
     llenar_tabla_amortizacion();
 }
 
+/**
+ * @brief Llena la tabla de amortización con los valores correspondientes.
+ */
 void TablaAmortizacion::llenar_tabla_amortizacion(){
     CalculosCredito calculos(credito.get_tasa_interes());
     double v_cuotas = calculos.calcular_valor_cuotas(credito.get_n_cuotas_pagar(), credito.get_monto());
@@ -41,6 +48,9 @@ void TablaAmortizacion::llenar_tabla_amortizacion(){
     generar_fechas_pago();
 }
 
+/**
+ * @brief Genera las fechas de pago en base a la fecha de realizado del crédito.
+ */
 void TablaAmortizacion::generar_fechas_pago(){
     Fecha fecha_sacado = credito.get_fecha_realizado();
     int avg_dias_mes = 30;
@@ -67,8 +77,9 @@ void TablaAmortizacion::generar_fechas_pago(){
     }
 }
 
-
-
+/**
+ * @brief Imprime la tabla de amortización en la consola.
+ */
 void TablaAmortizacion::imprimir(){
     int n_mostrados = 0;
     int n_mostrar = credito.get_n_cuotas_pagar();
@@ -102,58 +113,114 @@ void TablaAmortizacion::imprimir(){
     }
 }
 
+/**
+ * @brief Obtiene el objeto Credito asociado a la tabla de amortización.
+ * @return Objeto Credito.
+ */
 Credito TablaAmortizacion::get_credito(){
     return credito;
 }
 
+/**
+ * @brief Obtiene la lista de números de cuotas ordenados.
+ * @return Puntero a la lista de números de cuotas.
+ */
 ListaDoble<int>* TablaAmortizacion::get_cuotas_ord(){
     return cuotas_ord;
 }
 
+/**
+ * @brief Obtiene la lista de saldos capital restantes por cuota.
+ * @return Puntero a la lista de saldos capital.
+ */
 ListaDoble<double>* TablaAmortizacion::get_saldos_capital(){
     return saldos_capital;
 }
 
+/**
+ * @brief Obtiene la lista de intereses por cuota.
+ * @return Puntero a la lista de intereses.
+ */
 ListaDoble<double>* TablaAmortizacion::get_intereses(){
     return intereses;
 }
 
+/**
+ * @brief Obtiene la lista de pagos de capital por cuota.
+ * @return Puntero a la lista de pagos de capital.
+ */
 ListaDoble<double>* TablaAmortizacion::get_pagos_capital(){
     return pagos_capital;
 }
 
+/**
+ * @brief Obtiene la lista de valores de cuotas.
+ * @return Puntero a la lista de valores de cuotas.
+ */
 ListaDoble<double>* TablaAmortizacion::get_valor_cuotas(){
     return valor_cuotas;
 }
 
+/**
+ * @brief Obtiene la lista de fechas de pago.
+ * @return Puntero a la lista de fechas de pago.
+ */
 ListaDoble<Fecha>* TablaAmortizacion::get_fechas_pago(){
     return fechas_pago;
 }
 
+/**
+ * @brief Establece un nuevo objeto Credito para la tabla de amortización.
+ * @param nuevo_credito Nuevo objeto Credito.
+ */
 void TablaAmortizacion::set_credito(Credito nuevo_credito){
     credito = nuevo_credito;
 }
 
+/**
+ * @brief Establece una nueva lista de cuotas ordenadas.
+ * @param nuevo_cuotas_ord Puntero a la nueva lista de cuotas.
+ */
 void TablaAmortizacion::set_cuotas_ord(ListaDoble<int>* nuevo_cuotas_ord){
     cuotas_ord = nuevo_cuotas_ord;
 }
 
+/**
+ * @brief Establece una nueva lista de saldos capital restantes.
+ * @param nuevo_saldos_capital Puntero a la nueva lista de saldos capital.
+ */
 void TablaAmortizacion::set_saldos_capital(ListaDoble<double>* nuevo_saldos_capital){
     saldos_capital = nuevo_saldos_capital;
 }
 
+/**
+ * @brief Establece una nueva lista de intereses.
+ * @param nuevo_intereses Puntero a la nueva lista de intereses.
+ */
 void TablaAmortizacion::set_intereses(ListaDoble<double>* nuevo_intereses){
     intereses = nuevo_intereses;
 }
 
+/**
+ * @brief Establece una nueva lista de pagos de capital.
+ * @param nuevo_pagos_capital Puntero a la nueva lista de pagos de capital.
+ */
 void TablaAmortizacion::set_pagos_capital(ListaDoble<double>* nuevo_pagos_capital){
     pagos_capital = nuevo_pagos_capital;
 }
 
+/**
+ * @brief Establece una nueva lista de valores de cuotas.
+ * @param nuevo_valor_cuotas Puntero a la nueva lista de valores de cuotas.
+ */
 void TablaAmortizacion::set_valor_cuotas(ListaDoble<double>* nuevo_valor_cuotas){
     valor_cuotas = nuevo_valor_cuotas;
 }
 
+/**
+ * @brief Establece una nueva lista de fechas de pago.
+ * @param nuevo_fechas_pago Puntero a la nueva lista de fechas de pago.
+ */
 void TablaAmortizacion::set_fechas_pago(ListaDoble<Fecha>* nuevo_fechas_pago){
     fechas_pago = nuevo_fechas_pago;
 }

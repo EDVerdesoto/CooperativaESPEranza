@@ -12,38 +12,73 @@
 #include "Cliente.h"
 #include <math.h>
 
+/**
+ * @brief Constructor predeterminado de Cuenta
+ */
 Cuenta::Cuenta(){
 
 }
 
+/**
+ * @brief Constructor de Cuenta que inicializa la cuenta con un cliente y genera un número de cuenta
+ * @param _cliente Cliente asociado a la cuenta
+ */
 Cuenta::Cuenta(Cliente* _cliente){
     cliente = _cliente;
     num_cuenta = generar_ID_cuenta();
     saldo = 0.0;
 }
 
+/**
+ * @brief Constructor de Cuenta que inicializa la cuenta con un cliente, un número de cuenta y un saldo
+ * @param _cliente Cliente asociado a la cuenta
+ * @param _num_cuenta Número de cuenta
+ * @param _saldo Saldo inicial de la cuenta
+ */
 Cuenta::Cuenta(Cliente* _cliente, int _num_cuenta, double _saldo){
     cliente = _cliente;
     num_cuenta = _num_cuenta;
     saldo = _saldo;
 }
 
+/**
+ * @brief Obtiene el cliente asociado a la cuenta
+ * @return Cliente asociado a la cuenta
+ */
 Cliente* Cuenta::get_cliente(){
     return cliente;
 }
 
+/**
+ * @brief Obtiene el número de cuenta
+ * @return Número de cuenta
+ */
 int Cuenta::get_num_cuenta(){
     return num_cuenta;
 }
 
+/**
+ * @brief Obtiene el saldo de la cuenta
+ * @return Saldo de la cuenta
+ */
 double Cuenta::get_saldo(){
     return saldo;
 }
 
+/**
+ * @brief Establece el saldo de la cuenta
+ * @param nuevo_saldo Nuevo saldo de la cuenta
+ */
 void Cuenta::set_saldo(double nuevo_saldo){
     saldo = nuevo_saldo;
 }
 
+/**
+ * @brief Función auxiliar para cifrar un número sumando sus dígitos
+ * @param numero Número a cifrar
+ * @param cifra Variable acumuladora para el cifrado
+ * @return Número cifrado
+ */
 int cifrar_numero(int numero, int cifra){
     if(numero>=10){
         cifra = cifra + (numero % 10);
@@ -59,6 +94,11 @@ int cifrar_numero(int numero, int cifra){
     }
 }
 
+/**
+ * @brief Función auxiliar para calcular el dígito de verificación de un número
+ * @param digitos_anteriores Número al que se le calculará el dígito de verificación
+ * @return Dígito de verificación calculado
+ */
 int verificador(int digitos_anteriores){
     int longitud = (int) log(digitos_anteriores);
     int digito, verificador = 0;
@@ -76,6 +116,10 @@ int verificador(int digitos_anteriores){
     return verificador;
 }
 
+/**
+ * @brief Genera un número de cuenta único basado en la información del cliente
+ * @return Número de cuenta generado
+ */
 int Cuenta::generar_ID_cuenta(){
     int primeros_digitos;
     Persona* persona = cliente->get_persona();
@@ -94,6 +138,9 @@ int Cuenta::generar_ID_cuenta(){
     return num_cuenta;
 }
 
+/**
+ * @brief Imprime la información de la cuenta en la consola
+ */
 void Cuenta::imprimir(){
     std::cout<<"No. de cuenta: "<<num_cuenta<<std::endl;
     std::cout<<"Propietario de la cuenta: "<<std::endl;

@@ -8,6 +8,12 @@
 
 #include "Persona.h"
 
+/**
+ * @brief Constructor de la clase Persona.
+ * @param _nombre Nombre de la persona.
+ * @param _apellido Apellido de la persona.
+ * @param _cedula Cédula de la persona.
+ */
 Persona::Persona(std::string _nombre, std::string _apellido, std::string _cedula){
     nombre = _nombre;
     apellido = _apellido;
@@ -15,79 +21,63 @@ Persona::Persona(std::string _nombre, std::string _apellido, std::string _cedula
 
 }
 
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::getNombre()
-// Purpose:    Implementation of Persona::getNombre()
-// Return:     std::string
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene el nombre de la persona.
+ * @return Nombre de la persona.
+ */
 std::string Persona::get_nombre(void)
 {
    return nombre;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::setNombre(std::string newNombre)
-// Purpose:    Implementation of Persona::setNombre()
-// Parameters:
-// - newNombre
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece un nuevo nombre para la persona.
+ * @param newNombre Nuevo nombre a ser asignado.
+ */
 void Persona::set_nombre(std::string newNombre)
 {
    nombre = newNombre;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::getApellido()
-// Purpose:    Implementation of Persona::getApellido()
-// Return:     std::string
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene el apellido de la persona.
+ * @return Apellido de la persona.
+ */
 std::string Persona::get_apellido(void)
 {
    return apellido;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::setApellido(std::string newApellido)
-// Purpose:    Implementation of Persona::setApellido()
-// Parameters:
-// - newApellido
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece un nuevo apellido para la persona.
+ * @param newApellido Nuevo apellido a ser asignado.
+ */
 void Persona::set_apellido(std::string newApellido)
 {
    apellido = newApellido;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::getCedula()
-// Purpose:    Implementation of Persona::getCedula()
-// Return:     std::string
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Obtiene la cédula de la persona.
+ * @return Cédula de la persona.
+ */
 std::string Persona::get_cedula(void)
 {
    return cedula;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Persona::setCedula(std::string newCedula)
-// Purpose:    Implementation of Persona::setCedula()
-// Parameters:
-// - newCedula
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Establece una nueva cédula para la persona.
+ * @param newCedula Nueva cédula a ser asignada.
+ */
 void Persona::set_cedula(std::string newCedula)
 {
    cedula = newCedula;
 }
 
+/**
+ * @brief Imprime la información de la persona.
+ */
 void Persona::imprimir()
 {
    std::cout<<"Nombre: "<<nombre<<std::endl;

@@ -1,3 +1,11 @@
+/***********************************************************************
+ UFA - ESPE
+ * Module:  Cliente.cpp
+ * Author:  Edison Verdesoto, Joan Cobeña
+ * Modified: viernes, 2 de febrero de 2024 19:31:11
+ * Purpose: Implementation of the class Cliente
+ ***********************************************************************/
+
 #include <iostream>
 #include <string>
 #include "Arbol_Bplus.h"
@@ -7,11 +15,21 @@
 #include "Cuenta.h"
 #include "Cliente.h"
 
+/**
+ * @brief Constructor de Arbol_Bplus que inicializa la raíz con un nuevo nodo B
+ * @param grado_max Grado máximo del árbol B+
+ */
 Arbol_Bplus::Arbol_Bplus(int grado_max){
     grado = grado_max;
     raiz = new NodoB();
 }
 
+/**
+ * @brief Obtiene el nodo central de una lista doblemente enlazada
+ * @param claves Lista de claves
+ * @param grado Grado del árbol
+ * @return Nodo central de la lista
+ */
 Nodo<Cuenta*>* obtener_nodo_central(ListaDoble<Cuenta*>* claves, int grado){
     Nodo<Cuenta*>* aux = claves->get_cabeza();
     int i;
@@ -24,6 +42,11 @@ Nodo<Cuenta*>* obtener_nodo_central(ListaDoble<Cuenta*>* claves, int grado){
     return aux;
 }
 
+/**
+ * @brief Inserta un dato en la lista de claves en orden
+ * @param claves Lista de claves
+ * @param dato Dato a insertar
+ */
 void insertar_en_claves(ListaDoble<Cuenta*>* claves, Cuenta* dato, char tipo){
     Nodo<Cuenta*>* aux = claves->get_cabeza();
     std::string comparar, comparar_nodo;
@@ -69,6 +92,13 @@ void insertar_en_claves(ListaDoble<Cuenta*>* claves, Cuenta* dato, char tipo){
     }
 }
 
+/**
+ * @brief Obtiene el hijo a insertar para un dato dado y un nodo B dado
+ * @param raiz Nodo B en el que se busca el hijo a insertar
+ * @param dato Dato a insertar
+ * @param tipo Tipo de comparación ('i' para id, 'c' para cedula)
+ * @return Hijo a insertar
+ */
 Arbol_Bplus* obtener_hijo_a_insertar(NodoB* raiz, Cuenta* dato, char tipo){
     ListaDoble<Cuenta*>* claves = raiz->get_claves();
     ListaDoble<Arbol_Bplus*>* hijos = raiz->get_hijos();
@@ -110,7 +140,12 @@ Arbol_Bplus* obtener_hijo_a_insertar(NodoB* raiz, Cuenta* dato, char tipo){
     return hijo->get_valor();
 }
 
-
+/**
+ * @brief Configura los hijos de un nodo central en dos árboles B+ hijos
+ * @param nodo_central Nodo central de la lista de claves
+ * @param hijo_izq Árbol B+ izquierdo
+ * @param hijo_der Árbol B+ derecho
+ */
 void configurar_hijos(Nodo<Cuenta*>* nodo_central, Arbol_Bplus* hijo_izq, Arbol_Bplus* hijo_der){
     Nodo<Cuenta*>* cabeza_izq = nodo_central->get_anterior();
     Nodo<Cuenta*>* cola_der = nodo_central->get_siguiente();
@@ -131,6 +166,13 @@ void configurar_hijos(Nodo<Cuenta*>* nodo_central, Arbol_Bplus* hijo_izq, Arbol_
     nodo_central->get_siguiente()->set_anterior(nullptr);
 }
 
+/**
+ * @brief Conserva los hijos previos en los nuevos árboles B+ izquierdo y derecho
+ * @param hijos_previos Lista de árboles B+ hijos previos
+ * @param hijo_izq Nuevo árbol B+ izquierdo
+ * @param hijo_der Nuevo árbol B+ derecho
+ * @param grado Grado del árbol
+ */
 void conservar_hijos(ListaDoble<Arbol_Bplus*>* hijos_previos, Arbol_Bplus* hijo_izq, Arbol_Bplus* hijo_der, int grado){
     Nodo<Arbol_Bplus*>* hijo_prev1 = hijos_previos->get_cabeza();
     Nodo<Arbol_Bplus*>* hijo_prev2 = hijos_previos->get_cola();
@@ -144,6 +186,12 @@ void conservar_hijos(ListaDoble<Arbol_Bplus*>* hijos_previos, Arbol_Bplus* hijo_
 
 }
 
+/**
+ * @brief Parte un nodo B en dos, creando dos nuevos árboles B+ hijos
+ * @param _raiz Nodo B a partir
+ * @param raiz_anterior Nodo B padre del nodo a partir
+ * @param tipo Tipo de comparación ('i' para id, 'c' para cedula)
+ */
 void Arbol_Bplus::partir(NodoB* _raiz, NodoB* raiz_anterior, char tipo){
 
     Nodo<Cuenta*>* aux = obtener_nodo_central(_raiz->get_claves(), grado);
@@ -188,11 +236,22 @@ void Arbol_Bplus::partir(NodoB* _raiz, NodoB* raiz_anterior, char tipo){
 
 }
 
+/**
+ * @brief Inserta un dato en el árbol B+
+ * @param dato Dato a insertar
+ * @param tipo Tipo de comparación ('i' para id, 'c' para cedula)
+ */
 void Arbol_Bplus::insertar(Cuenta* dato, char tipo){
     insertar_rec(dato, nullptr, tipo);
 
 }
 
+/**
+ * @brief Función recursiva para insertar un dato en el árbol B+
+ * @param dato Dato a insertar
+ * @param raiz_anterior Nodo B padre del nodo actual
+ * @param tipo Tipo de comparación ('i' para id, 'c' para cedula)
+ */
 void Arbol_Bplus::insertar_rec(Cuenta* dato, NodoB* raiz_anterior, char tipo){
 
         if(raiz->get_claves()->esta_vacia()){
@@ -212,18 +271,25 @@ void Arbol_Bplus::insertar_rec(Cuenta* dato, NodoB* raiz_anterior, char tipo){
         }
 }
 
-
-
-
+/**
+ * @brief Elimina un dato del árbol B+
+ * @param dato Dato a eliminar
+ */
 void Arbol_Bplus::eliminar(Cuenta* dato){
 
 }
 
-
+/**
+ * @brief Obtiene la raíz del árbol B+
+ * @return Raíz del árbol
+ */
 NodoB* Arbol_Bplus::get_raiz(){
     return raiz;
 }
 
+/**
+ * @brief Destructor del árbol B+
+ */
 Arbol_Bplus::~Arbol_Bplus(){
 
 }

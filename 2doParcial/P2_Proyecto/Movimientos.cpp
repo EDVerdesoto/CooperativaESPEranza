@@ -14,6 +14,11 @@
 #include <stdlib.h>
 #include <direct.h>
 
+/**
+ * @brief Verifica si el archivo de movimientos está vacío.
+ * @param nombre_archivo Nombre del archivo de movimientos.
+ * @return true si el archivo está vacío, false si no lo está.
+ */
 bool esta_vacio_movimientos(const std::string& nombre_archivo) {
     std::ifstream archivo(nombre_archivo);
 
@@ -24,6 +29,10 @@ bool esta_vacio_movimientos(const std::string& nombre_archivo) {
     }
 }
 
+/**
+ * @brief Guarda los movimientos en un archivo CSV asociado a la cuenta.
+ * @return true si los movimientos se guardan correctamente, false en caso contrario.
+ */
 bool Movimientos::guardar_movimientos(){
 
     std::string ruta;
@@ -76,18 +85,21 @@ bool Movimientos::guardar_movimientos(){
 
 }
 
+/**
+ * @brief Constructor de la clase Movimientos.
+ * @param cuenta_asignada Puntero a la cuenta asociada a los movimientos.
+ */
 Movimientos::Movimientos(Cuenta* cuenta_asignada)
 {
     cuenta = cuenta_asignada;
     saldo = cuenta_asignada->get_saldo();
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Movimientos::deposito()
-// Purpose:    Implementation of Movimientos::deposito()
-// Return:     double
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Realiza un depósito en la cuenta y guarda el movimiento.
+ * @param depositado Monto a depositar.
+ * @return true si el depósito se realiza correctamente, false en caso contrario.
+ */
 bool Movimientos::deposito(double depositado)
 {
     tipo = 'D';
@@ -108,12 +120,11 @@ bool Movimientos::deposito(double depositado)
     }
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Movimientos::retiro()
-// Purpose:    Implementation of Movimientos::retiro()
-// Return:     double
-////////////////////////////////////////////////////////////////////////
-
+/**
+ * @brief Realiza un retiro en la cuenta y guarda el movimiento.
+ * @param retirado Monto a retirar.
+ * @return true si el retiro se realiza correctamente, false en caso contrario.
+ */
 bool Movimientos::retiro(double retirado)
 {
     tipo = 'R';
@@ -134,18 +145,34 @@ bool Movimientos::retiro(double retirado)
 
 }
 
+/**
+ * @brief Obtiene el saldo actual de la cuenta.
+ * @return Saldo actual de la cuenta.
+ */
 double Movimientos::get_saldo(){
     return saldo;
 }
 
+/**
+ * @brief Obtiene el monto del último movimiento realizado.
+ * @return Monto del último movimiento.
+ */
 double Movimientos::get_monto(){
     return monto;
 }
 
+/**
+ * @brief Obtiene el puntero a la cuenta asociada a los movimientos.
+ * @return Puntero a la cuenta asociada.
+ */
 Cuenta* Movimientos::get_cuenta(){
     return cuenta;
 }
 
+/**
+ * @brief Obtiene el tipo de movimiento ('D' para depósito, 'R' para retiro).
+ * @return Tipo de movimiento.
+ */
 char Movimientos::get_tipo(){
     return tipo;
 }

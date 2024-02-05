@@ -18,26 +18,49 @@ ListaDoble<T>::ListaDoble(){
     cabeza = nullptr;
 }
 
+/**
+ * @brief Obtiene la cabeza de la lista doblemente enlazada.
+ * @return Puntero al nodo cabeza de la lista.
+ */
 template <typename T>
 Nodo<T>* ListaDoble<T>::get_cabeza(){
     return cabeza;
 }
 
+/**
+ * @brief Establece un nuevo nodo cabeza para la lista doblemente enlazada.
+ * @param nueva_cabeza Puntero al nuevo nodo cabeza.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::set_cabeza(Nodo<T>* nueva_cabeza){
     cabeza = nueva_cabeza;
 }
 
+/**
+ * @brief Obtiene la cola de la lista doblemente enlazada.
+ * @return Puntero al nodo cola de la lista.
+ */
 template <typename T>
 Nodo<T>* ListaDoble<T>::get_cola(){
     return cola;
 }
 
+/**
+ * @brief Establece un nuevo nodo cola para la lista doblemente enlazada.
+ * @param nueva_cola Puntero al nuevo nodo cola.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::set_cola(Nodo<T>* nueva_cola){
     cola = nueva_cola;
 }
 
+/**
+ * @brief Inserta un nuevo nodo al inicio de la lista con el valor proporcionado.
+ * @param valor Valor a ser almacenado en el nuevo nodo.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::insertar_cabeza(T valor){
     Nodo<T>* nuevo_nodo;
@@ -52,6 +75,11 @@ void ListaDoble<T>::insertar_cabeza(T valor){
     cabeza = nuevo_nodo;
 }
 
+/**
+ * @brief Inserta un nuevo nodo al final de la lista con el valor proporcionado.
+ * @param valor Valor a ser almacenado en el nuevo nodo.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::insertar_cola(T valor){
     Nodo<T>* nuevo_nodo;
@@ -66,6 +94,10 @@ void ListaDoble<T>::insertar_cola(T valor){
     cola = nuevo_nodo;
 }
 
+/**
+ * @brief Imprime en la consola los valores almacenados en los nodos de la lista.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::imprimir(){
     Nodo<T>* aux = cabeza;
@@ -75,6 +107,11 @@ void ListaDoble<T>::imprimir(){
     }
 }
 
+/**
+ * @brief Elimina el nodo que contiene el valor proporcionado de la lista.
+ * @param valor Valor a ser eliminado de la lista.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::eliminar(T valor){
     Nodo<T>* aux = cabeza;
@@ -99,6 +136,12 @@ void ListaDoble<T>::eliminar(T valor){
     }
 }
 
+/**
+ * @brief Inserta un nuevo nodo con el valor proporcionado después del nodo que contiene el valor de búsqueda.
+ * @param valor_busq Valor del nodo después del cual se insertará el nuevo nodo.
+ * @param valor Valor a ser almacenado en el nuevo nodo.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::insertar_entre(T valor_busq, T valor){
     Nodo<T>* aux = cabeza;
@@ -120,6 +163,11 @@ void ListaDoble<T>::insertar_entre(T valor_busq, T valor){
     if(encontrado==false)printf("\n No se encontro el dato en la lista");
 }
 
+/**
+ * @brief Busca el nodo que contiene el valor proporcionado en la lista e imprime su posición.
+ * @param valor_busq Valor a ser buscado en la lista.
+ * @return void
+ */
 template <typename T>
 void ListaDoble<T>::buscar(T valor_busq){
     Nodo<T>* aux = cabeza;
@@ -135,6 +183,10 @@ void ListaDoble<T>::buscar(T valor_busq){
     if(aux==nullptr)printf("\n No se encontro el dato en la lista");
 }
 
+/**
+ * @brief Obtiene el tamaño (cantidad de nodos) de la lista.
+ * @return Tamaño de la lista.
+ */
 template <typename T>
 int ListaDoble<T>::tam(){
     int i = 0;
@@ -146,7 +198,10 @@ int ListaDoble<T>::tam(){
     return i;
 }
 
-
+/**
+ * @brief Verifica si la lista está vacía.
+ * @return true si la lista está vacía, false si no lo está.
+ */
 template <typename T>
 bool ListaDoble<T>::esta_vacia(){
     return (cabeza == nullptr);
