@@ -26,9 +26,9 @@ public:
 
 protected:
 private:
-   T valor;
-   Nodo<T>* siguiente;
-   Nodo<T>* anterior;
+    T valor;
+    Nodo<T>* siguiente;
+    Nodo<T>* anterior;
 
 };
 

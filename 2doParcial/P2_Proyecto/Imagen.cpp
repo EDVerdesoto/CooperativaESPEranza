@@ -18,7 +18,8 @@
 // - archivo
 // Return:
 ////////////////////////////////////////////////////////////////////////
-Imagen::Imagen(std::string archivo) {
+Imagen::Imagen(std::string archivo)
+{
     this->archivo = archivo;
 }
 
@@ -30,8 +31,9 @@ Imagen::Imagen(std::string archivo) {
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Imagen::setArchivo(std::string newArchivo){
-	this->archivo = newArchivo;
+void Imagen::setArchivo(std::string newArchivo)
+{
+    this->archivo = newArchivo;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -40,8 +42,9 @@ void Imagen::setArchivo(std::string newArchivo){
 // Return:     std::string
 ////////////////////////////////////////////////////////////////////////
 
-std::string Imagen::getArchivo(){
-	return this->archivo;
+std::string Imagen::getArchivo()
+{
+    return this->archivo;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -50,7 +53,8 @@ std::string Imagen::getArchivo(){
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Imagen::imprimirImagenEnConsola() {
+int Imagen::imprimirImagenEnConsola()
+{
     // Se obtiene el identificador de la ventana de la consola
     HWND console = GetConsoleWindow();
     // Se obtiene el identificador de salida estándar de la consola
@@ -104,7 +108,8 @@ int Imagen::imprimirImagenEnConsola() {
 // Return:     void
 ////////////////////////////////////////////////////////////////////////
 
-void Imagen::dibujarImagen(std::string imagePath, HDC* console) {
+void Imagen::dibujarImagen(std::string imagePath, HDC* console)
+{
     // Se lee la imagen desde el archivo especificado
     BMP image;
     image.ReadFromFile(imagePath.c_str());
@@ -122,13 +127,16 @@ void Imagen::dibujarImagen(std::string imagePath, HDC* console) {
     double height = original_height;
 
     // Se ajusta la altura proporcionalmente si el ancho original es mayor que el ancho máximo
-    if (original_width > max_width){
+    if (original_width > max_width)
+    {
         height = max_width / ratio;
     }
 
     // Se itera sobre cada píxel de la imagen
-    for (int y = 0; y < height; y++){
-        for (int x = 0; x < width; x++){
+    for (int y = 0; y < height; y++)
+    {
+        for (int x = 0; x < width; x++)
+        {
             // Se obtienen los valores de los componentes de color (rojo, verde, azul, alfa)
             int RED = image.GetPixel(x, y).Red;
             int GREEN = image.GetPixel(x, y).Green;
@@ -139,18 +147,20 @@ void Imagen::dibujarImagen(std::string imagePath, HDC* console) {
             COLORREF COLOUR = RGB(RED, GREEN, BLUE);
 
             // Si el valor de alfa es cero, se imprime un bloque de color en la consola
-            if (ALPHA == 0) {
+            if (ALPHA == 0)
+            {
                 std::cout << "\033["
-                    << 48
-                    << ";2;"
-                    << RED << ";"
-                    << GREEN << ";"
-                    << BLUE << "m"
-                    << "##"
-                    << "\033[0;00m";
+                          << 48
+                          << ";2;"
+                          << RED << ";"
+                          << GREEN << ";"
+                          << BLUE << "m"
+                          << "##"
+                          << "\033[0;00m";
 
                 // Si se llega al final de la línea, se imprime un salto de línea
-                if (x == width - 1) {
+                if (x == width - 1)
+                {
                     std::cout << std::endl;
                 }
             }

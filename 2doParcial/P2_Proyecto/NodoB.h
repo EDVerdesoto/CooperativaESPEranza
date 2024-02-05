@@ -8,18 +8,18 @@ class Arbol_Bplus;
 
 class NodoB
 {
-    public:
-        NodoB();
-        bool es_hoja();
-        ListaDoble<Cuenta*>* get_claves();
-        ListaDoble<Arbol_Bplus*>* get_hijos();
-        ~NodoB();
+public:
+    NodoB();
+    bool es_hoja();
+    ListaDoble<Cuenta*>* get_claves();
+    ListaDoble<Arbol_Bplus*>* get_hijos();
+    ~NodoB();
 
-    protected:
+protected:
 
-    private:
-        ListaDoble<Cuenta*>* claves;
-        ListaDoble<Arbol_Bplus*>* hijos;
+private:
+    ListaDoble<Cuenta*>* claves;
+    ListaDoble<Arbol_Bplus*>* hijos;
 
 };
 

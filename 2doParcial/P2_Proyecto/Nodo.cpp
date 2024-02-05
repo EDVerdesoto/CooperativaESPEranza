@@ -32,41 +32,41 @@ Nodo<T>::Nodo()
 template <typename T>
 Nodo<T>::~Nodo()
 {
-   // TODO : implement
+    // TODO : implement
 }
 
 template <typename T>
 T Nodo<T>::get_valor()
 {
-   return valor;
+    return valor;
 }
 
 template <typename T>
 void Nodo<T>::set_valor(T new_valor)
 {
-   valor = new_valor;
+    valor = new_valor;
 }
 
 template <typename T>
 Nodo<T>* Nodo<T>::get_siguiente()
 {
-   return siguiente;
+    return siguiente;
 }
 
 template <typename T>
 void Nodo<T>::set_siguiente(Nodo<T>* new_siguiente)
 {
-   siguiente = new_siguiente;
+    siguiente = new_siguiente;
 }
 
 template <typename T>
 Nodo<T>* Nodo<T>::get_anterior()
 {
-   return anterior;
+    return anterior;
 }
 
 template <typename T>
 void Nodo<T>::set_anterior(Nodo<T>* new_anterior)
 {
-   anterior = new_anterior;
+    anterior = new_anterior;
 }

@@ -8,7 +8,8 @@
 
 #include "Persona.h"
 
-Persona::Persona(std::string _nombre, std::string _apellido, std::string _cedula){
+Persona::Persona(std::string _nombre, std::string _apellido, std::string _cedula)
+{
     nombre = _nombre;
     apellido = _apellido;
     cedula = _cedula;
@@ -24,7 +25,7 @@ Persona::Persona(std::string _nombre, std::string _apellido, std::string _cedula
 
 std::string Persona::get_nombre(void)
 {
-   return nombre;
+    return nombre;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -37,7 +38,7 @@ std::string Persona::get_nombre(void)
 
 void Persona::set_nombre(std::string newNombre)
 {
-   nombre = newNombre;
+    nombre = newNombre;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -48,7 +49,7 @@ void Persona::set_nombre(std::string newNombre)
 
 std::string Persona::get_apellido(void)
 {
-   return apellido;
+    return apellido;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -61,7 +62,7 @@ std::string Persona::get_apellido(void)
 
 void Persona::set_apellido(std::string newApellido)
 {
-   apellido = newApellido;
+    apellido = newApellido;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -72,7 +73,7 @@ void Persona::set_apellido(std::string newApellido)
 
 std::string Persona::get_cedula(void)
 {
-   return cedula;
+    return cedula;
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -85,13 +86,13 @@ std::string Persona::get_cedula(void)
 
 void Persona::set_cedula(std::string newCedula)
 {
-   cedula = newCedula;
+    cedula = newCedula;
 }
 
 void Persona::imprimir()
 {
-   std::cout<<"Nombre: "<<nombre<<std::endl;
-   std::cout<<"ApellidO: "<<apellido<<std::endl;
-   std::cout<<"Cedula: "<<cedula<<std::endl;
+    std::cout<<"Nombre: "<<nombre<<std::endl;
+    std::cout<<"ApellidO: "<<apellido<<std::endl;
+    std::cout<<"Cedula: "<<cedula<<std::endl;
 }
 

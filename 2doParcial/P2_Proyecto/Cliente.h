@@ -32,8 +32,8 @@ public:
 
 protected:
 private:
-   Persona* persona;
-   std::string ID_cliente;
+    Persona* persona;
+    std::string ID_cliente;
 
 
 };

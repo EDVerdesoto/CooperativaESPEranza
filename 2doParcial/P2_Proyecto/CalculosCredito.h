@@ -11,16 +11,17 @@
 
 #include "ListaDoble.h"
 
-class CalculosCredito{
-    public:
-        CalculosCredito(double);
-        double calcular_valor_cuotas(int, double);
-        void calcular_valor_intereses(int, double, double, ListaDoble<double>*);
-        void calcular_capitales_pagados(double, ListaDoble<double>*, Nodo<double>*);
-        void calcular_saldos_restantes(double, double, ListaDoble<double>*, Nodo<double>*);
-    private:
-        double tasa_interes;
-    protected:
+class CalculosCredito
+{
+public:
+    CalculosCredito(double);
+    double calcular_valor_cuotas(int, double);
+    void calcular_valor_intereses(int, double, double, ListaDoble<double>*);
+    void calcular_capitales_pagados(double, ListaDoble<double>*, Nodo<double>*);
+    void calcular_saldos_restantes(double, double, ListaDoble<double>*, Nodo<double>*);
+private:
+    double tasa_interes;
+protected:
 };
 
 

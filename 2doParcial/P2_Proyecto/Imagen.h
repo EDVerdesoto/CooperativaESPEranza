@@ -11,14 +11,15 @@
 #include <windows.h>
 #include "EasyBMP.h"
 
-class Imagen{
-	public:
-		Imagen(std::string);
-		void setArchivo (std::string);
-		std::string getArchivo();
-		int imprimirImagenEnConsola();
-	private:
-		void dibujarImagen(std::string, HDC*);
-		std::string archivo;
+class Imagen
+{
+public:
+    Imagen(std::string);
+    void setArchivo (std::string);
+    std::string getArchivo();
+    int imprimirImagenEnConsola();
+private:
+    void dibujarImagen(std::string, HDC*);
+    std::string archivo;
 };
 #endif

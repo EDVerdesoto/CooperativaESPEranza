@@ -33,9 +33,9 @@ public:
 
 protected:
 private:
-   int num_cuenta;
-   double saldo;
-   Cliente* cliente;
+    int num_cuenta;
+    double saldo;
+    Cliente* cliente;
 
 
 };

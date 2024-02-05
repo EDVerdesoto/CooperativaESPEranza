@@ -18,7 +18,8 @@
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-Fecha::Fecha(){
+Fecha::Fecha()
+{
     std::time_t tiempo_actual = std::time(nullptr);
     std::tm tm_actual = *std::localtime(&tiempo_actual);
     std::mktime(&tm_actual);
@@ -41,7 +42,8 @@ Fecha::Fecha(){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-Fecha::Fecha(int _anuario, int _mes, int _dia){
+Fecha::Fecha(int _anuario, int _mes, int _dia)
+{
     anuario = _anuario;
     set_mes(_mes);
     set_dia(_dia);
@@ -62,7 +64,8 @@ Fecha::Fecha(int _anuario, int _mes, int _dia){
 // -_segundos
 // Return:
 ////////////////////////////////////////////////////////////////////////
-Fecha::Fecha(int _anuario, int _mes, int _dia, int _hora, int _minutos, int _segundos){
+Fecha::Fecha(int _anuario, int _mes, int _dia, int _hora, int _minutos, int _segundos)
+{
     anuario = _anuario;
     mes = _mes;
     dia = _dia;
@@ -78,7 +81,8 @@ Fecha::Fecha(int _anuario, int _mes, int _dia, int _hora, int _minutos, int _seg
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Fecha::get_anuario(){
+int Fecha::get_anuario()
+{
     return anuario;
 }
 
@@ -90,7 +94,8 @@ int Fecha::get_anuario(){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-void Fecha::set_anuario(int nuevo_anuario){
+void Fecha::set_anuario(int nuevo_anuario)
+{
     anuario = nuevo_anuario;
 }
 
@@ -101,7 +106,8 @@ void Fecha::set_anuario(int nuevo_anuario){
 // Return:     int
 ////////////////////////////////////////////////////////////////////////
 
-int Fecha::get_mes(){
+int Fecha::get_mes()
+{
     return mes;
 }
 
@@ -113,7 +119,8 @@ int Fecha::get_mes(){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-void Fecha::set_mes(int nuevo_mes){
+void Fecha::set_mes(int nuevo_mes)
+{
     int meses_pasados = (nuevo_mes >12) ? 12 : 0;
 
     mes = nuevo_mes - meses_pasados;
@@ -128,7 +135,8 @@ void Fecha::set_mes(int nuevo_mes){
 // Return:      int
 ////////////////////////////////////////////////////////////////////////
 
-int Fecha::get_dia(){
+int Fecha::get_dia()
+{
     return dia;
 }
 
@@ -140,22 +148,29 @@ int Fecha::get_dia(){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-void Fecha::set_dia(int nuevo_dia){
+void Fecha::set_dia(int nuevo_dia)
+{
     int ndias_mes_pasado = 0;
 
-    if(nuevo_dia>28){
-        if (mes==2){
-            if(anuario%4!=0){
+    if(nuevo_dia>28)
+    {
+        if (mes==2)
+        {
+            if(anuario%4!=0)
+            {
                 ndias_mes_pasado = 28;
             }
-            else {
+            else
+            {
                 ndias_mes_pasado = (nuevo_dia > 29) ? 29 : 0;
             }
         }
-        else if (((mes < 8) && mes%2!=0)||(mes >= 8) && mes%2==0){
+        else if (((mes < 8) && mes%2!=0)||(mes >= 8) && mes%2==0)
+        {
             ndias_mes_pasado = (nuevo_dia > 31) ? 31 : 0;
         }
-        else {
+        else
+        {
             ndias_mes_pasado = (nuevo_dia > 30) ? 30 : 0;
         }
     }
@@ -172,7 +187,8 @@ void Fecha::set_dia(int nuevo_dia){
 // Return:      int
 ////////////////////////////////////////////////////////////////////////
 
-int Fecha::get_hora(){
+int Fecha::get_hora()
+{
     return hora;
 }
 
@@ -184,7 +200,8 @@ int Fecha::get_hora(){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-void Fecha::set_hora(int nueva_hora){
+void Fecha::set_hora(int nueva_hora)
+{
     hora = nueva_hora;
 }
 
@@ -195,7 +212,8 @@ void Fecha::set_hora(int nueva_hora){
 // Return:      int
 ////////////////////////////////////////////////////////////////////////
 
-int Fecha::get_minutos(){
+int Fecha::get_minutos()
+{
     return minutos;
 }
 
@@ -207,7 +225,8 @@ int Fecha::get_minutos(){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-void Fecha::set_minutos(int nuevo_minutos){
+void Fecha::set_minutos(int nuevo_minutos)
+{
     minutos = nuevo_minutos;
 }
 
@@ -218,7 +237,8 @@ void Fecha::set_minutos(int nuevo_minutos){
 // Return:      int
 ////////////////////////////////////////////////////////////////////////
 
-int Fecha::get_segundos(){
+int Fecha::get_segundos()
+{
     return segundos;
 }
 
@@ -230,7 +250,8 @@ int Fecha::get_segundos(){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-void Fecha::set_segundos(int nuevo_segundos){
+void Fecha::set_segundos(int nuevo_segundos)
+{
     segundos = nuevo_segundos;
 }
 
@@ -242,7 +263,8 @@ void Fecha::set_segundos(int nuevo_segundos){
 ////////////////////////////////////////////////////////////////////////
 
 
-std::string Fecha::to_string(){
+std::string Fecha::to_string()
+{
     auto t = std::time(nullptr);
     std::tm tm_fecha = {};
     tm_fecha.tm_mday = dia;
@@ -265,7 +287,8 @@ std::string Fecha::to_string(){
 // Return:     string
 ////////////////////////////////////////////////////////////////////////
 
-std::string Fecha::to_string_documento(){
+std::string Fecha::to_string_documento()
+{
     auto t = std::time(nullptr);
     std::tm tm_fecha = {};
     tm_fecha.tm_hour = hora;
@@ -285,7 +308,8 @@ std::string Fecha::to_string_documento(){
     return oss.str();
 }
 
-void Fecha::string_to_fecha(const std::string fecha_string){
+void Fecha::string_to_fecha(const std::string fecha_string)
+{
     std::tm tm_fecha = {};
     std::istringstream ss(fecha_string);
 
@@ -305,7 +329,8 @@ void Fecha::string_to_fecha(const std::string fecha_string){
 // Return:
 ////////////////////////////////////////////////////////////////////////
 
-void Fecha::imprimir(){
+void Fecha::imprimir()
+{
     printf("%d", dia);
     printf("/%d", mes);
     printf("/%d", anuario);
@@ -318,12 +343,15 @@ void Fecha::imprimir(){
 // Return:     bool
 ////////////////////////////////////////////////////////////////////////
 
-bool Fecha::es_dia_habil(){
+bool Fecha::es_dia_habil()
+{
     bool habil = true;
-    if(es_finde()){
+    if(es_finde())
+    {
         habil = false;
     }
-    else if(es_feriado()){
+    else if(es_feriado())
+    {
         habil = false;
     }
     return habil;
@@ -336,45 +364,58 @@ bool Fecha::es_dia_habil(){
 // Return:     bool
 ////////////////////////////////////////////////////////////////////////
 
-bool Fecha::es_feriado(){
+bool Fecha::es_feriado()
+{
     bool es_feriado = false;
 
-    if(mes==1){
+    if(mes==1)
+    {
         if(dia ==1) es_feriado = true;
     }
-    else if(mes==2){
+    else if(mes==2)
+    {
         if(dia == 12 || dia == 13) es_feriado = true;
     }
 
-    else if(mes==3){
+    else if(mes==3)
+    {
         if(dia == 29) es_feriado = true;
     }
-    else if(mes==4){
+    else if(mes==4)
+    {
 
     }
-    else if(mes==5){
+    else if(mes==5)
+    {
         if(dia == 1 || dia == 24) es_feriado = true;
     }
-    else if(mes==6){
+    else if(mes==6)
+    {
 
     }
-    else if(mes==7){
+    else if(mes==7)
+    {
 
     }
-    else if(mes==8){
+    else if(mes==8)
+    {
         if(dia == 10)es_feriado = true;
     }
-    else if(mes==9){
-         if(dia == 26)es_feriado = true;
+    else if(mes==9)
+    {
+        if(dia == 26)es_feriado = true;
     }
-    else if(mes==10){
-         if(dia == 9)es_feriado = true;
+    else if(mes==10)
+    {
+        if(dia == 9)es_feriado = true;
     }
-    else if(mes==11){
+    else if(mes==11)
+    {
         if(dia == 2 || dia == 3)es_feriado = true;
     }
 
-    else if(mes==12){
+    else if(mes==12)
+    {
         if(dia == 24 || dia == 25 || dia == 31) es_feriado = true;
     }
 
@@ -388,7 +429,8 @@ bool Fecha::es_feriado(){
 // Return:     bool
 ////////////////////////////////////////////////////////////////////////
 
-bool Fecha::es_finde(){
+bool Fecha::es_finde()
+{
     std::tm tm_fecha = {};
     tm_fecha.tm_mday = dia;
     tm_fecha.tm_mon = mes - 1;

@@ -17,22 +17,27 @@ int contar_lineas(const std::string& nombre_archivo);
 bool esta_vacio(const std::string& nombre_archivo);
 bool crear_backup(Fecha fecha);
 
-bool existe_credito(int num_credito){
+bool existe_credito(int num_credito)
+{
     std::string nombre_original = "Creditos.csv";
-    if(num_credito>=contar_lineas(nombre_original)){
+    if(num_credito>=contar_lineas(nombre_original))
+    {
         return false;
     }
-    else{
+    else
+    {
         return true;
     }
 }
 
-Credito obtener_credito(int num_credito){
+Credito obtener_credito(int num_credito)
+{
     std::string nombre_original = "Creditos.csv";
     std::ifstream archivo_original(nombre_original);
     std::string linea;
     int contador = 0;
-    while (std::getline(archivo_original, linea)&&(contador<num_credito)) {
+    while (std::getline(archivo_original, linea)&&(contador<num_credito))
+    {
         contador++;
     }
     std::istringstream ss(linea);
@@ -55,21 +60,26 @@ Credito obtener_credito(int num_credito){
     return Credito(std::stoi(sncuotas), std::stof(smonto), fecha_obt, std::stof(stasa));
 }
 
-bool guardar_credito(Credito credito){
+bool guardar_credito(Credito credito)
+{
     int num_credito;
 
     std::string nombre_original = "Creditos.csv";
     std::ofstream archivo_original(nombre_original, std::ios::app);
 
-    if(!archivo_original){
+    if(!archivo_original)
+    {
         return false;
     }
-    else{
-        if(esta_vacio(nombre_original)){
+    else
+    {
+        if(esta_vacio(nombre_original))
+        {
             archivo_original<<"ID,Monto,No. Cuotas,Tasa Interes,Fecha obtenido\n";
             num_credito = contar_lineas(nombre_original)+1;
         }
-        else{
+        else
+        {
             num_credito = contar_lineas(nombre_original);
         }
         archivo_original<<num_credito<<","<<credito.get_monto()<<","<<credito.get_n_cuotas_pagar()<<","<<credito.get_tasa_interes()<<","<<credito.get_fecha_realizado().to_string()<<"\n";
@@ -81,7 +91,8 @@ bool guardar_credito(Credito credito){
     return true;
 }
 
-TablaHash<Persona*>* cargar_personas_al_hash(int tam){
+TablaHash<Persona*>* cargar_personas_al_hash(int tam)
+{
     TablaHash<Persona*>* personas = new TablaHash<Persona*>(tam);
 
     std::string ruta;
@@ -92,7 +103,8 @@ TablaHash<Persona*>* cargar_personas_al_hash(int tam){
     getcwd(tmp, 256);
     ruta_inicial = std::string(tmp);
 
-    if (_chdir(nombreCarpeta.c_str()) != 0){
+    if (_chdir(nombreCarpeta.c_str()) != 0)
+    {
         return personas;
     }
 
@@ -110,7 +122,8 @@ TablaHash<Persona*>* cargar_personas_al_hash(int tam){
     //obtener primera linea
     std::getline(archivo_original, linea);
 
-    while (std::getline(archivo_original, linea)){
+    while (std::getline(archivo_original, linea))
+    {
         std::istringstream ss(linea);
 
         std::string cedula;
@@ -134,7 +147,8 @@ TablaHash<Persona*>* cargar_personas_al_hash(int tam){
 
 }
 
-TablaHash<Cuenta*>* cargar_cuentas_al_hash(int tam, TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas_cedulas){
+TablaHash<Cuenta*>* cargar_cuentas_al_hash(int tam, TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas_cedulas)
+{
 
     TablaHash<Cuenta*>* cuentas = new TablaHash<Cuenta*>(tam);
 
@@ -146,7 +160,8 @@ TablaHash<Cuenta*>* cargar_cuentas_al_hash(int tam, TablaHash<Persona*>* persona
     getcwd(tmp, 256);
     ruta_inicial = std::string(tmp);
 
-    if (_chdir(nombreCarpeta.c_str()) != 0){
+    if (_chdir(nombreCarpeta.c_str()) != 0)
+    {
         return cuentas;
     }
 
@@ -166,7 +181,8 @@ TablaHash<Cuenta*>* cargar_cuentas_al_hash(int tam, TablaHash<Persona*>* persona
     //obtener primera linea
     std::getline(archivo_original, linea);
 
-    while (std::getline(archivo_original, linea)){
+    while (std::getline(archivo_original, linea))
+    {
         std::istringstream ss(linea);
 
         std::string snocuenta;
@@ -199,7 +215,8 @@ TablaHash<Cuenta*>* cargar_cuentas_al_hash(int tam, TablaHash<Persona*>* persona
     return cuentas;
 }
 
-bool guardar_persona(Persona persona){
+bool guardar_persona(Persona persona)
+{
 
     std::string ruta;
     std::string ruta_inicial;
@@ -209,12 +226,15 @@ bool guardar_persona(Persona persona){
     getcwd(tmp, 256);
     ruta_inicial = std::string(tmp);
 
-    if(_mkdir(nombreCarpeta.c_str()) != 0) {
-        if (_chdir(nombreCarpeta.c_str()) != 0){
+    if(_mkdir(nombreCarpeta.c_str()) != 0)
+    {
+        if (_chdir(nombreCarpeta.c_str()) != 0)
+        {
             return false;
         }
     }
-    else{
+    else
+    {
         _chdir(nombreCarpeta.c_str());
     }
 
@@ -224,11 +244,14 @@ bool guardar_persona(Persona persona){
     std::string nombre_original = ruta + "//" + "Personas.csv";
     std::ofstream archivo_original(nombre_original, std::ios::app);
 
-    if(!archivo_original){
+    if(!archivo_original)
+    {
         return false;
     }
-    else{
-        if(esta_vacio(nombre_original)){
+    else
+    {
+        if(esta_vacio(nombre_original))
+        {
             archivo_original<<"Cedula,Nombre,Apellido\n";
         }
 
@@ -243,7 +266,8 @@ bool guardar_persona(Persona persona){
 
 }
 
-bool guardar_cuenta(Cuenta cuenta){
+bool actualizar_cuenta(Cuenta cuenta)
+{
     std::string ruta;
     std::string ruta_inicial;
     std::string nombreCarpeta = "Informacion";
@@ -252,12 +276,85 @@ bool guardar_cuenta(Cuenta cuenta){
     getcwd(tmp, 256);
     ruta_inicial = std::string(tmp);
 
-    if(_mkdir(nombreCarpeta.c_str()) != 0) {
-        if (_chdir(nombreCarpeta.c_str()) != 0){
+    if(_mkdir(nombreCarpeta.c_str()) != 0)
+    {
+        if (_chdir(nombreCarpeta.c_str()) != 0)
+        {
             return false;
         }
     }
-    else{
+    else
+    {
+        _chdir(nombreCarpeta.c_str());
+    }
+
+    getcwd(tmp, 256);
+    ruta = std::string(tmp);
+
+    std::string nombre_original = ruta + "//" + "Cuentas.csv";
+    std::fstream archivo_original(nombre_original, std::ios::in | std::ios::out);
+
+    if(!archivo_original)
+    {
+        _chdir(ruta_inicial.c_str());
+        return false;
+    }
+    else
+    {
+        if(!esta_vacio(nombre_original))
+        {
+            int num_cuenta = cuenta.get_num_cuenta();
+            std::string linea;
+            std::string snocuenta;
+
+            std::getline(archivo_original, linea);
+
+            while (std::getline(archivo_original, linea))
+            {
+                std::istringstream ss(linea);
+                std::getline(ss, snocuenta, ',');
+
+                if (num_cuenta == std::stoi(snocuenta)) {
+                    // Mover el puntero al inicio de la línea actual
+                    archivo_original.seekp(archivo_original.tellg() - linea.length() - 2);
+
+                    // Escribir la nueva línea
+                    archivo_original<<cuenta.get_num_cuenta()<<","<<cuenta.get_saldo()<<","
+                        <<cuenta.get_cliente()->get_id()<<","<<cuenta.get_cliente()->get_persona()->get_cedula()<<","
+                        <<cuenta.get_cliente()->get_persona()->get_nombre()<<","<<cuenta.get_cliente()->get_persona()->get_apellido()<<"\n";
+                    break;
+                }
+            }
+
+        }
+
+    archivo_original.close();
+    _chdir(ruta_inicial.c_str());
+    return true;
+
+    }
+
+}
+
+bool guardar_cuenta(Cuenta cuenta)
+{
+    std::string ruta;
+    std::string ruta_inicial;
+    std::string nombreCarpeta = "Informacion";
+    char tmp[256];
+
+    getcwd(tmp, 256);
+    ruta_inicial = std::string(tmp);
+
+    if(_mkdir(nombreCarpeta.c_str()) != 0)
+    {
+        if (_chdir(nombreCarpeta.c_str()) != 0)
+        {
+            return false;
+        }
+    }
+    else
+    {
         _chdir(nombreCarpeta.c_str());
     }
 
@@ -267,17 +364,21 @@ bool guardar_cuenta(Cuenta cuenta){
     std::string nombre_original = ruta + "//" + "Cuentas.csv";
     std::ofstream archivo_original(nombre_original, std::ios::app);
 
-    if(!archivo_original){
+    if(!archivo_original)
+    {
+        _chdir(ruta_inicial.c_str());
         return false;
     }
-    else{
-        if(esta_vacio(nombre_original)){
+    else
+    {
+        if(esta_vacio(nombre_original))
+        {
             archivo_original<<"No. de Cuenta,Saldo,ID,Cedula,Nombre,Apellido\n";
         }
 
         archivo_original<<cuenta.get_num_cuenta()<<","<<cuenta.get_saldo()<<","
-        <<cuenta.get_cliente()->get_id()<<","<<cuenta.get_cliente()->get_persona()->get_cedula()<<","
-        <<cuenta.get_cliente()->get_persona()->get_nombre()<<","<<cuenta.get_cliente()->get_persona()->get_apellido()<<"\n";
+                        <<cuenta.get_cliente()->get_id()<<","<<cuenta.get_cliente()->get_persona()->get_cedula()<<","
+                        <<cuenta.get_cliente()->get_persona()->get_nombre()<<","<<cuenta.get_cliente()->get_persona()->get_apellido()<<"\n";
     }
 
     archivo_original.close();
@@ -287,23 +388,28 @@ bool guardar_cuenta(Cuenta cuenta){
     return true;
 }
 
-bool crear_backup(Fecha fecha){
+bool crear_backup(Fecha fecha)
+{
     bool creado;
     std::string nombre_original = "Creditos.csv";
     std::string nombre_backup = fecha.to_string_documento()+".csv";
 
     std::ifstream archivo_original(nombre_original);
 
-    if (!archivo_original) {
+    if (!archivo_original)
+    {
         creado = false;
     }
-    else{
+    else
+    {
         std::ofstream archivo_backup(nombre_backup);
 
-        if (!archivo_backup) {
+        if (!archivo_backup)
+        {
             creado = false;
         }
-        else{
+        else
+        {
             archivo_backup<<archivo_original.rdbuf();
             creado = true;
         }
@@ -314,21 +420,26 @@ bool crear_backup(Fecha fecha){
     return creado;
 }
 
-bool restaurar_backup(const std::string& nombre_backup){
+bool restaurar_backup(const std::string& nombre_backup)
+{
     bool restaurado;
     std::string nombre_original = "Creditos.csv";
     std::ifstream archivo_backup(nombre_backup);
 
-    if (!archivo_backup) {
+    if (!archivo_backup)
+    {
         restaurado = false;
     }
-    else{
+    else
+    {
         std::ofstream archivo_original(nombre_original);
 
-        if (!archivo_original) {
+        if (!archivo_original)
+        {
             restaurado = false;
         }
-        else{
+        else
+        {
             archivo_original<<archivo_backup.rdbuf();
             restaurado = true;
         }
@@ -339,26 +450,34 @@ bool restaurar_backup(const std::string& nombre_backup){
     return restaurado;
 }
 
-bool esta_vacio(const std::string& nombre_archivo) {
+bool esta_vacio(const std::string& nombre_archivo)
+{
     std::ifstream archivo(nombre_archivo);
 
-    if (archivo.is_open() && archivo.peek() == std::ifstream::traits_type::eof()){
+    if (archivo.is_open() && archivo.peek() == std::ifstream::traits_type::eof())
+    {
         return true;
-    } else {
+    }
+    else
+    {
         return false;
     }
 }
 
-int contar_lineas(const std::string& nombre_archivo) {
+int contar_lineas(const std::string& nombre_archivo)
+{
     int contador = 0;
     std::ifstream archivo(nombre_archivo);
 
-    if (!archivo.is_open()) {
+    if (!archivo.is_open())
+    {
         contador = -1;
     }
-    else{
+    else
+    {
         std::string linea;
-        while (std::getline(archivo, linea)) {
+        while (std::getline(archivo, linea))
+        {
             contador++;
         }
     }

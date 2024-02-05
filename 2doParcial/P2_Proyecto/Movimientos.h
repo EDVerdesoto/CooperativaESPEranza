@@ -13,22 +13,26 @@
 
 class Movimientos
 {
-    public:
-        Movimientos(Cuenta*);
-        bool deposito(double);
-        bool retiro(double);
-        bool guardar_movimientos();
-        Cuenta* get_cuenta();
-        char get_tipo();
-        double get_monto();
-        double get_saldo();
+public:
+    Movimientos(Cuenta*);
+    bool deposito(double);
+    bool retiro(double);
+    bool guardar_movimientos();
+    int contar_movimientos();
+    bool borrar_ultimo();
+    void generar_comprobante();
+    Cuenta* get_cuenta();
+    char get_tipo();
+    double get_monto();
+    double get_saldo();
 
-    protected:
-    private:
-        char tipo;
-        double monto;
-        double saldo;
-        Cuenta* cuenta;
+protected:
+private:
+    std::string comprobante;
+    char tipo;
+    double monto;
+    double saldo;
+    Cuenta* cuenta;
 
 };
 

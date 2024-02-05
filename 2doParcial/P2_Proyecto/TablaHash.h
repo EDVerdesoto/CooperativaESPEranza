@@ -8,24 +8,24 @@ template <typename T>
 
 class TablaHash
 {
-    public:
-        TablaHash(int);
-        void insertar(T, int);
-        void insertar(T dato, std::string hashear_cadena);
-        void buscar(T, int);
-        Nodo<T>* buscar_cedula_persona(std::string hashear_cadena);
-        Nodo<T>* buscar_cedula_cuenta(std::string hashear_cadena);
-        Nodo<T>* buscar(int hashear, std::string tipo);
-        bool buscar(int);
-        void eliminar(T);
-        void imprimir();
-        ~TablaHash();
+public:
+    TablaHash(int);
+    void insertar(T, int);
+    void insertar(T dato, std::string hashear_cadena);
+    void buscar(T, int);
+    Nodo<T>* buscar_cedula_persona(std::string hashear_cadena);
+    Nodo<T>* buscar_cedula_cuenta(std::string hashear_cadena);
+    Nodo<T>* buscar(int hashear, std::string tipo);
+    Nodo<T>* buscar(int);
+    void eliminar(T);
+    void imprimir();
+    ~TablaHash();
 
-    protected:
+protected:
 
-    private:
-        int tam;
-        ListaDoble<T>** listas_indices;
+private:
+    int tam;
+    ListaDoble<T>** listas_indices;
 };
 
 #endif // TABLAHASH_H

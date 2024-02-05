@@ -14,7 +14,8 @@
 #include "ListaDoble.cpp"
 #include "Nodo.cpp"
 
-TablaAmortizacion::TablaAmortizacion(Credito credito_usar){
+TablaAmortizacion::TablaAmortizacion(Credito credito_usar)
+{
     credito = credito_usar;
     cuotas_ord = new ListaDoble<int>();
     saldos_capital= new ListaDoble<double>();
@@ -25,11 +26,13 @@ TablaAmortizacion::TablaAmortizacion(Credito credito_usar){
     llenar_tabla_amortizacion();
 }
 
-void TablaAmortizacion::llenar_tabla_amortizacion(){
+void TablaAmortizacion::llenar_tabla_amortizacion()
+{
     CalculosCredito calculos(credito.get_tasa_interes());
     double v_cuotas = calculos.calcular_valor_cuotas(credito.get_n_cuotas_pagar(), credito.get_monto());
     int n_ord = 1;
-    while(n_ord<=credito.get_n_cuotas_pagar()){
+    while(n_ord<=credito.get_n_cuotas_pagar())
+    {
         cuotas_ord->insertar_cola(n_ord);
         valor_cuotas->insertar_cola(v_cuotas);
         n_ord++;
@@ -41,7 +44,8 @@ void TablaAmortizacion::llenar_tabla_amortizacion(){
     generar_fechas_pago();
 }
 
-void TablaAmortizacion::generar_fechas_pago(){
+void TablaAmortizacion::generar_fechas_pago()
+{
     Fecha fecha_sacado = credito.get_fecha_realizado();
     int avg_dias_mes = 30;
     int ncuotas = credito.get_n_cuotas_pagar();
@@ -51,15 +55,18 @@ void TablaAmortizacion::generar_fechas_pago(){
     fecha_gen.set_dia(fecha_gen.get_dia() + (meses_gracia*avg_dias_mes));
     int n_gen = 0;
 
-    while(fecha_gen.es_finde() || fecha_gen.es_feriado()){
+    while(fecha_gen.es_finde() || fecha_gen.es_feriado())
+    {
         fecha_gen.set_dia(fecha_gen.get_dia()+1);
     }
     fechas_pago->insertar_cola(fecha_gen);
     n_gen++;
 
-    while(n_gen<ncuotas){
+    while(n_gen<ncuotas)
+    {
         fecha_gen.set_dia(fecha_gen.get_dia() + (intervalo_pagos_mes*avg_dias_mes));
-        while(fecha_gen.es_finde() || fecha_gen.es_feriado()){
+        while(fecha_gen.es_finde() || fecha_gen.es_feriado())
+        {
             fecha_gen.set_dia(fecha_gen.get_dia()+1);
         }
         fechas_pago->insertar_cola(fecha_gen);
@@ -69,7 +76,8 @@ void TablaAmortizacion::generar_fechas_pago(){
 
 
 
-void TablaAmortizacion::imprimir(){
+void TablaAmortizacion::imprimir()
+{
     int n_mostrados = 0;
     int n_mostrar = credito.get_n_cuotas_pagar();
     Nodo<int>* ord = cuotas_ord->get_cabeza();
@@ -85,7 +93,8 @@ void TablaAmortizacion::imprimir(){
     std::cout<<'|'<<std::setw(ancho_capital)<<"Pago capital"<<'|'<<std::setw(ancho_interes)<<"Intereses";
     std::cout<<'|'<<std::setw(ancho_saldo)<<"Saldo capital"<<'|'<<std::setw(ancho_fecha)<<"Fecha de pago"<<'|';
     printf("\n");
-    while(n_mostrados < n_mostrar){
+    while(n_mostrados < n_mostrar)
+    {
         fecha_pagar = aux_fecha_pagar->get_valor();
         std::cout<< '|'<<std::setw(ancho_ord)<<ord->get_valor()<<'|'<<std::setw(ancho_vcuota)<<valor_cuota->get_valor();
         std::cout<<'|'<<std::setw(ancho_capital)<<capital_pag->get_valor()<<'|'<<std::setw(ancho_interes)<<interes->get_valor();
@@ -102,58 +111,72 @@ void TablaAmortizacion::imprimir(){
     }
 }
 
-Credito TablaAmortizacion::get_credito(){
+Credito TablaAmortizacion::get_credito()
+{
     return credito;
 }
 
-ListaDoble<int>* TablaAmortizacion::get_cuotas_ord(){
+ListaDoble<int>* TablaAmortizacion::get_cuotas_ord()
+{
     return cuotas_ord;
 }
 
-ListaDoble<double>* TablaAmortizacion::get_saldos_capital(){
+ListaDoble<double>* TablaAmortizacion::get_saldos_capital()
+{
     return saldos_capital;
 }
 
-ListaDoble<double>* TablaAmortizacion::get_intereses(){
+ListaDoble<double>* TablaAmortizacion::get_intereses()
+{
     return intereses;
 }
 
-ListaDoble<double>* TablaAmortizacion::get_pagos_capital(){
+ListaDoble<double>* TablaAmortizacion::get_pagos_capital()
+{
     return pagos_capital;
 }
 
-ListaDoble<double>* TablaAmortizacion::get_valor_cuotas(){
+ListaDoble<double>* TablaAmortizacion::get_valor_cuotas()
+{
     return valor_cuotas;
 }
 
-ListaDoble<Fecha>* TablaAmortizacion::get_fechas_pago(){
+ListaDoble<Fecha>* TablaAmortizacion::get_fechas_pago()
+{
     return fechas_pago;
 }
 
-void TablaAmortizacion::set_credito(Credito nuevo_credito){
+void TablaAmortizacion::set_credito(Credito nuevo_credito)
+{
     credito = nuevo_credito;
 }
 
-void TablaAmortizacion::set_cuotas_ord(ListaDoble<int>* nuevo_cuotas_ord){
+void TablaAmortizacion::set_cuotas_ord(ListaDoble<int>* nuevo_cuotas_ord)
+{
     cuotas_ord = nuevo_cuotas_ord;
 }
 
-void TablaAmortizacion::set_saldos_capital(ListaDoble<double>* nuevo_saldos_capital){
+void TablaAmortizacion::set_saldos_capital(ListaDoble<double>* nuevo_saldos_capital)
+{
     saldos_capital = nuevo_saldos_capital;
 }
 
-void TablaAmortizacion::set_intereses(ListaDoble<double>* nuevo_intereses){
+void TablaAmortizacion::set_intereses(ListaDoble<double>* nuevo_intereses)
+{
     intereses = nuevo_intereses;
 }
 
-void TablaAmortizacion::set_pagos_capital(ListaDoble<double>* nuevo_pagos_capital){
+void TablaAmortizacion::set_pagos_capital(ListaDoble<double>* nuevo_pagos_capital)
+{
     pagos_capital = nuevo_pagos_capital;
 }
 
-void TablaAmortizacion::set_valor_cuotas(ListaDoble<double>* nuevo_valor_cuotas){
+void TablaAmortizacion::set_valor_cuotas(ListaDoble<double>* nuevo_valor_cuotas)
+{
     valor_cuotas = nuevo_valor_cuotas;
 }
 
-void TablaAmortizacion::set_fechas_pago(ListaDoble<Fecha>* nuevo_fechas_pago){
+void TablaAmortizacion::set_fechas_pago(ListaDoble<Fecha>* nuevo_fechas_pago)
+{
     fechas_pago = nuevo_fechas_pago;
 }

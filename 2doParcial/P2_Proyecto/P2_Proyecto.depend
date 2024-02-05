@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1707028145 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\arbol_bplus.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\arbol_bplus.cpp
 	<iostream>
 	<string>
 	"Arbol_Bplus.h"
@@ -9,77 +9,77 @@
 	"Cuenta.h"
 	"Cliente.h"
 
-1707020047 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\arbol_bplus.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\arbol_bplus.h
 	"NodoB.h"
 	"ListaDoble.h"
 
-1707020046 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodob.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodob.h
 	"ListaDoble.h"
 	"Cuenta.h"
 
 1706677910 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\listadoble.h
 	"Nodo.h"
 
-1701977144 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodo.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodo.h
 
-1707081576 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cuenta.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cuenta.h
 	<iostream>
 	"Cliente.h"
 
-1707081662 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cliente.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cliente.h
 	"Persona.h"
 
 1707067055 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\persona.h
 	"Fecha.h"
 
-1706939298 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\fecha.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\fecha.h
 	<iostream>
 	"Nodo.h"
 	<ctime>
 	<iomanip>
 
-1701974393 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodo.cpp
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodo.cpp
 	"Nodo.h"
 
-1707031745 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\listadoble.cpp
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\listadoble.cpp
 	<iostream>
 	"ListaDoble.h"
 
-1707023632 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\calculoscredito.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\calculoscredito.cpp
 	"CalculosCredito.h"
 	"ListaDoble.cpp"
 	"Nodo.cpp"
 	<cmath>
 
-1702913949 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\calculoscredito.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\calculoscredito.h
 	"ListaDoble.h"
 
-1707081746 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cliente.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cliente.cpp
 	<iostream>
 	<fstream>
 	"Cuenta.h"
 	"Cliente.h"
 
-1702913949 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\credito.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\credito.cpp
 	"Credito.h"
 
-1702913949 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\credito.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\credito.h
 	"Fecha.h"
 
-1707086160 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cuenta.cpp
+1707110795 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\cuenta.cpp
 	<iostream>
 	"Movimientos.h"
 	"Cuenta.h"
 	"Cliente.h"
 	<math.h>
 
-1707072607 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\movimientos.h
+1707121946 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\movimientos.h
 	"Cuenta.h"
 
-1702913949 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp.cpp
 	"EasyBMP.h"
 
-1702913949 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp.h
 	<iostream>
 	<cmath>
 	<cctype>
@@ -90,30 +90,30 @@
 	"EasyBMP_BMP.h"
 	"EasyBMP_VariousBMPutilities.h"
 
-1702913949 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp_datastructures.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp_datastructures.h
 
-1702913949 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp_bmp.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp_bmp.h
 
-1702913949 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp_variousbmputilities.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\easybmp_variousbmputilities.h
 
-1706942022 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\fecha.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\fecha.cpp
 	<iostream>
 	"Fecha.h"
 	<ctime>
 	<iomanip>
 
-1706939845 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\imagen.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\imagen.cpp
 	"Imagen.h"
 	<conio.h>
 	<windows.h>
 	<wchar.h>
 
-1702913949 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\imagen.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\imagen.h
 	<string>
 	<windows.h>
 	"EasyBMP.h"
 
-1707031745 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\listadoble.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\listadoble.cpp
 	<iostream>
 	"ListaDoble.h"
 
@@ -122,7 +122,7 @@
 	<ctime>
 	"menus.h"
 
-1707087639 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\menus.h
+1707122571 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\menus.h
 	<iostream>
 	<conio.h>
 	<windows.h>
@@ -138,7 +138,7 @@
 	"TablaHash.h"
 	"Movimientos.h"
 
-1707085385 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\gestorarchivos.h
+1707123430 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\gestorarchivos.h
 	<iostream>
 	<fstream>
 	<string>
@@ -150,7 +150,7 @@
 	<stdlib.h>
 	<direct.h>
 
-1707015959 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\validaciones.h
+1707114094 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\validaciones.h
 	<iostream>
 	<stdlib.h>
 	<conio.h>
@@ -159,13 +159,14 @@
 	<cstring>
 	<cctype>
 
-1707020047 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablaamortizacion.h
+1707105148 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablaamortizacion.h
 	"ListaDoble.h"
 	"Credito.h"
 	"Fecha.h"
 
-1707077753 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\movimientos.cpp
+1707123049 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\movimientos.cpp
 	"Movimientos.h"
+	"Fecha.h"
 	<iostream>
 	<fstream>
 	<string>
@@ -173,17 +174,17 @@
 	<stdlib.h>
 	<direct.h>
 
-1701974393 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodo.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodo.cpp
 	"Nodo.h"
 
-1707026214 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodob.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\nodob.cpp
 	"NodoB.h"
 	"ListaDoble.cpp"
 
-1707067034 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\persona.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\persona.cpp
 	"Persona.h"
 
-1707026303 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablaamortizacion.cpp
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablaamortizacion.cpp
 	<iostream>
 	<iomanip>
 	"TablaAmortizacion.h"
@@ -192,7 +193,7 @@
 	"ListaDoble.cpp"
 	"Nodo.cpp"
 
-1707086160 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablahash.cpp
+1707113752 source:d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablahash.cpp
 	"TablaHash.h"
 	<iostream>
 	"ListaDoble.h"
@@ -200,11 +201,11 @@
 	"Cuenta.h"
 	"Nodo.h"
 
-1707083956 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablahash.h
+1707113701 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablahash.h
 	<string>
 	"ListaDoble.h"
 
-1707086160 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablahash.cpp
+1707113752 d:\universidad\tercersemestre\estructuradedatos\p2_proyecto\tablahash.cpp
 	"TablaHash.h"
 	<iostream>
 	"ListaDoble.h"
