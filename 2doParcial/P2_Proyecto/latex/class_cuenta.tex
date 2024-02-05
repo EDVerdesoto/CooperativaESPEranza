@@ -1,0 +1,144 @@
+\doxysection{Cuenta Class Reference}
+\hypertarget{class_cuenta}{}\label{class_cuenta}\index{Cuenta@{Cuenta}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_cuenta_a046896f22fededbe1a82308999593f29}\label{class_cuenta_a046896f22fededbe1a82308999593f29} 
+{\bfseries Cuenta} ()
+\begin{DoxyCompactList}\small\item\em Constructor predeterminado de \doxylink{class_cuenta}{Cuenta}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cuenta_aada9180987e46fb5af8ee9b971b9f003}{Cuenta}} (\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_tabla_hash}{int}}, \mbox{\hyperlink{class_tabla_hash}{double}})
+\begin{DoxyCompactList}\small\item\em Constructor de \doxylink{class_cuenta}{Cuenta} que inicializa la cuenta con un cliente, un número de cuenta y un saldo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cuenta_a9db3809de0f0343d853dabb3d862ffdc}{Cuenta}} (\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Constructor de \doxylink{class_cuenta}{Cuenta} que inicializa la cuenta con un cliente y genera un número de cuenta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{int}} \mbox{\hyperlink{class_cuenta_af1bd1ebd4a23596ef9d111d6393ba1fb}{generar\+\_\+\+ID\+\_\+cuenta}} ()
+\begin{DoxyCompactList}\small\item\em Genera un número de cuenta único basado en la información del cliente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{int}} \mbox{\hyperlink{class_cuenta_ab66838bc7e8b22ac67d2095c0f79a010}{get\+\_\+num\+\_\+cuenta}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el número de cuenta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{double}} \mbox{\hyperlink{class_cuenta_a4448ce288a95d6af03ae78c015059d57}{get\+\_\+saldo}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el saldo de la cuenta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_cuenta_ab363c8fd3431d859f62c228b2dbf1c3d}{get\+\_\+cliente}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el cliente asociado a la cuenta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_cuenta_a626eb1959bad079a889ad26ccfe45fdd}{set\+\_\+saldo}} (\mbox{\hyperlink{class_tabla_hash}{double}})
+\begin{DoxyCompactList}\small\item\em Establece el saldo de la cuenta. \end{DoxyCompactList}\item 
+\Hypertarget{class_cuenta_ac34b48b89fa12478a1c71191f876d956}\label{class_cuenta_ac34b48b89fa12478a1c71191f876d956} 
+\mbox{\hyperlink{class_tabla_hash}{void}} {\bfseries imprimir} ()
+\begin{DoxyCompactList}\small\item\em Imprime la información de la cuenta en la consola. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_cuenta_a579d813c66d4fef7e8702dfd76c87da6}\label{class_cuenta_a579d813c66d4fef7e8702dfd76c87da6} 
+\mbox{\hyperlink{class_movimientos}{Movimientos}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} {\bfseries movimientos}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cuenta_aada9180987e46fb5af8ee9b971b9f003}\label{class_cuenta_aada9180987e46fb5af8ee9b971b9f003} 
+\index{Cuenta@{Cuenta}!Cuenta@{Cuenta}}
+\index{Cuenta@{Cuenta}!Cuenta@{Cuenta}}
+\doxysubsubsection{\texorpdfstring{Cuenta()}{Cuenta()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Cuenta\+::\+Cuenta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}}]{\+\_\+cliente,  }\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{\+\_\+num\+\_\+cuenta,  }\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{\+\_\+saldo }\end{DoxyParamCaption})}
+
+
+
+Constructor de \doxylink{class_cuenta}{Cuenta} que inicializa la cuenta con un cliente, un número de cuenta y un saldo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+cliente} & \doxylink{class_cliente}{Cliente} asociado a la cuenta \\
+\hline
+{\em \+\_\+num\+\_\+cuenta} & Número de cuenta \\
+\hline
+{\em \+\_\+saldo} & Saldo inicial de la cuenta \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cuenta_a9db3809de0f0343d853dabb3d862ffdc}\label{class_cuenta_a9db3809de0f0343d853dabb3d862ffdc} 
+\index{Cuenta@{Cuenta}!Cuenta@{Cuenta}}
+\index{Cuenta@{Cuenta}!Cuenta@{Cuenta}}
+\doxysubsubsection{\texorpdfstring{Cuenta()}{Cuenta()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Cuenta\+::\+Cuenta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}}]{\+\_\+cliente }\end{DoxyParamCaption})}
+
+
+
+Constructor de \doxylink{class_cuenta}{Cuenta} que inicializa la cuenta con un cliente y genera un número de cuenta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+cliente} & \doxylink{class_cliente}{Cliente} asociado a la cuenta \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cuenta_af1bd1ebd4a23596ef9d111d6393ba1fb}\label{class_cuenta_af1bd1ebd4a23596ef9d111d6393ba1fb} 
+\index{Cuenta@{Cuenta}!generar\_ID\_cuenta@{generar\_ID\_cuenta}}
+\index{generar\_ID\_cuenta@{generar\_ID\_cuenta}!Cuenta@{Cuenta}}
+\doxysubsubsection{\texorpdfstring{generar\_ID\_cuenta()}{generar\_ID\_cuenta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{int}} Cuenta\+::generar\+\_\+\+ID\+\_\+cuenta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Genera un número de cuenta único basado en la información del cliente. 
+
+\begin{DoxyReturn}{Returns}
+Número de cuenta generado 
+\end{DoxyReturn}
+\Hypertarget{class_cuenta_ab363c8fd3431d859f62c228b2dbf1c3d}\label{class_cuenta_ab363c8fd3431d859f62c228b2dbf1c3d} 
+\index{Cuenta@{Cuenta}!get\_cliente@{get\_cliente}}
+\index{get\_cliente@{get\_cliente}!Cuenta@{Cuenta}}
+\doxysubsubsection{\texorpdfstring{get\_cliente()}{get\_cliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} Cuenta\+::get\+\_\+cliente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el cliente asociado a la cuenta. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_cliente}{Cliente} asociado a la cuenta 
+\end{DoxyReturn}
+\Hypertarget{class_cuenta_ab66838bc7e8b22ac67d2095c0f79a010}\label{class_cuenta_ab66838bc7e8b22ac67d2095c0f79a010} 
+\index{Cuenta@{Cuenta}!get\_num\_cuenta@{get\_num\_cuenta}}
+\index{get\_num\_cuenta@{get\_num\_cuenta}!Cuenta@{Cuenta}}
+\doxysubsubsection{\texorpdfstring{get\_num\_cuenta()}{get\_num\_cuenta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{int}} Cuenta\+::get\+\_\+num\+\_\+cuenta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el número de cuenta. 
+
+\begin{DoxyReturn}{Returns}
+Número de cuenta 
+\end{DoxyReturn}
+\Hypertarget{class_cuenta_a4448ce288a95d6af03ae78c015059d57}\label{class_cuenta_a4448ce288a95d6af03ae78c015059d57} 
+\index{Cuenta@{Cuenta}!get\_saldo@{get\_saldo}}
+\index{get\_saldo@{get\_saldo}!Cuenta@{Cuenta}}
+\doxysubsubsection{\texorpdfstring{get\_saldo()}{get\_saldo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{double}} Cuenta\+::get\+\_\+saldo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el saldo de la cuenta. 
+
+\begin{DoxyReturn}{Returns}
+Saldo de la cuenta 
+\end{DoxyReturn}
+\Hypertarget{class_cuenta_a626eb1959bad079a889ad26ccfe45fdd}\label{class_cuenta_a626eb1959bad079a889ad26ccfe45fdd} 
+\index{Cuenta@{Cuenta}!set\_saldo@{set\_saldo}}
+\index{set\_saldo@{set\_saldo}!Cuenta@{Cuenta}}
+\doxysubsubsection{\texorpdfstring{set\_saldo()}{set\_saldo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{void}} Cuenta\+::set\+\_\+saldo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{nuevo\+\_\+saldo }\end{DoxyParamCaption})}
+
+
+
+Establece el saldo de la cuenta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nuevo\+\_\+saldo} & Nuevo saldo de la cuenta \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Cuenta.\+h\item 
+Cuenta.\+cpp\end{DoxyCompactItemize}

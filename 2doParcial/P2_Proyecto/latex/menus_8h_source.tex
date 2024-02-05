@@ -1,0 +1,687 @@
+\doxysection{menus.\+h}
+\hypertarget{menus_8h_source}{}\label{menus_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MENUS\_H\_INCLUDED}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MENUS\_H\_INCLUDED}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <conio.h>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}GestorArchivos.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}validaciones.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Fecha.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Credito.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}TablaAmortizacion.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Imagen.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Persona.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}ListaDoble.cpp"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}Nodo.cpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}TablaHash.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}Movimientos.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{void}\ visibilidad\_cursor(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{void}\ mover\_cursor(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{x}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{y}});}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ ingresar\_datos\_credito();}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ consultar\_cuota();}
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{void}\ elegir\_backup();}
+\DoxyCodeLine{00025\ \textcolor{keywordtype}{void}\ abrir\_menu\_ayuda();}
+\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ abrir\_cuenta(\mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ \mbox{\hyperlink{class_tabla_hash}{personas}},\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas}},\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas\_por\_cedula}});}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ ingresar\_datos\_usuario(\mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ \mbox{\hyperlink{class_tabla_hash}{personas}});}
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{operator<}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha1}},\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha2}});}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ mover\_cursor(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{x}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{y}})\{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{HANDLE}}\ \mbox{\hyperlink{class_tabla_hash}{manejo\_consola}}\ =\ \mbox{\hyperlink{class_tabla_hash}{GetStdHandle}}(\mbox{\hyperlink{class_tabla_hash}{STD\_OUTPUT\_HANDLE}});}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{COORD}}\ \mbox{\hyperlink{class_tabla_hash}{pos}}\ =\ \{\mbox{\hyperlink{class_tabla_hash}{x}},\ \mbox{\hyperlink{class_tabla_hash}{y}}\};}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{SetConsoleCursorPosition}}(\mbox{\hyperlink{class_tabla_hash}{manejo\_consola}},\ \mbox{\hyperlink{class_tabla_hash}{pos}});}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ visibilidad\_cursor(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{visible}})\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{HANDLE}}\ \mbox{\hyperlink{class_tabla_hash}{manejo\_consola}}\ =\ \mbox{\hyperlink{class_tabla_hash}{GetStdHandle}}(\mbox{\hyperlink{class_tabla_hash}{STD\_OUTPUT\_HANDLE}});}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{CONSOLE\_CURSOR\_INFO}}\ \mbox{\hyperlink{class_tabla_hash}{info}};}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{info}}.dwSize\ =\ 1;}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{info}}.bVisible\ =\ \mbox{\hyperlink{class_tabla_hash}{visible}};}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{SetConsoleCursorInfo}}(\mbox{\hyperlink{class_tabla_hash}{manejo\_consola}},\ \&\mbox{\hyperlink{class_tabla_hash}{info}});}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{int}\ desplegar\_menu\_movible(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}**\ \mbox{\hyperlink{class_tabla_hash}{opciones}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{nopciones}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{xinicial}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{yinicial}})\{}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}}\ =\ 35;}
+\DoxyCodeLine{00046\ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{false});}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla}};}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{HANDLE}}\ \mbox{\hyperlink{class_tabla_hash}{manejo\_consola}}\ =\ \mbox{\hyperlink{class_tabla_hash}{GetStdHandle}}(\mbox{\hyperlink{class_tabla_hash}{STD\_OUTPUT\_HANDLE}});}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{cursor\_x}}\ =\ \mbox{\hyperlink{class_tabla_hash}{xinicial}},\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ =\ \mbox{\hyperlink{class_tabla_hash}{yinicial}},\ \mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 0,\ \mbox{\hyperlink{class_tabla_hash}{opcion}}\ =\ 1;}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{colores}}[2]\ =\ \{15,\ 191\};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}\ =\ [\&]()\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_boton}}\ =\ [\&\mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}}](\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{opcion}})\{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}}\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_tabla_hash}{opcion}}[\mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}}]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}}++;}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}\ =\ \mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}}\ -\/\ \mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}};\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}/2;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{class_tabla_hash}{opcion}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}\%2\ ==\ 0)\{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}/2;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<(\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}/2)+1;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}};\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{nopciones}};\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 0;}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(((\mbox{\hyperlink{class_tabla_hash}{i}}-\/1)*3)+\mbox{\hyperlink{class_tabla_hash}{yinicial}}\ ==\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}})\mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 1;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursor\_x}},\ (\mbox{\hyperlink{class_tabla_hash}{i}}*3)+\mbox{\hyperlink{class_tabla_hash}{yinicial}});}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{SetConsoleTextAttribute}}(\mbox{\hyperlink{class_tabla_hash}{manejo\_consola}},\ \mbox{\hyperlink{class_tabla_hash}{colores}}[\mbox{\hyperlink{class_tabla_hash}{color\_act}}]);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{imprimir\_boton}}(\mbox{\hyperlink{class_tabla_hash}{opciones}}[\mbox{\hyperlink{class_tabla_hash}{i}}]);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 0;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{SetConsoleTextAttribute}}(\mbox{\hyperlink{class_tabla_hash}{manejo\_consola}},\ \mbox{\hyperlink{class_tabla_hash}{colores}}[\mbox{\hyperlink{class_tabla_hash}{color\_act}}]);}
+\DoxyCodeLine{00096\ \ \ \ \ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{while}((\mbox{\hyperlink{class_tabla_hash}{tecla}}\ =\ \mbox{\hyperlink{class_tabla_hash}{\_getch}}())\ !=\ 13)\{}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{//mover\ pos\ cursor\ arriba}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ 72\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{opcion}}>1)\mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}}-\/3,\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}();}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//mover\ pos\ cursor\ abajo}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ 80\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{opcion}}<\mbox{\hyperlink{class_tabla_hash}{nopciones}})\mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ +\ 3,\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursor\_x}},\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{opcion}}\ =\ ((\mbox{\hyperlink{class_tabla_hash}{cursor\_y}}-\/1)/3)+1;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{opcion}};}
+\DoxyCodeLine{00112\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{int}\ desplegar\_menu(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}**\ \mbox{\hyperlink{class_tabla_hash}{opciones}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{nopciones}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{xinicial}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{yinicial}})\{}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}}\ =\ 35;}
+\DoxyCodeLine{00116\ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{false});}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla}};}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{HANDLE}}\ \mbox{\hyperlink{class_tabla_hash}{manejo\_consola}}\ =\ \mbox{\hyperlink{class_tabla_hash}{GetStdHandle}}(\mbox{\hyperlink{class_tabla_hash}{STD\_OUTPUT\_HANDLE}});}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{cursor\_x}}\ =\ \mbox{\hyperlink{class_tabla_hash}{xinicial}},\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ =\ \mbox{\hyperlink{class_tabla_hash}{yinicial}},\ \mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 0,\ \mbox{\hyperlink{class_tabla_hash}{opcion}}\ =\ 1;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{colores}}[2]\ =\ \{15,\ 191\};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}\ =\ [\&]()\{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_boton}}\ =\ [\&\mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}}](\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{opcion}})\{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}}\ =\ 0;}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_tabla_hash}{opcion}}[\mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}}]\ !=\ \textcolor{charliteral}{'\(\backslash\)0'})\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}}++;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}\ =\ \mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}}\ -\/\ \mbox{\hyperlink{class_tabla_hash}{caracteres\_en\_opcion}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}};\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}/2;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{class_tabla_hash}{opcion}});}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}\%2\ ==\ 0)\{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}/2;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<(\mbox{\hyperlink{class_tabla_hash}{espacios\_faltantes}}/2)+1;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{ANCHO\_BOTON}};\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\textcolor{charliteral}{'\ '});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<\mbox{\hyperlink{class_tabla_hash}{nopciones}};\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 0;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{class_tabla_hash}{i}}*3)+1\ ==\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}})\mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 1;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursor\_x}},\ (\mbox{\hyperlink{class_tabla_hash}{i}}*3));}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{SetConsoleTextAttribute}}(\mbox{\hyperlink{class_tabla_hash}{manejo\_consola}},\ \mbox{\hyperlink{class_tabla_hash}{colores}}[\mbox{\hyperlink{class_tabla_hash}{color\_act}}]);}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{imprimir\_boton}}(\mbox{\hyperlink{class_tabla_hash}{opciones}}[\mbox{\hyperlink{class_tabla_hash}{i}}]);}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{color\_act}}\ =\ 0;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{SetConsoleTextAttribute}}(\mbox{\hyperlink{class_tabla_hash}{manejo\_consola}},\ \mbox{\hyperlink{class_tabla_hash}{colores}}[\mbox{\hyperlink{class_tabla_hash}{color\_act}}]);}
+\DoxyCodeLine{00166\ \ \ \ \ \};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}();}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{while}((\mbox{\hyperlink{class_tabla_hash}{tecla}}\ =\ \mbox{\hyperlink{class_tabla_hash}{\_getch}}())\ !=\ 13)\{}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{comment}{//mover\ pos\ cursor\ arriba}}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ 72\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{opcion}}>1)\mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}}-\/3,\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}();}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//mover\ pos\ cursor\ abajo}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ 80\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{opcion}}<\mbox{\hyperlink{class_tabla_hash}{nopciones}})\mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}}\ +\ 3,\ \mbox{\hyperlink{class_tabla_hash}{imprimir\_opciones}}();}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursor\_x}},\ \mbox{\hyperlink{class_tabla_hash}{cursor\_y}});}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{opcion}}\ =\ ((\mbox{\hyperlink{class_tabla_hash}{cursor\_y}}-\/1)/3)+1;}
+\DoxyCodeLine{00179\ \ \ \ \ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{opcion}};}
+\DoxyCodeLine{00182\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{keywordtype}{void}\ desplegar\_menu\_principal()\{}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES}}\ =\ 8;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{OPCIONES}}[\mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES}}]\ =\ \{\textcolor{stringliteral}{"{}Crear\ personas\ y\ clientes"{}},\textcolor{stringliteral}{"{}Generar\ credito\ y\ tabla"{}},\textcolor{stringliteral}{"{}Consultar\ credito"{}},\textcolor{stringliteral}{"{}Hacer\ Backup"{}},\textcolor{stringliteral}{"{}Restaurar\ Backup"{}},\textcolor{stringliteral}{"{}Ayuda"{}},\textcolor{stringliteral}{"{}Ver\ imagen\ del\ grupo\ de\ devs"{}},\ \textcolor{stringliteral}{"{}Salir"{}}\};}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES\_SUB}};}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{opcion\_sub}};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ \mbox{\hyperlink{class_tabla_hash}{personas}}\ =\ cargar\_personas\_al\_hash(13);}
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas\_por\_cedula}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}(13);}
+\DoxyCodeLine{00193\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas}}\ =\ cargar\_cuentas\_al\_hash(13,\ \mbox{\hyperlink{class_tabla_hash}{personas}},\ \mbox{\hyperlink{class_tabla_hash}{cuentas\_por\_cedula}});}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{opcion}};}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{opcion}}\ =\ desplegar\_menu(\mbox{\hyperlink{class_tabla_hash}{OPCIONES}},\ \mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES}},\ 0,\ 1);}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{opcion}}\ ==\ 1)\{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES\_SUB}}\ =\ 3;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{OPCIONES\_SUB}}[\mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES\_SUB}}]\ =\ \{\textcolor{stringliteral}{"{}Crear\ persona"{}},\textcolor{stringliteral}{"{}Abrir\ cuenta"{}},\textcolor{stringliteral}{"{}Volver\ al\ menu\ principal"{}}\};}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{opcion\_sub}}\ =\ \ desplegar\_menu(\mbox{\hyperlink{class_tabla_hash}{OPCIONES\_SUB}},\ \mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES\_SUB}},\ 0,\ 1);}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion\_sub}}\ ==\ 1)\{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ingresar\_datos\_usuario(\mbox{\hyperlink{class_tabla_hash}{personas}});}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion\_sub}}\ ==\ 2)\{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ abrir\_cuenta(\mbox{\hyperlink{class_tabla_hash}{personas}},\ \mbox{\hyperlink{class_tabla_hash}{cuentas}},\ \mbox{\hyperlink{class_tabla_hash}{cuentas\_por\_cedula}});}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{false});}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{opcion\_sub}}\ !=\ \mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES\_SUB}});}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion}}\ ==\ 2)}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ ingresar\_datos\_credito();}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion}}\ ==\ 3)}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ consultar\_cuota();}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion}}\ ==\ 4)\{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha}};}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!crear\_backup(\mbox{\hyperlink{class_tabla_hash}{fecha}}))\{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nHubo\ un\ error\ al\ crear\ el\ backup\(\backslash\)n"{}});}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nSe\ creo\ el\ backup\ exitosamente\(\backslash\)n"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion}}\ ==\ 5)}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ elegir\_backup();}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion}}\ ==\ 6)}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ abrir\_menu\_ayuda();}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion}}\ ==\ 7)\{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_imagen}{Imagen}}\ \mbox{\hyperlink{class_tabla_hash}{imagen}}(\textcolor{stringliteral}{"{}Sin\ titulo.bmp"{}});}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{imagen}}.imprimirImagenEnConsola();}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{false});}
+\DoxyCodeLine{00243\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{opcion}}\ !=\ \mbox{\hyperlink{class_tabla_hash}{NUM\_OPCIONES}});}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ mover\_cursor(0,(\mbox{\hyperlink{class_tabla_hash}{opcion}}*3)+1);}
+\DoxyCodeLine{00246\ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keywordtype}{void}\ abrir\_menu\_ayuda()\{}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{nombreArchivo}}\ =\ \textcolor{stringliteral}{"{}Menu\ de\ ayuda\ tabla\ de\ amortizacion.pdf"{}};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ShellExecuteA}}(\textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{}open"{}},\ \mbox{\hyperlink{class_tabla_hash}{nombreArchivo}},\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr},\ \mbox{\hyperlink{class_tabla_hash}{SW\_SHOWNORMAL}});}
+\DoxyCodeLine{00252\ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \textcolor{keywordtype}{void}\ elegir\_backup()\{}
+\DoxyCodeLine{00255\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{cursorx}}\ =\ 0,\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ 0;}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{int}\ anuario;}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{int}\ mes;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{int}\ dia;}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{int}\ hora;}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{int}\ minutos;}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{int}\ segundos;}
+\DoxyCodeLine{00263\ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{true});}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ anuario\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ el\ anuario\ del\ backup\ que\ desea\ restaurar"{}});}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{anuario<1900\ ||\ anuario\ >}}\ 2500)\{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}El\ anuario\ debe\ ser\ mayor\ a\ 1900\ y\ menor\ a\ 2500"{}});}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00279\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{anuario<1900\ ||\ anuario>}}2500);}
+\DoxyCodeLine{00280\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ mes\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ el\ mes\ del\ backup\ que\ desea\ restaurar"{}});}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{mes\ <\ 1\ ||\ mes\ >}}\ 12)\{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}El\ mes\ debe\ estar\ entre\ 1\ y\ 12"{}});}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00295\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{mes<1\ ||\ mes>}}12);}
+\DoxyCodeLine{00296\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{invalido}};}
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ dia\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ el\ dia\ del\ backup\ que\ desea\ restaurar"{}});}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(dia>28)\{}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mes==2)\{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(anuario\%4!=0)\{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{invalido}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{invalido}}\ =\ (dia\ >\ 29);}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (((mes\ <\ 8)\ \&\&\ mes\%2!=0)||(mes\ >=\ 8)\ \&\&\ mes\%2==0)\{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{invalido}}\ =\ (dia\ >\ 31);}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{invalido}}\ =\ (dia\ >\ 30);}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{invalido}})\{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}El\ dia\ ingresado\ es\ invalido\ para\ el\ mes\ y\ anuario\ dados"{}});}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00330\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{invalido}});}
+\DoxyCodeLine{00331\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ hora\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ la\ hora\ del\ backup\ que\ desea\ restaurar"{}});}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{hora\ <\ 0\ ||\ hora\ >}}\ 23)\{}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}La\ hora\ debe\ estar\ entre\ 0\ y\ 23"{}});}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00346\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{hora\ <\ 0\ ||\ hora\ >}}\ 23);}
+\DoxyCodeLine{00347\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ minutos\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ los\ minutos\ del\ backup\ que\ desea\ restaurar"{}});}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{minutos\ <\ 0\ ||\ minutos\ >}}\ 59)\{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}Los\ minutos\ debe\ estar\ entre\ 0\ y\ 59"{}});}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{minutos\ <\ 0\ ||\ minutos\ >}}\ 59);}
+\DoxyCodeLine{00363\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ segundos\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ los\ segundos\ del\ backup\ que\ desea\ restaurar"{}});}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{segundos\ <\ 0\ ||\ segundos\ >}}\ 59)\{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}Los\ segundos\ debe\ estar\ entre\ 0\ y\ 59"{}});}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00378\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{segundos\ <\ 0\ ||\ segundos\ >}}\ 59);}
+\DoxyCodeLine{00379\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha\_backup}}(anuario,\ mes,\ dia,\ hora,\ minutos,\ segundos);}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \ \ \textcolor{keywordflow}{if}(!restaurar\_backup(\mbox{\hyperlink{class_tabla_hash}{fecha\_backup}}.to\_string\_documento()+\textcolor{stringliteral}{"{}.csv"{}}))\{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nNo\ se\ pudo\ restaurar\ el\ backup\ descrito,\ asegurese\ de\ escribir\ correctamente\ la\ informacion"{}});}
+\DoxyCodeLine{00385\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}Se\ restauro\ exitosamente\ el\ backup\ descrito\(\backslash\)n"{}});}
+\DoxyCodeLine{00388\ \ \ \ \ \}}
+\DoxyCodeLine{00389\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00390\ \}}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \textcolor{keywordtype}{void}\ abrir\_cuenta(\mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ \mbox{\hyperlink{class_tabla_hash}{personas}},\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas}},\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas\_por\_cedula}})\{}
+\DoxyCodeLine{00393\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ cedula;}
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{cedula\_existente}},\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_existente}};}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{keywordtype}{short}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{opcion}};}
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{opcion\_volver}};}
+\DoxyCodeLine{00397\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_tabla_hash}{MONTO\_MINIMO}}\ =\ 5.0;}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_tabla_hash}{monto\_inicial}};}
+\DoxyCodeLine{00399\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<Persona*>}}*\ \mbox{\hyperlink{class_tabla_hash}{persona\_nodo}};}
+\DoxyCodeLine{00400\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}};}
+\DoxyCodeLine{00401\ \ \ \ \ \mbox{\hyperlink{class_cuenta}{Cuenta}}*\ cuenta;}
+\DoxyCodeLine{00402\ \ \ \ \ \mbox{\hyperlink{class_persona}{Persona}}*\ persona;}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{opciones}}[2]\ =\{\textcolor{stringliteral}{"{}Si"{}},\ \textcolor{stringliteral}{"{}No"{}}\};}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{volver}}[2]\ =\{\textcolor{stringliteral}{"{}Volver\ al\ menu\ anterior"{}},\ \textcolor{stringliteral}{"{}Probar\ con\ otra\ cedula"{}}\};}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ cedula\ =\ ingresar\_numeros\_cedula(\textcolor{stringliteral}{"{}Ingrese\ el\ No.\ de\ cedula\ de\ la\ persona"{}});}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{personas}}-\/>\mbox{\hyperlink{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e}{buscar\_cedula\_persona}}(cedula);}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cedula\_existente}}\ =\ (\mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_tabla_hash}{cedula\_existente}})\{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nNo\ se\ ha\ ingresado\ la\ persona\ desea\ ingresarla\ ahora\ mismo?\(\backslash\)n"{}});}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{opcion}}\ =\ desplegar\_menu\_movible(\mbox{\hyperlink{class_tabla_hash}{opciones}},2,0,6);}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{opcion}}==1)\{}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}<<cedula<<\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::endl}};}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ nombre\ =\ ingresar\_string(\textcolor{stringliteral}{"{}Ingrese\ el\ nombre\ de\ la\ persona"{}});}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ apellido\ =\ ingresar\_string(\textcolor{stringliteral}{"{}Ingrese\ el\ apellido\ de\ la\ persona"{}});}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ persona\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_persona}{Persona}}(nombre,apellido,cedula);}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!guardar\_persona(*persona))\{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nNo\ se\ ha\ podido\ guardar\ la\ informacion\ de\ la\ persona\ en\ el\ archivo\(\backslash\)n"{}});}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{personas}}-\/>\mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}}(persona,\ cedula);}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cuentas\_por\_cedula}}-\/>\mbox{\hyperlink{class_tabla_hash_a0ad4d8bda24515512a285a58a0ec4812}{buscar\_cedula\_cuenta}}(cedula);}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cuenta\_existente}}\ =\ cuenta!=\textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{cuenta\_existente}})\{}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuenta\ =\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}-\/>get\_valor();}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nLa\ persona\ con\ la\ cedula\ ingresada\ ya\ tiene\ una\ cuenta\(\backslash\)n"{}});}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cuenta-\/>\mbox{\hyperlink{class_cuenta_ac34b48b89fa12478a1c71191f876d956}{imprimir}}();}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{opcion\_volver}}\ =\ desplegar\_menu(\mbox{\hyperlink{class_tabla_hash}{volver}},2,0,1);}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{opcion\_volver<1\ ||\ opcion\_volver>}}2);}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{class_tabla_hash}{opcion\_volver}})\ ==\ 1)\{}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ persona\ =\ \mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}-\/>get\_valor();}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \}\textcolor{keywordflow}{while}(!\mbox{\hyperlink{class_tabla_hash}{cedula\_existente}}\ ||\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_existente}});}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_tabla_hash}{cuenta\_existente}})\{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nAbriendo\ cuenta\ para:\ \(\backslash\)n"{}});}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ persona-\/>\mbox{\hyperlink{class_persona_abfe44aa921816aa5523ec84f867ab804}{imprimir}}();}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{monto\_inicial}}\ =\ ingresar\_reales(\textcolor{stringliteral}{"{}\(\backslash\)nIngrese\ el\ monto\ incicial\ que\ va\ a\ depositar\ en\ la\ cuenta"{}});}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{monto\_inicial}}<\mbox{\hyperlink{class_tabla_hash}{MONTO\_MINIMO}})\{}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nEl\ monto\ minimo\ requerido\ para\ abrir\ una\ cuenta\ es\ de\ \%f\ USD\(\backslash\)nIngrese\ de\ nuevo\(\backslash\)n"{}},\ \mbox{\hyperlink{class_tabla_hash}{MONTO\_MINIMO}});}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{monto\_inicial}}<\mbox{\hyperlink{class_tabla_hash}{MONTO\_MINIMO}});}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cliente}{Cliente}}*\ cliente\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_cliente}{Cliente}}(persona);}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ cuenta\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_cuenta}{Cuenta}}(cliente);}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_movimientos}{Movimientos}}*\ movimientos\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_movimientos}{Movimientos}}(cuenta);}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ movimientos-\/>\mbox{\hyperlink{class_movimientos_a47e7b1cd647ed835d8aec7e209f91cd4}{deposito}}(\mbox{\hyperlink{class_tabla_hash}{monto\_inicial}});}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ guardar\_cuenta(*cuenta);}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00480\ \ \ \ \ \}}
+\DoxyCodeLine{00481\ \}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \textcolor{keywordtype}{void}\ ingresar\_datos\_usuario(\mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ \mbox{\hyperlink{class_tabla_hash}{personas}})\{}
+\DoxyCodeLine{00484\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ cedula;}
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{cedula\_existente}};}
+\DoxyCodeLine{00486\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ cedula\ =\ ingresar\_numeros\_cedula(\textcolor{stringliteral}{"{}Ingrese\ el\ No.\ de\ cedula\ de\ la\ persona"{}});}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cedula\_existente}}\ =\ (\mbox{\hyperlink{class_tabla_hash}{personas}}-\/>\mbox{\hyperlink{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e}{buscar\_cedula\_persona}}(cedula)\ !=\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{cedula\_existente}})\mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nCedula\ ya\ existente\(\backslash\)n"{}}),\ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00492\ \ \ \ \ \}\textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{cedula\_existente}});}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ nombre\ =\ ingresar\_string(\textcolor{stringliteral}{"{}Ingrese\ el\ nombre\ de\ la\ persona"{}});}
+\DoxyCodeLine{00495\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00496\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ apellido\ =\ ingresar\_string(\textcolor{stringliteral}{"{}Ingrese\ el\ apellido\ de\ la\ persona"{}});}
+\DoxyCodeLine{00497\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \ \ \ \ \mbox{\hyperlink{class_persona}{Persona}}*\ persona\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_persona}{Persona}}(nombre,apellido,cedula);}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \ \ \ \ \textcolor{keywordflow}{if}(!guardar\_persona(*persona))\{}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}No\ se\ ha\ podido\ guardar\ la\ informacion\ de\ la\ persona\ en\ el\ archivo"{}});}
+\DoxyCodeLine{00503\ \ \ \ \ \}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{personas}}-\/>\mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}}(persona,\ cedula);}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00508\ \}}
+\DoxyCodeLine{00509\ }
+\DoxyCodeLine{00510\ \textcolor{keywordtype}{void}\ ingresar\_datos\_credito()\{}
+\DoxyCodeLine{00511\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00512\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{sacado}};}
+\DoxyCodeLine{00513\ \ \ \ \ \textcolor{keywordtype}{double}\ monto\ =\ 0\ ,\ tasa\_interes\ =\ 0;}
+\DoxyCodeLine{00514\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{cursorx}}\ =\ 0,\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ 0;}
+\DoxyCodeLine{00515\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{ncuotas}}\ =\ 0;}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00517\ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{true});}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{monto<=0\ ||\ monto\ >}}\ 9999999.99)\{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ 0;}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ monto\ =\ ingresar\_reales(\textcolor{stringliteral}{"{}Ingrese\ el\ monto\ del\ credito"{}});}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{monto<=0\ ||\ monto\ >}}\ 99999999.99)\{}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}El\ monto\ debe\ ser\ mayor\ a\ 0\ y\ menor\ a\ 10M"{}});}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00533\ \ \ \ \ \}}
+\DoxyCodeLine{00534\ }
+\DoxyCodeLine{00535\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00536\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{ncuotas<=0\ ||\ ncuotas\ >}}\ 150)\{}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ncuotas}}\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ el\ numero\ de\ cuotas\ a\ pagar\ del\ credito"{}});}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{ncuotas<=0\ ||\ ncuotas\ >}}\ 150)\{}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}El\ numero\ de\ cuotas\ debe\ ser\ mayor\ a\ 0\ y\ menor\ a\ 150"{}});}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00549\ \ \ \ \ \}}
+\DoxyCodeLine{00550\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cursory}}\ +\ 2;}
+\DoxyCodeLine{00551\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{tasa\_interes<=0\ ||\ tasa\_interes>}}99.99)\{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}});}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ tasa\_interes\ =\ ingresar\_reales(\textcolor{stringliteral}{"{}Ingrese\ la\ tasa\ de\ interes\ del\ credito"{}});}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{tasa\_interes<=0\ ||\ tasa\_interes>}}99.99)\{}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}La\ tasa\ de\ interes\ debe\ ser\ mayor\ a\ 0\ y\ menor\ a\ 100\%"{}});}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+3);}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}});}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00564\ \ \ \ \ \}}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \ \ \ \ mover\_cursor(\mbox{\hyperlink{class_tabla_hash}{cursorx}},\ \mbox{\hyperlink{class_tabla_hash}{cursory}}+1);}
+\DoxyCodeLine{00567\ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{false});}
+\DoxyCodeLine{00568\ \ \ \ \ \mbox{\hyperlink{class_credito}{Credito}}\ credito(\mbox{\hyperlink{class_tabla_hash}{ncuotas}},\ monto,\ \mbox{\hyperlink{class_tabla_hash}{sacado}},\ tasa\_interes);}
+\DoxyCodeLine{00569\ \ \ \ \ \mbox{\hyperlink{class_tabla_amortizacion}{TablaAmortizacion}}\ \mbox{\hyperlink{class_tabla_hash}{tabla}}(credito);}
+\DoxyCodeLine{00570\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00571\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{tabla}}.\mbox{\hyperlink{class_tabla_hash_a5f31836e7c1e5907e631b4c66d5df1ed}{imprimir}}();}
+\DoxyCodeLine{00572\ }
+\DoxyCodeLine{00573\ \ \ \ \ \textcolor{keywordflow}{if}(!guardar\_credito(credito))\{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}No\ se\ ha\ podido\ guardar\ la\ informacion\ del\ credito\ en\ el\ archivo"{}});}
+\DoxyCodeLine{00575\ \ \ \ \ \}}
+\DoxyCodeLine{00576\ }
+\DoxyCodeLine{00577\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00578\ \}}
+\DoxyCodeLine{00579\ }
+\DoxyCodeLine{00580\ \textcolor{keywordtype}{void}\ consultar\_cuota()\{}
+\DoxyCodeLine{00581\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}cls"{}});}
+\DoxyCodeLine{00582\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{id\_credito}};}
+\DoxyCodeLine{00583\ \ \ \ \ \mbox{\hyperlink{class_credito}{Credito}}\ \mbox{\hyperlink{class_tabla_hash}{credito\_consult}};}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00585\ \ \ \ \ visibilidad\_cursor(\textcolor{keyword}{true});}
+\DoxyCodeLine{00586\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{id\_credito}}\ =\ ingresar\_enteros(\textcolor{stringliteral}{"{}Ingrese\ el\ numero\ del\ credito"{}});}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \ \ \ \ \textcolor{keywordflow}{if}(existe\_credito(\mbox{\hyperlink{class_tabla_hash}{id\_credito}}))\{}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha\_act}},\ \mbox{\hyperlink{class_tabla_hash}{fecha\_sigpago}};}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{credito\_consult}}\ =\ obtener\_credito(\mbox{\hyperlink{class_tabla_hash}{id\_credito}});}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_amortizacion}{TablaAmortizacion}}\ \mbox{\hyperlink{class_tabla_hash}{tabla}}(\mbox{\hyperlink{class_tabla_hash}{credito\_consult}});}
+\DoxyCodeLine{00593\ }
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<Fecha>}}*\ \mbox{\hyperlink{class_tabla_hash}{fecha\_sig}}\ =\ \mbox{\hyperlink{class_tabla_hash}{tabla}}.get\_fechas\_pago()-\/>get\_cabeza();}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<double>}}*\ \mbox{\hyperlink{class_tabla_hash}{saldo\_pendiente}}\ =\ \mbox{\hyperlink{class_tabla_hash}{tabla}}.get\_saldos\_capital()-\/>get\_cabeza();}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{fecha\_sig}}!=\ \textcolor{keyword}{nullptr}\ \&\&\ (\mbox{\hyperlink{class_tabla_hash}{fecha\_sig}}-\/>get\_valor()\ <\ \mbox{\hyperlink{class_tabla_hash}{fecha\_act}}))\{}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{fecha\_sig}}\ =\ \mbox{\hyperlink{class_tabla_hash}{fecha\_sig}}-\/>get\_siguiente();}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{saldo\_pendiente}}\ =\ \mbox{\hyperlink{class_tabla_hash}{saldo\_pendiente}}-\/>get\_siguiente();}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha\_sig}}\ !=\ \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{fecha\_sigpago}}\ =\ \mbox{\hyperlink{class_tabla_hash}{fecha\_sig}}-\/>get\_valor();}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}<<\textcolor{stringliteral}{"{}\(\backslash\)nSaldo\ pendiente:\ "{}}<<\mbox{\hyperlink{class_tabla_hash}{saldo\_pendiente}}-\/>get\_valor();}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}<<\textcolor{stringliteral}{"{}\(\backslash\)nSiguiente\ fecha\ de\ pago:\ "{}}<<\mbox{\hyperlink{class_tabla_hash}{fecha\_sigpago}}.to\_string();}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}<<\textcolor{stringliteral}{"{}\(\backslash\)nSaldo\ pendiente:\ 0"{}};}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{tabla}}.\mbox{\hyperlink{class_tabla_hash_a5f31836e7c1e5907e631b4c66d5df1ed}{imprimir}}();}
+\DoxyCodeLine{00609\ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)nNo\ existe\ el\ credito\ solicitado\(\backslash\)n"{}});}
+\DoxyCodeLine{00611\ \ \ \ \ \}}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00614\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{system}}(\textcolor{stringliteral}{"{}pause"{}});}
+\DoxyCodeLine{00615\ \}}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00617\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{operator<}}(\mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha1}},\ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha2}})\{}
+\DoxyCodeLine{00618\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{menor}};}
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_anuario()<\mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_anuario())\{}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00621\ \ \ \ \ \}}
+\DoxyCodeLine{00622\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_anuario()\ ==\ \mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_anuario())\{}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_mes()<\mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_mes())\{}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_mes()\ ==\ \mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_mes())\{}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_dia()<\mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_dia())\{}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_dia()\ ==\ \mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_dia())\{}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_dia()<\mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_dia())\{}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_dia()\ ==\ \mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_dia())\{}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_hora()<\mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_hora())\{}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_hora()\ ==\ \mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_hora())\{}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_minutos()<\mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_minutos())\{}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_minutos()\ ==\ \mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_minutos())\{}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_segundos()<\mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_segundos())\{}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{fecha1}}.get\_segundos()\ ==\ \mbox{\hyperlink{class_tabla_hash}{fecha2}}.get\_segundos())\{}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00672\ \ \ \ \ \}}
+\DoxyCodeLine{00673\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{menor}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00675\ \ \ \ \ \}}
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{menor}};}
+\DoxyCodeLine{00678\ \}}
+\DoxyCodeLine{00679\ }
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MENUS\_H\_INCLUDED}}
+
+\end{DoxyCode}

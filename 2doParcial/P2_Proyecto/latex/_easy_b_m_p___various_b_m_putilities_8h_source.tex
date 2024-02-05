@@ -1,0 +1,59 @@
+\doxysection{Easy\+BMP\+\_\+\+Various\+BMPutilities.\+h}
+\hypertarget{_easy_b_m_p___various_b_m_putilities_8h_source}{}\label{_easy_b_m_p___various_b_m_putilities_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ UNIVERSIDAD\ DE\ LAS\ FUERZAS\ ARMADAS\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Estructura\ de\ Datos\ 9686}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Nombres:\ Carrera\ Nahir,\ Drouet\ Stephen}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Fecha\ de\ creacion:\ 07/07/23\ 21:42}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Fecha\ de\ modificacion:\ 18/07/23\ 19:52}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Enunciado:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Registro\ de\ entrada\ y\ salida\ de\ personas\ con\ listas\ circulares\ doblemente}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ enlazadas\ y\ búsqueda\ con\ árboles\ binarios\ +\ Extras}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *******************************************************************************/}\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{\ /*************************************************}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*\ \ EasyBMP\ Cross-\/Platform\ Windows\ Bitmap\ Library\ *\ }}
+\DoxyCodeLine{00015\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{*\ \ Author:\ Paul\ Macklin\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*\ \ \ email:\ macklin01@users.sourceforge.net\ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*\ support:\ http://easybmp.sourceforge.net\ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ file:\ EasyBMP\_VariousBMPutilities.h\ \ \ *\ }}
+\DoxyCodeLine{00021\ \textcolor{comment}{*\ \ \ \ date\ added:\ 03-\/31-\/2006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*\ date\ modified:\ 12-\/01-\/2006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*\ \ \ \ \ \ \ version:\ 1.06\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{*\ \ \ License:\ BSD\ (revised/modified)\ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{*\ Copyright:\ 2005-\/6\ by\ the\ EasyBMP\ Project\ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00027\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*\ description:\ Actual\ source\ file\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*************************************************/}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ \_EasyBMP\_VariousBMPutilities\_h\_}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ \_EasyBMP\_VariousBMPutilities\_h\_}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \mbox{\hyperlink{class_b_m_f_h}{BMFH}}\ GetBMFH(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ szFileNameIn\ );}
+\DoxyCodeLine{00036\ \mbox{\hyperlink{class_b_m_i_h}{BMIH}}\ GetBMIH(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ szFileNameIn\ );}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ DisplayBitmapInfo(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ szFileNameIn\ );}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{int}\ GetBitmapColorDepth(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ szFileNameIn\ );}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ PixelToPixelCopy(\ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ From,\ \textcolor{keywordtype}{int}\ FromX,\ \textcolor{keywordtype}{int}\ FromY,\ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ To,\ \textcolor{keywordtype}{int}\ ToX,\ \textcolor{keywordtype}{int}\ ToY);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ PixelToPixelCopyTransparent(\ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ From,\ \textcolor{keywordtype}{int}\ FromX,\ \textcolor{keywordtype}{int}\ FromY,\ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ To,\ \textcolor{keywordtype}{int}\ ToX,\ \textcolor{keywordtype}{int}\ ToY,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_g_b_apixel}{RGBApixel}}\&\ Transparent\ );}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ RangedPixelToPixelCopy(\ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ From,\ \textcolor{keywordtype}{int}\ FromL\ ,\ \textcolor{keywordtype}{int}\ FromR,\ \textcolor{keywordtype}{int}\ FromB,\ \textcolor{keywordtype}{int}\ FromT,\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ To,\ \textcolor{keywordtype}{int}\ ToX,\ \textcolor{keywordtype}{int}\ ToY\ );}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ RangedPixelToPixelCopyTransparent(\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ From,\ \textcolor{keywordtype}{int}\ FromL\ ,\ \textcolor{keywordtype}{int}\ FromR,\ \textcolor{keywordtype}{int}\ FromB,\ \textcolor{keywordtype}{int}\ FromT,\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ To,\ \textcolor{keywordtype}{int}\ ToX,\ \textcolor{keywordtype}{int}\ ToY\ ,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \mbox{\hyperlink{struct_r_g_b_apixel}{RGBApixel}}\&\ Transparent\ );}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{bool}\ CreateGrayscaleColorTable(\ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ InputImage\ );}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{bool}\ Rescale(\ \mbox{\hyperlink{class_b_m_p}{BMP}}\&\ InputImage\ ,\ \textcolor{keywordtype}{char}\ mode,\ \textcolor{keywordtype}{int}\ NewDimension\ );}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

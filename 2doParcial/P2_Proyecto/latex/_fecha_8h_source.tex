@@ -1,0 +1,58 @@
+\doxysection{Fecha.\+h}
+\hypertarget{_fecha_8h_source}{}\label{_fecha_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ UFA\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Module:\ \ Fecha.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ \ Joan\ Cobeña, Edison\ Verdesoto}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Modified:\ jueves,\ 7\ de\ diciembre\ de\ 2023\ 01:11:27\ p.\ m.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Purpose:\ Declaracion\ de\ clase\ Fecha}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ FECHA\_H\_INCLUDED}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ FECHA\_H\_INCLUDED}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Nodo.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iomanip>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_fecha}{Fecha}}\{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha_a5fbc6564d9c48e73cf8d27568a2a7fc5}{Fecha}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha_a5fbc6564d9c48e73cf8d27568a2a7fc5}{Fecha}}(\textcolor{keywordtype}{int}\ \_anuario,\ \textcolor{keywordtype}{int}\ \_mes,\ \textcolor{keywordtype}{int}\ \_dia);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha_a5fbc6564d9c48e73cf8d27568a2a7fc5}{Fecha}}(\textcolor{keywordtype}{int}\ \_anuario,\ \textcolor{keywordtype}{int}\ \_mes,\ \textcolor{keywordtype}{int}\ \_dia,\ \textcolor{keywordtype}{int}\ \_hora,\ \textcolor{keywordtype}{int}\ \_minutos,\ \textcolor{keywordtype}{int}\ \_segundos);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a1fcac7daf71e0b526991d62c7f70c749}{get\_anuario}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_acb357aa49589e8c933472314852cfcba}{set\_anuario}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a0643fda77eaeb348ef34a8f0ceeb67d6}{get\_mes}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a4d3d0604720f4987202b1c7cf8216251}{set\_mes}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_ae104c9a25fcb9035e7f6d92351c26f2d}{get\_dia}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a6db6be07d9b3c61aaf256dbdb90bc33c}{set\_dia}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_ad9c6f2de7b43259636d849a3437000c4}{get\_hora}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a8a158da547531ec64db8a6808c2a7d52}{set\_hora}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_aae4d0d90ba6aa92f9fe35cb69390cd2b}{get\_minutos}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_aea8ffd2b8030f2f0866b11b4ab14c4ed}{set\_minutos}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_fecha_a98d22c59b0ab8cf7cc606be1f585751a}{get\_segundos}}();}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a385d4ff96498c46e161319b8eb60e0d0}{set\_segundos}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a67a24a475cc04a67b80fce6cec58b862}{es\_dia\_habil}}();}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_a3108c588bdc0fe838ba494e6ff49a799}{es\_feriado}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_fecha_ac7c76e335c84f2f9c57352a0ff0d9bd2}{es\_finde}}();}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_fecha_aab8ef285b2f36f3cea081fe45ddeade2}{to\_string}}();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{class_fecha_a51a68a3efa9f88c77dce0fc50739ac44}{to\_string\_documento}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_ae69b753790145721bc8011f45261d3e3}{string\_to\_fecha}}(std::string\ \mbox{\hyperlink{class_fecha_a51a68a3efa9f88c77dce0fc50739ac44}{to\_string\_documento}});}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_fecha_a8f8ab8ea0d425da5341581c88db5a4fa}{imprimir}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dia;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ mes;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ anuario;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ hora;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ minutos;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ segundos;}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FECHA\_H\_INCLUDED}}
+
+\end{DoxyCode}

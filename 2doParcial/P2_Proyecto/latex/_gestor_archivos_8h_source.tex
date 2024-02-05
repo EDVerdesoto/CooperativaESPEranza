@@ -1,0 +1,375 @@
+\doxysection{Gestor\+Archivos.\+h}
+\hypertarget{_gestor_archivos_8h_source}{}\label{_gestor_archivos_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GESTORARCHIVOS\_H\_INCLUDED}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GESTORARCHIVOS\_H\_INCLUDED}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Credito.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Fecha.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Persona.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}TablaHash.cpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <direct.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{int}\ contar\_lineas(\textcolor{keyword}{const}\ std::string\&\ nombre\_archivo);}
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{bool}\ esta\_vacio(\textcolor{keyword}{const}\ std::string\&\ nombre\_archivo);}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{bool}\ crear\_backup(\mbox{\hyperlink{class_fecha}{Fecha}}\ fecha);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{bool}\ existe\_credito(\textcolor{keywordtype}{int}\ num\_credito)\{}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ nombre\_original\ =\ \textcolor{stringliteral}{"{}Creditos.csv"{}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}(num\_credito>=contar\_lineas(nombre\_original))\{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \mbox{\hyperlink{class_credito}{Credito}}\ obtener\_credito(\textcolor{keywordtype}{int}\ num\_credito)\{}
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ nombre\_original\ =\ \textcolor{stringliteral}{"{}Creditos.csv"{}};}
+\DoxyCodeLine{00032\ \ \ \ \ std::ifstream\ archivo\_original(nombre\_original);}
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ linea;}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{int}\ contador\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{while}\ (std::getline(archivo\_original,\ linea)\&\&(contador<num\_credito))\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ contador++;}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \ \ \ \ std::istringstream\ ss(linea);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ snum;}
+\DoxyCodeLine{00041\ \ \ \ \ std::string\ smonto;}
+\DoxyCodeLine{00042\ \ \ \ \ std::string\ sncuotas;}
+\DoxyCodeLine{00043\ \ \ \ \ std::string\ stasa;}
+\DoxyCodeLine{00044\ \ \ \ \ std::string\ sfecha;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ std::getline(ss,\ snum,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00047\ \ \ \ \ std::getline(ss,\ smonto,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00048\ \ \ \ \ std::getline(ss,\ sncuotas,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00049\ \ \ \ \ std::getline(ss,\ stasa,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00050\ \ \ \ \ std::getline(ss,\ sfecha,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ fecha\_obt;}
+\DoxyCodeLine{00053\ \ \ \ \ fecha\_obt.\mbox{\hyperlink{class_fecha_ae69b753790145721bc8011f45261d3e3}{string\_to\_fecha}}(sfecha);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_credito}{Credito}}(std::stoi(sncuotas),\ std::stof(smonto),\ fecha\_obt,\ std::stof(stasa));}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{bool}\ guardar\_credito(\mbox{\hyperlink{class_credito}{Credito}}\ credito)\{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_credito;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ std::string\ nombre\_original\ =\ \textcolor{stringliteral}{"{}Creditos.csv"{}};}
+\DoxyCodeLine{00062\ \ \ \ \ std::ofstream\ archivo\_original(nombre\_original,\ std::ios::app);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}(!archivo\_original)\{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(esta\_vacio(nombre\_original))\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ archivo\_original<<\textcolor{stringliteral}{"{}ID,Monto,No.\ Cuotas,Tasa\ Interes,Fecha\ obtenido\(\backslash\)n"{}};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ num\_credito\ =\ contar\_lineas(nombre\_original)+1;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ num\_credito\ =\ contar\_lineas(nombre\_original);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ archivo\_original<<num\_credito<<\textcolor{stringliteral}{"{},"{}}<<credito.\mbox{\hyperlink{class_credito_a085d3465f0c7e6f04e0f7e5ad4f230ef}{get\_monto}}()<<\textcolor{stringliteral}{"{},"{}}<<credito.\mbox{\hyperlink{class_credito_a0e57d3e52cab466ce7edff81585c825d}{get\_n\_cuotas\_pagar}}()<<\textcolor{stringliteral}{"{},"{}}<<credito.\mbox{\hyperlink{class_credito_aa568611fc57e8ddfa697dccbab6b15e6}{get\_tasa\_interes}}()<<\textcolor{stringliteral}{"{},"{}}<<credito.\mbox{\hyperlink{class_credito_a7519fed88b900d306d81c8b01722d362}{get\_fecha\_realizado}}().\mbox{\hyperlink{class_fecha_aab8ef285b2f36f3cea081fe45ddeade2}{to\_string}}()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ archivo\_original.close();}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ fecha;}
+\DoxyCodeLine{00080\ \ \ \ \ crear\_backup(fecha);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ cargar\_personas\_al\_hash(\textcolor{keywordtype}{int}\ tam)\{}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ personas\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}(tam);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta}};}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}};}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}\ =\ \textcolor{stringliteral}{"{}Informacion"{}};}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tmp}}[256];}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str())\ !=\ 0)\{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{personas}};}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombre\_original}}\ =\ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ +\ \textcolor{stringliteral}{"{}//"{}}\ +\ \textcolor{stringliteral}{"{}Personas.csv"{}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ifstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}});}
+\DoxyCodeLine{00105\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{linea}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{class_persona}{Persona}}*\ persona;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{//obtener\ primera\ linea}}
+\DoxyCodeLine{00111\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{archivo\_original}},\ \mbox{\hyperlink{class_tabla_hash}{linea}});}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{archivo\_original}},\ \mbox{\hyperlink{class_tabla_hash}{linea}}))\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::istringstream}}\ \mbox{\hyperlink{class_tabla_hash}{ss}}(\mbox{\hyperlink{class_tabla_hash}{linea}});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ cedula;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ nombre;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ apellido;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ cedula,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ nombre,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ apellido,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ persona\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_persona}{Persona}}(nombre,apellido,cedula);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{personas}}-\/>\mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}}(persona,\ cedula);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}.close();}
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}.c\_str());}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{personas}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ cargar\_cuentas\_al\_hash(\textcolor{keywordtype}{int}\ tam,\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Persona*>}}*\ \mbox{\hyperlink{class_tabla_hash}{personas}},\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas\_cedulas}})\{}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuentas}}\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tabla_hash}{TablaHash<Cuenta*>}}(tam);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta}};}
+\DoxyCodeLine{00142\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}};}
+\DoxyCodeLine{00143\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}\ =\ \textcolor{stringliteral}{"{}Informacion"{}};}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tmp}}[256];}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str())\ !=\ 0)\{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{cuentas}};}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombre\_original}}\ =\ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ +\ \textcolor{stringliteral}{"{}//"{}}\ +\ \textcolor{stringliteral}{"{}Cuentas.csv"{}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ifstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}});}
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{linea}};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{class_persona}{Persona}}*\ persona;}
+\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{class_cliente}{Cliente}}*\ cliente;}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{class_cuenta}{Cuenta}}*\ cuenta;}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{int}\ num\_cuenta;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{comment}{//obtener\ primera\ linea}}
+\DoxyCodeLine{00167\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{archivo\_original}},\ \mbox{\hyperlink{class_tabla_hash}{linea}});}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{archivo\_original}},\ \mbox{\hyperlink{class_tabla_hash}{linea}}))\{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::istringstream}}\ \mbox{\hyperlink{class_tabla_hash}{ss}}(\mbox{\hyperlink{class_tabla_hash}{linea}});}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{snocuenta}};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ssaldo}};}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{id}};}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ cedula;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ nombre;}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ apellido;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ \mbox{\hyperlink{class_tabla_hash}{snocuenta}},\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ \mbox{\hyperlink{class_tabla_hash}{ssaldo}},\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ \textcolor{keywordtype}{id},\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ cedula,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ nombre,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(\mbox{\hyperlink{class_tabla_hash}{ss}},\ apellido,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ persona\ =\ \mbox{\hyperlink{class_tabla_hash}{personas}}-\/>\mbox{\hyperlink{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e}{buscar\_cedula\_persona}}(cedula)-\/>get\_valor();}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ cliente\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_cliente}{Cliente}}(persona,\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ num\_cuenta\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::stoi}}(\mbox{\hyperlink{class_tabla_hash}{snocuenta}});}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ cuenta\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_cuenta}{Cuenta}}(cliente,\ num\_cuenta,\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::stof}}(\mbox{\hyperlink{class_tabla_hash}{ssaldo}}));}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cuentas}}-\/>\mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}}(cuenta,\ num\_cuenta);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cuentas\_cedulas}}-\/>\mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}}(cuenta,\ cedula);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}.close();}
+\DoxyCodeLine{00197\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}.c\_str());}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{cuentas}};}
+\DoxyCodeLine{00200\ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{bool}\ guardar\_persona(\mbox{\hyperlink{class_persona}{Persona}}\ persona)\{}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta}};}
+\DoxyCodeLine{00205\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}};}
+\DoxyCodeLine{00206\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}\ =\ \textcolor{stringliteral}{"{}Informacion"{}};}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tmp}}[256];}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{\_mkdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str())\ !=\ 0)\ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str())\ !=\ 0)\{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str());}
+\DoxyCodeLine{00219\ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00222\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombre\_original}}\ =\ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ +\ \textcolor{stringliteral}{"{}//"{}}\ +\ \textcolor{stringliteral}{"{}Personas.csv"{}};}
+\DoxyCodeLine{00225\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ofstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}},\ std::ios::app);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_tabla_hash}{archivo\_original}})\{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00229\ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(esta\_vacio(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}}))\{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}<<\textcolor{stringliteral}{"{}Cedula,Nombre,Apellido\(\backslash\)n"{}};}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}<<persona.\mbox{\hyperlink{class_persona_ae3fd3ec90ffef7ba0fbc3f21e341f87d}{get\_cedula}}()<<\textcolor{stringliteral}{"{},"{}}<<persona.\mbox{\hyperlink{class_persona_a0a1d3b147418db80c0930d3420ca0998}{get\_nombre}}()<<\textcolor{stringliteral}{"{},"{}}<<persona.\mbox{\hyperlink{class_persona_a8f62a6ee3197d411a3ee7aa4dfd61050}{get\_apellido}}()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}.close();}
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}.c\_str());}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \textcolor{keywordtype}{bool}\ guardar\_cuenta(\mbox{\hyperlink{class_cuenta}{Cuenta}}\ cuenta)\{}
+\DoxyCodeLine{00247\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta}};}
+\DoxyCodeLine{00248\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}};}
+\DoxyCodeLine{00249\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}\ =\ \textcolor{stringliteral}{"{}Informacion"{}};}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tmp}}[256];}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00253\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{\_mkdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str())\ !=\ 0)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str())\ !=\ 0)\{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{nombreCarpeta}}.c\_str());}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{getcwd}}(\mbox{\hyperlink{class_tabla_hash}{tmp}},\ 256);}
+\DoxyCodeLine{00265\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{tmp}});}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombre\_original}}\ =\ \mbox{\hyperlink{class_tabla_hash}{ruta}}\ +\ \textcolor{stringliteral}{"{}//"{}}\ +\ \textcolor{stringliteral}{"{}Cuentas.csv"{}};}
+\DoxyCodeLine{00268\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ofstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}},\ std::ios::app);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_tabla_hash}{archivo\_original}})\{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00272\ \ \ \ \ \}}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(esta\_vacio(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}}))\{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}<<\textcolor{stringliteral}{"{}No.\ de\ Cuenta,Saldo,ID,Cedula,Nombre,Apellido\(\backslash\)n"{}};}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}<<cuenta.\mbox{\hyperlink{class_cuenta_ab66838bc7e8b22ac67d2095c0f79a010}{get\_num\_cuenta}}()<<\textcolor{stringliteral}{"{},"{}}<<cuenta.\mbox{\hyperlink{class_cuenta_a4448ce288a95d6af03ae78c015059d57}{get\_saldo}}()<<\textcolor{stringliteral}{"{},"{}}}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ <<cuenta.\mbox{\hyperlink{class_cuenta_ab363c8fd3431d859f62c228b2dbf1c3d}{get\_cliente}}()-\/>\mbox{\hyperlink{class_cliente_ac740155d426072d3115ed2bc6ef759a6}{get\_id}}()<<\textcolor{stringliteral}{"{},"{}}<<cuenta.\mbox{\hyperlink{class_cuenta_ab363c8fd3431d859f62c228b2dbf1c3d}{get\_cliente}}()-\/>\mbox{\hyperlink{class_cliente_ad8e6bebcb5fac3dd1fc1a4b1326ab5cc}{get\_persona}}()-\/>\mbox{\hyperlink{class_persona_ae3fd3ec90ffef7ba0fbc3f21e341f87d}{get\_cedula}}()<<\textcolor{stringliteral}{"{},"{}}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ <<cuenta.\mbox{\hyperlink{class_cuenta_ab363c8fd3431d859f62c228b2dbf1c3d}{get\_cliente}}()-\/>\mbox{\hyperlink{class_cliente_ad8e6bebcb5fac3dd1fc1a4b1326ab5cc}{get\_persona}}()-\/>\mbox{\hyperlink{class_persona_a0a1d3b147418db80c0930d3420ca0998}{get\_nombre}}()<<\textcolor{stringliteral}{"{},"{}}<<cuenta.\mbox{\hyperlink{class_cuenta_ab363c8fd3431d859f62c228b2dbf1c3d}{get\_cliente}}()-\/>\mbox{\hyperlink{class_cliente_ad8e6bebcb5fac3dd1fc1a4b1326ab5cc}{get\_persona}}()-\/>\mbox{\hyperlink{class_persona_a8f62a6ee3197d411a3ee7aa4dfd61050}{get\_apellido}}()<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00281\ \ \ \ \ \}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}.close();}
+\DoxyCodeLine{00284\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{\_chdir}}(\mbox{\hyperlink{class_tabla_hash}{ruta\_inicial}}.c\_str());}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00288\ \}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{keywordtype}{bool}\ crear\_backup(\mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_tabla_hash}{fecha}})\{}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{creado}};}
+\DoxyCodeLine{00292\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombre\_original}}\ =\ \textcolor{stringliteral}{"{}Creditos.csv"{}};}
+\DoxyCodeLine{00293\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombre\_backup}}\ =\ \mbox{\hyperlink{class_tabla_hash}{fecha}}.to\_string\_documento()+\textcolor{stringliteral}{"{}.csv"{}};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ifstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}});}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_tabla_hash}{archivo\_original}})\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{creado}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00299\ \ \ \ \ \}}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ofstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_backup}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_backup}});}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_tabla_hash}{archivo\_backup}})\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{creado}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_backup}}<<\mbox{\hyperlink{class_tabla_hash}{archivo\_original}}.rdbuf();}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{creado}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_backup}}.close();}
+\DoxyCodeLine{00312\ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}.close();}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{creado}};}
+\DoxyCodeLine{00315\ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{keywordtype}{bool}\ restaurar\_backup(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\&\ \mbox{\hyperlink{class_tabla_hash}{nombre\_backup}})\{}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{restaurado}};}
+\DoxyCodeLine{00319\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{nombre\_original}}\ =\ \textcolor{stringliteral}{"{}Creditos.csv"{}};}
+\DoxyCodeLine{00320\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ifstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_backup}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_backup}});}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_tabla_hash}{archivo\_backup}})\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{restaurado}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ofstream}}\ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}(\mbox{\hyperlink{class_tabla_hash}{nombre\_original}});}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_tabla_hash}{archivo\_original}})\ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{restaurado}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}<<\mbox{\hyperlink{class_tabla_hash}{archivo\_backup}}.rdbuf();}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{restaurado}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_original}}.close();}
+\DoxyCodeLine{00337\ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{archivo\_backup}}.close();}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{restaurado}};}
+\DoxyCodeLine{00340\ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{keywordtype}{bool}\ esta\_vacio(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\&\ \mbox{\hyperlink{class_tabla_hash}{nombre\_archivo}})\ \{}
+\DoxyCodeLine{00343\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ifstream}}\ archivo(\mbox{\hyperlink{class_tabla_hash}{nombre\_archivo}});}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordflow}{if}\ (archivo.is\_open()\ \&\&\ archivo.peek()\ ==\ std::ifstream::traits\_type::eof())\{}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00347\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00349\ \ \ \ \ \}}
+\DoxyCodeLine{00350\ \}}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{keywordtype}{int}\ contar\_lineas(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\&\ \mbox{\hyperlink{class_tabla_hash}{nombre\_archivo}})\ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{contador}}\ =\ 0;}
+\DoxyCodeLine{00354\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::ifstream}}\ archivo(\mbox{\hyperlink{class_tabla_hash}{nombre\_archivo}});}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{if}\ (!archivo.is\_open())\ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{contador}}\ =\ -\/1;}
+\DoxyCodeLine{00358\ \ \ \ \ \}}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{linea}};}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::getline}}(archivo,\ \mbox{\hyperlink{class_tabla_hash}{linea}}))\ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{contador}}++;}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00364\ \ \ \ \ \}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ archivo.close();}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{contador}};}
+\DoxyCodeLine{00368\ \}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GESTORARCHIVOS\_H\_INCLUDED}}
+
+\end{DoxyCode}

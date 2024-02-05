@@ -1,0 +1,205 @@
+\doxysection{Tabla\+Hash\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_tabla_hash}{}\label{class_tabla_hash}\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{Tabla\+Hash}} (\mbox{\hyperlink{class_tabla_hash}{int}})
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_tabla_hash}{Tabla\+Hash}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}} (\mbox{\hyperlink{class_tabla_hash}{T}}, \mbox{\hyperlink{class_tabla_hash}{int}})
+\begin{DoxyCompactList}\small\item\em Inserta datos en la tabla hash usando un valor de hash precalculado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash_aaf71f31119fe8a91ec734a3a6de27808}{insertar}} (\mbox{\hyperlink{class_tabla_hash}{T}} \mbox{\hyperlink{class_tabla_hash}{dato}}, \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}} \mbox{\hyperlink{class_tabla_hash}{hashear\+\_\+cadena}})
+\begin{DoxyCompactList}\small\item\em Inserta datos en la tabla hash usando un valor de hash precalculado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{buscar}} (\mbox{\hyperlink{class_tabla_hash}{T}}, \mbox{\hyperlink{class_tabla_hash}{int}})
+\begin{DoxyCompactList}\small\item\em Busca un dato en la tabla hash utilizando un valor de hash precalculado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e}{buscar\+\_\+cedula\+\_\+persona}} (\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}} \mbox{\hyperlink{class_tabla_hash}{hashear\+\_\+cadena}})
+\begin{DoxyCompactList}\small\item\em Busca una persona en la tabla hash utilizando su cédula como valor de hash. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tabla_hash_a0ad4d8bda24515512a285a58a0ec4812}{buscar\+\_\+cedula\+\_\+cuenta}} (\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}} \mbox{\hyperlink{class_tabla_hash}{hashear\+\_\+cadena}})
+\begin{DoxyCompactList}\small\item\em Busca una cuenta en la tabla hash utilizando la cédula del cliente como valor de hash. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tabla_hash_abd3298a28ede85dd81066eec4a1bfd50}{buscar}} (\mbox{\hyperlink{class_tabla_hash}{int}} \mbox{\hyperlink{class_tabla_hash}{hashear}}, \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}} tipo)
+\begin{DoxyCompactList}\small\item\em Busca un dato en la tabla hash utilizando un valor de hash precalculado y un tipo específico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{bool}} \mbox{\hyperlink{class_tabla_hash_a5e55a3200c40162fd148b4f2986a9b04}{buscar}} (\mbox{\hyperlink{class_tabla_hash}{int}})
+\begin{DoxyCompactList}\small\item\em Busca un valor de hash en la tabla hash. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash_a03d42442ff6533df51911f6edf185220}{eliminar}} (\mbox{\hyperlink{class_tabla_hash}{T}})
+\begin{DoxyCompactList}\small\item\em Elimina un dato de la tabla hash. \end{DoxyCompactList}\item 
+\Hypertarget{class_tabla_hash_a5f31836e7c1e5907e631b4c66d5df1ed}\label{class_tabla_hash_a5f31836e7c1e5907e631b4c66d5df1ed} 
+\mbox{\hyperlink{class_tabla_hash}{void}} {\bfseries imprimir} ()
+\begin{DoxyCompactList}\small\item\em Imprime la tabla hash. \end{DoxyCompactList}\item 
+\Hypertarget{class_tabla_hash_a99f6630e5b222f174334385b1423edbd}\label{class_tabla_hash_a99f6630e5b222f174334385b1423edbd} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Tabla\+Hash} ()
+\begin{DoxyCompactList}\small\item\em Destructor de la clase \doxylink{class_tabla_hash}{Tabla\+Hash}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}\label{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!TablaHash@{TablaHash}}
+\index{TablaHash@{TablaHash}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TablaHash()}{TablaHash()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\mbox{\hyperlink{class_tabla_hash}{\+::\+Tabla\+Hash}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{t }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \doxylink{class_tabla_hash}{Tabla\+Hash}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Tamaño de la tabla hash. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tabla_hash_abd3298a28ede85dd81066eec4a1bfd50}\label{class_tabla_hash_abd3298a28ede85dd81066eec4a1bfd50} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!buscar@{buscar}}
+\index{buscar@{buscar}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscar()}{buscar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::buscar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{hashear\+\_\+cadena,  }\item[{\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}}}]{tipo }\end{DoxyParamCaption})}
+
+
+
+Busca un dato en la tabla hash utilizando un valor de hash precalculado y un tipo específico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashear\+\_\+cadena} & Valor de hash precalculado como cadena. \\
+\hline
+{\em tipo} & Tipo de dato a buscar ("{}cuenta"{} en este caso). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_nodo}{Nodo} que contiene el dato si se encuentra, nullptr si no se encuentra o el tipo no coincide. 
+\end{DoxyReturn}
+\Hypertarget{class_tabla_hash_a5e55a3200c40162fd148b4f2986a9b04}\label{class_tabla_hash_a5e55a3200c40162fd148b4f2986a9b04} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!buscar@{buscar}}
+\index{buscar@{buscar}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscar()}{buscar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{bool}} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::buscar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{hashear }\end{DoxyParamCaption})}
+
+
+
+Busca un valor de hash en la tabla hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashear} & Valor de hash precalculado como entero. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True si se encuentra, False si no se encuentra. 
+\end{DoxyReturn}
+\Hypertarget{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}\label{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!buscar@{buscar}}
+\index{buscar@{buscar}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscar()}{buscar()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::buscar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{dato,  }\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{hashear }\end{DoxyParamCaption})}
+
+
+
+Busca un dato en la tabla hash utilizando un valor de hash precalculado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dato} & Datos a buscar. \\
+\hline
+{\em hashear} & Valor de hash precalculado como entero. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tabla_hash_a0ad4d8bda24515512a285a58a0ec4812}\label{class_tabla_hash_a0ad4d8bda24515512a285a58a0ec4812} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!buscar\_cedula\_cuenta@{buscar\_cedula\_cuenta}}
+\index{buscar\_cedula\_cuenta@{buscar\_cedula\_cuenta}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscar\_cedula\_cuenta()}{buscar\_cedula\_cuenta()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::buscar\+\_\+cedula\+\_\+cuenta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}}}]{hashear\+\_\+cadena }\end{DoxyParamCaption})}
+
+
+
+Busca una cuenta en la tabla hash utilizando la cédula del cliente como valor de hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashear\+\_\+cadena} & Cédula del cliente como cadena. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_nodo}{Nodo} que contiene la cuenta si se encuentra, nullptr si no se encuentra. 
+\end{DoxyReturn}
+\Hypertarget{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e}\label{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!buscar\_cedula\_persona@{buscar\_cedula\_persona}}
+\index{buscar\_cedula\_persona@{buscar\_cedula\_persona}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscar\_cedula\_persona()}{buscar\_cedula\_persona()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::buscar\+\_\+cedula\+\_\+persona (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}}}]{hashear\+\_\+cadena }\end{DoxyParamCaption})}
+
+
+
+Busca una persona en la tabla hash utilizando su cédula como valor de hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hashear\+\_\+cadena} & Cédula de la persona como cadena. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_nodo}{Nodo} que contiene la persona si se encuentra, nullptr si no se encuentra. 
+\end{DoxyReturn}
+\Hypertarget{class_tabla_hash_a03d42442ff6533df51911f6edf185220}\label{class_tabla_hash_a03d42442ff6533df51911f6edf185220} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!eliminar@{eliminar}}
+\index{eliminar@{eliminar}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eliminar()}{eliminar()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::eliminar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{dato }\end{DoxyParamCaption})}
+
+
+
+Elimina un dato de la tabla hash. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dato} & Dato a eliminar. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tabla_hash_aaf71f31119fe8a91ec734a3a6de27808}\label{class_tabla_hash_aaf71f31119fe8a91ec734a3a6de27808} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!insertar@{insertar}}
+\index{insertar@{insertar}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertar()}{insertar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::insertar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{dato,  }\item[{\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std\+::string}}}]{hashear\+\_\+cadena }\end{DoxyParamCaption})}
+
+
+
+Inserta datos en la tabla hash usando un valor de hash precalculado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dato} & Datos a insertar. \\
+\hline
+{\em hashear\+\_\+cadena} & Valor de hash precalculado como cadena. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_tabla_hash_a972433bef05acd26592db55cd8209b95}\label{class_tabla_hash_a972433bef05acd26592db55cd8209b95} 
+\index{TablaHash$<$ T $>$@{TablaHash$<$ T $>$}!insertar@{insertar}}
+\index{insertar@{insertar}!TablaHash$<$ T $>$@{TablaHash$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertar()}{insertar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_tabla_hash}{Tabla\+Hash}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::insertar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{dato,  }\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{hashear }\end{DoxyParamCaption})}
+
+
+
+Inserta datos en la tabla hash usando un valor de hash precalculado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dato} & Datos a insertar. \\
+\hline
+{\em hashear} & Valor de hash precalculado como entero. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Tabla\+Hash.\+h\item 
+Tabla\+Hash.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\doxysection{Credito.\+h}
+\hypertarget{_credito_8h_source}{}\label{_credito_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ UFA\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Module:\ \ Credito.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ \ Joan\ Cobeña, Edison\ Verdesoto}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Modified:\ jueves,\ 7\ de\ diciembre\ de\ 2023}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Purpose:\ Declaracion\ de\ clase\ Credito}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ CREDITO\_H\_INCLUDED}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ CREDITO\_H\_INCLUDED}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Fecha.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_credito}{Credito}}\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_credito}{Credito}}()\{\};}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_credito}{Credito}}(\textcolor{keywordtype}{int}\ num\_cuotas,\ \textcolor{keywordtype}{double}\ \_monto,\ \mbox{\hyperlink{class_fecha}{Fecha}},\ \textcolor{keywordtype}{double}\ \_tasa\_interes);}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_credito_a0e57d3e52cab466ce7edff81585c825d}{get\_n\_cuotas\_pagar}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_credito_a2e78672afb9e64ef8a3651f7e79d8753}{get\_cuotas\_pagadas}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_credito_a085d3465f0c7e6f04e0f7e5ad4f230ef}{get\_monto}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_credito_a97c595c99a1255e446753349badea18f}{get\_saldo}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_credito_a77746f06b412305807dbaf62cce1c134}{get\_valor\_cuota}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_credito_a1071ce76e9ec56a4e85c94ee79bada91}{set\_n\_cuotas\_pagar}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_credito_a484bc354e654981f1d8a26a15cb83221}{set\_cuotas\_pagadas}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_credito_a74b249670a48a3181817fd301531457d}{set\_monto}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_credito_acbe0558b5f347f538f2d21bca06b5433}{set\_saldo}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_credito_a71d67c94f7c9a4f54c6ae953a94e591a}{set\_valor\_cuota}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_credito_a29cd9f57ba9398bed8f5a652b9912b71}{get\_meses\_gracia}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_credito_a9a460c8bd91be154253994fabbef461d}{get\_intervalo\_pagos\_mes}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ \mbox{\hyperlink{class_credito_a7519fed88b900d306d81c8b01722d362}{get\_fecha\_realizado}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_meses\_gracia(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_intervalo\_pagos\_mes(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_credito_aa568611fc57e8ddfa697dccbab6b15e6}{get\_tasa\_interes}}();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_credito_a4412e8506944ef045a3d7aad64d8a923}{set\_tasa\_interes}}(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_credito_af9f4d7c56f06795e240c5a257bbda1d9}{to\_string}}();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ n\_cuotas\_pagar;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cuotas\_pagadas;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ monto;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tasa\_interes;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ saldo;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ valor\_cuota;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ meses\_gracia;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ intervalo\_pagos\_mes;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fecha}{Fecha}}\ fecha\_realizado;}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CREDITO\_H\_INCLUDED}}
+
+\end{DoxyCode}

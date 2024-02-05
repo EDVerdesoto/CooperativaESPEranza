@@ -1,0 +1,36 @@
+\doxysection{Tabla\+Hash.\+h}
+\hypertarget{_tabla_hash_8h_source}{}\label{_tabla_hash_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TABLAHASH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TABLAHASH\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ListaDoble.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tabla_hash}{TablaHash}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{TablaHash}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}}(\mbox{\hyperlink{class_tabla_hash}{T}},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{insertar}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{dato}},\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}});}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{buscar}}(\mbox{\hyperlink{class_tabla_hash}{T}},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e}{buscar\_cedula\_persona}}(\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}});}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash_a0ad4d8bda24515512a285a58a0ec4812}{buscar\_cedula\_cuenta}}(\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{buscar}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}},\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ tipo);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{buscar}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a03d42442ff6533df51911f6edf185220}{eliminar}}(\mbox{\hyperlink{class_tabla_hash}{T}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a5f31836e7c1e5907e631b4c66d5df1ed}{imprimir}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_a99f6630e5b222f174334385b1423edbd}{\string~TablaHash}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ tam;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<T>}}**\ listas\_indices;}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TABLAHASH\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,246 @@
+\doxysection{Lista\+Doble\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_lista_doble}{}\label{class_lista_doble}\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_lista_doble_abe37b3defb91d7e74afe95fad92c5932}\label{class_lista_doble_abe37b3defb91d7e74afe95fad92c5932} 
+{\bfseries Lista\+Doble} (\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_tabla_hash}{\+\_\+cabeza}})
+\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_doble_a641af425fdd3ff37d91ada5fc60957d5}{get\+\_\+cabeza}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la cabeza de la lista doblemente enlazada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_acc5019dafb2b975b71a706d7385ccb72}{set\+\_\+cabeza}} (\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Establece un nuevo nodo cabeza para la lista doblemente enlazada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_doble_a82e5558105d40207b93d96f4c8419d7b}{get\+\_\+cola}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene la cola de la lista doblemente enlazada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_a69a9f658930833f2811cad9ca9b3e1ef}{set\+\_\+cola}} (\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Establece un nuevo nodo cola para la lista doblemente enlazada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_a5faf4d296d42008d94434868acf5cf80}{insertar\+\_\+entre}} (\mbox{\hyperlink{class_tabla_hash}{T}} \mbox{\hyperlink{class_tabla_hash}{valor\+\_\+busq}}, \mbox{\hyperlink{class_tabla_hash}{T}} valor)
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo nodo con el valor proporcionado después del nodo que contiene el valor de búsqueda. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_a41aad6af4478c425ea2816674cff2d87}{insertar\+\_\+cabeza}} (\mbox{\hyperlink{class_tabla_hash}{T}} valor)
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo nodo al inicio de la lista con el valor proporcionado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_ad4ec32069ce532541924dbaae63b5cb6}{insertar\+\_\+cola}} (\mbox{\hyperlink{class_tabla_hash}{T}} valor)
+\begin{DoxyCompactList}\small\item\em Inserta un nuevo nodo al final de la lista con el valor proporcionado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_a12bb211e0e473ddca8ea436222078037}{buscar}} (\mbox{\hyperlink{class_tabla_hash}{T}})
+\begin{DoxyCompactList}\small\item\em Busca el nodo que contiene el valor proporcionado en la lista e imprime su posición. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_acab82b27e1c808cf09240c40664eeecc}{eliminar}} (\mbox{\hyperlink{class_tabla_hash}{T}} valor)
+\begin{DoxyCompactList}\small\item\em Elimina el nodo que contiene el valor proporcionado de la lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble_aed4cf4a662be6c3bf8dbc409bebf5393}{imprimir}} ()
+\begin{DoxyCompactList}\small\item\em Imprime en la consola los valores almacenados en los nodos de la lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{int}} \mbox{\hyperlink{class_lista_doble_a8ee10b2554e1a8b59fc6071019389207}{tam}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el tamaño (cantidad de nodos) de la lista. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{bool}} \mbox{\hyperlink{class_lista_doble_a3ff2a184d376e045a5a2384b357a9950}{esta\+\_\+vacia}} ()
+\begin{DoxyCompactList}\small\item\em Verifica si la lista está vacía. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_lista_doble_a12bb211e0e473ddca8ea436222078037}\label{class_lista_doble_a12bb211e0e473ddca8ea436222078037} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!buscar@{buscar}}
+\index{buscar@{buscar}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buscar()}{buscar()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::buscar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{valor\+\_\+busq }\end{DoxyParamCaption})}
+
+
+
+Busca el nodo que contiene el valor proporcionado en la lista e imprime su posición. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor\+\_\+busq} & Valor a ser buscado en la lista. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_acab82b27e1c808cf09240c40664eeecc}\label{class_lista_doble_acab82b27e1c808cf09240c40664eeecc} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!eliminar@{eliminar}}
+\index{eliminar@{eliminar}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{eliminar()}{eliminar()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::eliminar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{valor }\end{DoxyParamCaption})}
+
+
+
+Elimina el nodo que contiene el valor proporcionado de la lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & Valor a ser eliminado de la lista. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_a3ff2a184d376e045a5a2384b357a9950}\label{class_lista_doble_a3ff2a184d376e045a5a2384b357a9950} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!esta\_vacia@{esta\_vacia}}
+\index{esta\_vacia@{esta\_vacia}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{esta\_vacia()}{esta\_vacia()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{bool}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::esta\+\_\+vacia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Verifica si la lista está vacía. 
+
+\begin{DoxyReturn}{Returns}
+true si la lista está vacía, false si no lo está. 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_a641af425fdd3ff37d91ada5fc60957d5}\label{class_lista_doble_a641af425fdd3ff37d91ada5fc60957d5} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!get\_cabeza@{get\_cabeza}}
+\index{get\_cabeza@{get\_cabeza}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_cabeza()}{get\_cabeza()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::get\+\_\+cabeza (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene la cabeza de la lista doblemente enlazada. 
+
+\begin{DoxyReturn}{Returns}
+Puntero al nodo cabeza de la lista. 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_a82e5558105d40207b93d96f4c8419d7b}\label{class_lista_doble_a82e5558105d40207b93d96f4c8419d7b} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!get\_cola@{get\_cola}}
+\index{get\_cola@{get\_cola}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_cola()}{get\_cola()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::get\+\_\+cola (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene la cola de la lista doblemente enlazada. 
+
+\begin{DoxyReturn}{Returns}
+Puntero al nodo cola de la lista. 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_aed4cf4a662be6c3bf8dbc409bebf5393}\label{class_lista_doble_aed4cf4a662be6c3bf8dbc409bebf5393} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!imprimir@{imprimir}}
+\index{imprimir@{imprimir}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{imprimir()}{imprimir()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::imprimir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime en la consola los valores almacenados en los nodos de la lista. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_a41aad6af4478c425ea2816674cff2d87}\label{class_lista_doble_a41aad6af4478c425ea2816674cff2d87} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!insertar\_cabeza@{insertar\_cabeza}}
+\index{insertar\_cabeza@{insertar\_cabeza}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertar\_cabeza()}{insertar\_cabeza()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::insertar\+\_\+cabeza (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{valor }\end{DoxyParamCaption})}
+
+
+
+Inserta un nuevo nodo al inicio de la lista con el valor proporcionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & Valor a ser almacenado en el nuevo nodo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_ad4ec32069ce532541924dbaae63b5cb6}\label{class_lista_doble_ad4ec32069ce532541924dbaae63b5cb6} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!insertar\_cola@{insertar\_cola}}
+\index{insertar\_cola@{insertar\_cola}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertar\_cola()}{insertar\_cola()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::insertar\+\_\+cola (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{valor }\end{DoxyParamCaption})}
+
+
+
+Inserta un nuevo nodo al final de la lista con el valor proporcionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor} & Valor a ser almacenado en el nuevo nodo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_a5faf4d296d42008d94434868acf5cf80}\label{class_lista_doble_a5faf4d296d42008d94434868acf5cf80} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!insertar\_entre@{insertar\_entre}}
+\index{insertar\_entre@{insertar\_entre}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertar\_entre()}{insertar\_entre()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::insertar\+\_\+entre (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{valor\+\_\+busq,  }\item[{\mbox{\hyperlink{class_tabla_hash}{T}}}]{valor }\end{DoxyParamCaption})}
+
+
+
+Inserta un nuevo nodo con el valor proporcionado después del nodo que contiene el valor de búsqueda. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor\+\_\+busq} & Valor del nodo después del cual se insertará el nuevo nodo. \\
+\hline
+{\em valor} & Valor a ser almacenado en el nuevo nodo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_acc5019dafb2b975b71a706d7385ccb72}\label{class_lista_doble_acc5019dafb2b975b71a706d7385ccb72} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!set\_cabeza@{set\_cabeza}}
+\index{set\_cabeza@{set\_cabeza}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_cabeza()}{set\_cabeza()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::set\+\_\+cabeza (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{nueva\+\_\+cabeza }\end{DoxyParamCaption})}
+
+
+
+Establece un nuevo nodo cabeza para la lista doblemente enlazada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nueva\+\_\+cabeza} & Puntero al nuevo nodo cabeza. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_a69a9f658930833f2811cad9ca9b3e1ef}\label{class_lista_doble_a69a9f658930833f2811cad9ca9b3e1ef} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!set\_cola@{set\_cola}}
+\index{set\_cola@{set\_cola}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_cola()}{set\_cola()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::set\+\_\+cola (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \texorpdfstring{$\ast$}{*}}]{nueva\+\_\+cola }\end{DoxyParamCaption})}
+
+
+
+Establece un nuevo nodo cola para la lista doblemente enlazada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nueva\+\_\+cola} & Puntero al nuevo nodo cola. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\Hypertarget{class_lista_doble_a8ee10b2554e1a8b59fc6071019389207}\label{class_lista_doble_a8ee10b2554e1a8b59fc6071019389207} 
+\index{ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}!tam@{tam}}
+\index{tam@{tam}!ListaDoble$<$ T $>$@{ListaDoble$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{tam()}{tam()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{class_tabla_hash}{typename}} \mbox{\hyperlink{class_tabla_hash}{T}} $>$ \\
+\mbox{\hyperlink{class_tabla_hash}{int}} \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{T}} $>$\+::tam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el tamaño (cantidad de nodos) de la lista. 
+
+\begin{DoxyReturn}{Returns}
+Tamaño de la lista. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Lista\+Doble.\+h\item 
+Lista\+Doble.\+cpp\end{DoxyCompactItemize}

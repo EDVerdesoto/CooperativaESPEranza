@@ -1,0 +1,119 @@
+\doxysection{Easy\+BMP\+\_\+\+Data\+Structures.\+h}
+\hypertarget{_easy_b_m_p___data_structures_8h_source}{}\label{_easy_b_m_p___data_structures_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ UNIVERSIDAD\ DE\ LAS\ FUERZAS\ ARMADAS\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Estructura\ de\ Datos\ 9686}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Nombres:\ Carrera\ Nahir,\ Drouet\ Stephen}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Fecha\ de\ creacion:\ 07/07/23\ 21:42}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Fecha\ de\ modificacion:\ 18/07/23\ 19:52}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Enunciado:}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Registro\ de\ entrada\ y\ salida\ de\ personas\ con\ listas\ circulares\ doblemente}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ enlazadas\ y\ búsqueda\ con\ árboles\ binarios\ +\ Extras}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *******************************************************************************/}\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{\ /*************************************************}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*\ \ EasyBMP\ Cross-\/Platform\ Windows\ Bitmap\ Library\ *\ }}
+\DoxyCodeLine{00015\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{*\ \ Author:\ Paul\ Macklin\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*\ \ \ email:\ macklin01@users.sourceforge.net\ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{*\ support:\ http://easybmp.sourceforge.net\ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ file:\ EasyBMP\_DataStructures.h\ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00021\ \textcolor{comment}{*\ \ \ \ date\ added:\ 03-\/31-\/2006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*\ date\ modified:\ 12-\/01-\/2006\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*\ \ \ \ \ \ \ version:\ 1.06\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{*\ \ \ License:\ BSD\ (revised/modified)\ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{*\ Copyright:\ 2005-\/6\ by\ the\ EasyBMP\ Project\ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{00027\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*\ description:\ Actual\ source\ file\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *}}
+\DoxyCodeLine{00030\ \textcolor{comment}{*************************************************/}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ \_EasyBMP\_Custom\_Math\_Functions\_}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ \_EasyBMP\_Custom\_Math\_Functions\_}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Square(\ \textcolor{keywordtype}{double}\ number\ )}
+\DoxyCodeLine{00035\ \{\ \textcolor{keywordflow}{return}\ number*number;\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ IntSquare(\ \textcolor{keywordtype}{int}\ number\ )}
+\DoxyCodeLine{00038\ \{\ \textcolor{keywordflow}{return}\ number*number;\ \}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{int}\ IntPow(\ \textcolor{keywordtype}{int}\ base,\ \textcolor{keywordtype}{int}\ exponent\ );}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#ifndef\ \_EasyBMP\_Defined\_WINGDI}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ \_EasyBMP\_Defined\_WINGDI}}
+\DoxyCodeLine{00045\ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \ ebmpBYTE;}
+\DoxyCodeLine{00046\ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ ebmpWORD;}
+\DoxyCodeLine{00047\ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \ ebmpDWORD;}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ \_EasyBMP\_DataStructures\_h\_}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ \_EasyBMP\_DataStructures\_h\_}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ IsBigEndian()}
+\DoxyCodeLine{00054\ \{}
+\DoxyCodeLine{00055\ \ \textcolor{keywordtype}{short}\ word\ =\ 0x0001;}
+\DoxyCodeLine{00056\ \ \textcolor{keywordflow}{if}((*(\textcolor{keywordtype}{char}\ *)\&\ word)\ !=\ 0x01\ )}
+\DoxyCodeLine{00057\ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00058\ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{inline}\ ebmpWORD\ FlipWORD(\ ebmpWORD\ in\ )}
+\DoxyCodeLine{00062\ \{\ \textcolor{keywordflow}{return}\ (\ (in\ >>\ 8)\ |\ (in\ <<\ 8)\ );\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{inline}\ ebmpDWORD\ FlipDWORD(\ ebmpDWORD\ in\ )}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \ \textcolor{keywordflow}{return}\ (\ ((in\&0xFF000000)>>24)\ |\ ((in\&0x000000FF)<<24)\ |\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ ((in\&0x00FF0000)>>8\ )\ |\ ((in\&0x0000FF00)<<8\ )\ \ \ );}
+\DoxyCodeLine{00068\ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{//\ it's\ easier\ to\ use\ a\ struct\ than\ a\ class}}
+\DoxyCodeLine{00071\ \textcolor{comment}{//\ because\ we\ can\ read/write\ all\ four\ of\ the\ bytes\ }}
+\DoxyCodeLine{00072\ \textcolor{comment}{//\ at\ once\ (as\ we\ can\ count\ on\ them\ being\ continuous\ }}
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ in\ memory}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_r_g_b_apixel}{RGBApixel}}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ ebmpBYTE\ Blue;}
+\DoxyCodeLine{00077\ \ \ \ \ ebmpBYTE\ Green;}
+\DoxyCodeLine{00078\ \ \ \ \ ebmpBYTE\ Red;}
+\DoxyCodeLine{00079\ \ \ \ \ ebmpBYTE\ Alpha;}
+\DoxyCodeLine{00080\ \}\ \mbox{\hyperlink{struct_r_g_b_apixel}{RGBApixel}};\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_b_m_f_h}{BMFH}}\{}
+\DoxyCodeLine{00083\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00084\ \ ebmpWORD\ \ bfType;}
+\DoxyCodeLine{00085\ \ ebmpDWORD\ bfSize;}
+\DoxyCodeLine{00086\ \ ebmpWORD\ \ bfReserved1;}
+\DoxyCodeLine{00087\ \ ebmpWORD\ \ bfReserved2;}
+\DoxyCodeLine{00088\ \ ebmpDWORD\ bfOffBits;\ }
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \mbox{\hyperlink{class_b_m_f_h}{BMFH}}();}
+\DoxyCodeLine{00091\ \ \textcolor{keywordtype}{void}\ display(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00092\ \ \textcolor{keywordtype}{void}\ SwitchEndianess(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_b_m_i_h}{BMIH}}\{}
+\DoxyCodeLine{00096\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00097\ \ ebmpDWORD\ biSize;}
+\DoxyCodeLine{00098\ \ ebmpDWORD\ biWidth;}
+\DoxyCodeLine{00099\ \ ebmpDWORD\ biHeight;}
+\DoxyCodeLine{00100\ \ ebmpWORD\ \ biPlanes;}
+\DoxyCodeLine{00101\ \ ebmpWORD\ \ biBitCount;}
+\DoxyCodeLine{00102\ \ ebmpDWORD\ biCompression;}
+\DoxyCodeLine{00103\ \ ebmpDWORD\ biSizeImage;}
+\DoxyCodeLine{00104\ \ ebmpDWORD\ biXPelsPerMeter;}
+\DoxyCodeLine{00105\ \ ebmpDWORD\ biYPelsPerMeter;}
+\DoxyCodeLine{00106\ \ ebmpDWORD\ biClrUsed;}
+\DoxyCodeLine{00107\ \ ebmpDWORD\ biClrImportant;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \mbox{\hyperlink{class_b_m_i_h}{BMIH}}();}
+\DoxyCodeLine{00110\ \ \textcolor{keywordtype}{void}\ display(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00111\ \ \textcolor{keywordtype}{void}\ SwitchEndianess(\ \textcolor{keywordtype}{void}\ );}
+\DoxyCodeLine{00112\ \};}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,123 @@
+\doxysection{Calculos\+Credito Class Reference}
+\hypertarget{class_calculos_credito}{}\label{class_calculos_credito}\index{CalculosCredito@{CalculosCredito}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_calculos_credito_ac4f3b96a6329a00c749a6f8a34ea0911}{Calculos\+Credito}} (\mbox{\hyperlink{class_tabla_hash}{double}})
+\begin{DoxyCompactList}\small\item\em Constructor de \doxylink{class_calculos_credito}{Calculos\+Credito} que inicializa la tasa de interés. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{double}} \mbox{\hyperlink{class_calculos_credito_abf9051206e8ec0d65c0a3bf48c4cd58b}{calcular\+\_\+valor\+\_\+cuotas}} (\mbox{\hyperlink{class_tabla_hash}{int}}, \mbox{\hyperlink{class_tabla_hash}{double}})
+\begin{DoxyCompactList}\small\item\em Calcula el valor de las cuotas mensuales para un préstamo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_calculos_credito_ab79feb884220b75639977550bf27ae5a}{calcular\+\_\+valor\+\_\+intereses}} (\mbox{\hyperlink{class_tabla_hash}{int}}, \mbox{\hyperlink{class_tabla_hash}{double}}, \mbox{\hyperlink{class_tabla_hash}{double}}, \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Calcula el valor de los intereses para cada cuota del préstamo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_calculos_credito_a8b991231b0c1e3e252d16fbcf04022a5}{calcular\+\_\+capitales\+\_\+pagados}} (\mbox{\hyperlink{class_tabla_hash}{double}}, \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Calcula los capitales pagados en cada cuota del préstamo. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{void}} \mbox{\hyperlink{class_calculos_credito_abed0a751980f88c17d4e5fdb7c0db857}{calcular\+\_\+saldos\+\_\+restantes}} (\mbox{\hyperlink{class_tabla_hash}{double}}, \mbox{\hyperlink{class_tabla_hash}{double}}, \mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Calcula los saldos restantes después de cada cuota del préstamo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_calculos_credito_ac4f3b96a6329a00c749a6f8a34ea0911}\label{class_calculos_credito_ac4f3b96a6329a00c749a6f8a34ea0911} 
+\index{CalculosCredito@{CalculosCredito}!CalculosCredito@{CalculosCredito}}
+\index{CalculosCredito@{CalculosCredito}!CalculosCredito@{CalculosCredito}}
+\doxysubsubsection{\texorpdfstring{CalculosCredito()}{CalculosCredito()}}
+{\footnotesize\ttfamily Calculos\+Credito\+::\+Calculos\+Credito (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{\+\_\+tasa\+\_\+interes }\end{DoxyParamCaption})}
+
+
+
+Constructor de \doxylink{class_calculos_credito}{Calculos\+Credito} que inicializa la tasa de interés. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+tasa\+\_\+interes} & Tasa de interés para los cálculos \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_calculos_credito_a8b991231b0c1e3e252d16fbcf04022a5}\label{class_calculos_credito_a8b991231b0c1e3e252d16fbcf04022a5} 
+\index{CalculosCredito@{CalculosCredito}!calcular\_capitales\_pagados@{calcular\_capitales\_pagados}}
+\index{calcular\_capitales\_pagados@{calcular\_capitales\_pagados}!CalculosCredito@{CalculosCredito}}
+\doxysubsubsection{\texorpdfstring{calcular\_capitales\_pagados()}{calcular\_capitales\_pagados()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{void}} Calculos\+Credito\+::calcular\+\_\+capitales\+\_\+pagados (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{valor\+\_\+cuotas,  }\item[{\mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*}}]{capitales,  }\item[{\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*}}]{cabeza\+\_\+intereses }\end{DoxyParamCaption})}
+
+
+
+Calcula los capitales pagados en cada cuota del préstamo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valor\+\_\+cuotas} & Valor de las cuotas mensuales \\
+\hline
+{\em capitales} & Lista donde se almacenan los valores de los capitales pagados \\
+\hline
+{\em cabeza\+\_\+intereses} & Cabeza de la lista de intereses \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_calculos_credito_abed0a751980f88c17d4e5fdb7c0db857}\label{class_calculos_credito_abed0a751980f88c17d4e5fdb7c0db857} 
+\index{CalculosCredito@{CalculosCredito}!calcular\_saldos\_restantes@{calcular\_saldos\_restantes}}
+\index{calcular\_saldos\_restantes@{calcular\_saldos\_restantes}!CalculosCredito@{CalculosCredito}}
+\doxysubsubsection{\texorpdfstring{calcular\_saldos\_restantes()}{calcular\_saldos\_restantes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{void}} Calculos\+Credito\+::calcular\+\_\+saldos\+\_\+restantes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{monto,  }\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{valor\+\_\+cuotas,  }\item[{\mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*}}]{saldos,  }\item[{\mbox{\hyperlink{class_nodo}{Nodo}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*}}]{cabeza\+\_\+capitales }\end{DoxyParamCaption})}
+
+
+
+Calcula los saldos restantes después de cada cuota del préstamo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em monto} & Monto del préstamo \\
+\hline
+{\em valor\+\_\+cuotas} & Valor de las cuotas mensuales \\
+\hline
+{\em saldos} & Lista donde se almacenan los valores de los saldos restantes \\
+\hline
+{\em cabeza\+\_\+capitales} & Cabeza de la lista de capitales pagados \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_calculos_credito_abf9051206e8ec0d65c0a3bf48c4cd58b}\label{class_calculos_credito_abf9051206e8ec0d65c0a3bf48c4cd58b} 
+\index{CalculosCredito@{CalculosCredito}!calcular\_valor\_cuotas@{calcular\_valor\_cuotas}}
+\index{calcular\_valor\_cuotas@{calcular\_valor\_cuotas}!CalculosCredito@{CalculosCredito}}
+\doxysubsubsection{\texorpdfstring{calcular\_valor\_cuotas()}{calcular\_valor\_cuotas()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{double}} Calculos\+Credito\+::calcular\+\_\+valor\+\_\+cuotas (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{num\+\_\+cuotas,  }\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{monto }\end{DoxyParamCaption})}
+
+
+
+Calcula el valor de las cuotas mensuales para un préstamo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+cuotas} & Número total de cuotas a pagar \\
+\hline
+{\em monto} & Monto del préstamo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor de las cuotas mensuales 
+\end{DoxyReturn}
+\Hypertarget{class_calculos_credito_ab79feb884220b75639977550bf27ae5a}\label{class_calculos_credito_ab79feb884220b75639977550bf27ae5a} 
+\index{CalculosCredito@{CalculosCredito}!calcular\_valor\_intereses@{calcular\_valor\_intereses}}
+\index{calcular\_valor\_intereses@{calcular\_valor\_intereses}!CalculosCredito@{CalculosCredito}}
+\doxysubsubsection{\texorpdfstring{calcular\_valor\_intereses()}{calcular\_valor\_intereses()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{void}} Calculos\+Credito\+::calcular\+\_\+valor\+\_\+intereses (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{int}}}]{num\+\_\+cuotas,  }\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{monto,  }\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{valor\+\_\+cuotas,  }\item[{\mbox{\hyperlink{class_lista_doble}{Lista\+Doble}}$<$ \mbox{\hyperlink{class_tabla_hash}{double}} $>$ \texorpdfstring{$\ast$}{*}}]{intereses }\end{DoxyParamCaption})}
+
+
+
+Calcula el valor de los intereses para cada cuota del préstamo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+cuotas} & Número total de cuotas a pagar \\
+\hline
+{\em monto} & Monto del préstamo \\
+\hline
+{\em valor\+\_\+cuotas} & Valor de las cuotas mensuales \\
+\hline
+{\em intereses} & Lista donde se almacenan los valores de los intereses \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Calculos\+Credito.\+h\item 
+Calculos\+Credito.\+cpp\end{DoxyCompactItemize}

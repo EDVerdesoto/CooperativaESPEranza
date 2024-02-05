@@ -1,0 +1,76 @@
+\doxysection{Nodo.\+cpp}
+\hypertarget{_nodo_8cpp_source}{}\label{_nodo_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ UFA\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Module:\ \ Nodo.cpp}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ \ Joan\ Cobeña, Edison\ Verdesoto}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Modified:\ jueves,\ 7\ de\ diciembre\ de\ 2023\ 01:11:27\ p.\ m.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Purpose:\ Implementation\ of\ the\ class\ Nodo}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Nodo.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00018\ \mbox{\hyperlink{class_nodo_aeefb2e4bd278e870e791d40c98bedd4c}{Nodo<T>::Nodo}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{\_valor}},\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{\_siguiente}},\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{\_anterior}})}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ valor\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{\_valor}};}
+\DoxyCodeLine{00021\ \ \ \ \ siguiente\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{\_siguiente}};}
+\DoxyCodeLine{00022\ \ \ \ \ anterior\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{\_anterior}};}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00031\ \mbox{\hyperlink{class_nodo_aeefb2e4bd278e870e791d40c98bedd4c}{Nodo<T>::Nodo}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{\_valor}},\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{\_siguiente}})}
+\DoxyCodeLine{00032\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ valor\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{\_valor}};}
+\DoxyCodeLine{00034\ \ \ \ \ siguiente\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{\_siguiente}};}
+\DoxyCodeLine{00035\ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{class_nodo_aeefb2e4bd278e870e791d40c98bedd4c}{Nodo<T>::Nodo}}()}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00049\ \mbox{\hyperlink{class_nodo_af6c6a081aa52d669565c2ba19a4dd49b}{Nodo<T>::\string~Nodo}}()}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \textcolor{comment}{//\ TODO\ :\ implement}}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00059\ \mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_nodo_a79c70f2219aacf15bc84090e33bc0124}{Nodo<T>::get\_valor}}()}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \textcolor{keywordflow}{return}\ valor;}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_afc7e69b77afd82fc10bda6e2a905a004}{Nodo<T>::set\_valor}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{new\_valor}})}
+\DoxyCodeLine{00070\ \{}
+\DoxyCodeLine{00071\ \ \ \ valor\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{new\_valor}};}
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00079\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_nodo_a0b609ab697169fc75342a5dfe135d16b}{Nodo<T>::get\_siguiente}}()}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \ \ \ \textcolor{keywordflow}{return}\ siguiente;}
+\DoxyCodeLine{00082\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a960254ec667abfac53ecd70bedaf7921}{Nodo<T>::set\_siguiente}}(\mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{new\_siguiente}})}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ \ siguiente\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{new\_siguiente}};}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00099\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_nodo_a1ca015eef1df475453534d1a2918e929}{Nodo<T>::get\_anterior}}()}
+\DoxyCodeLine{00100\ \{}
+\DoxyCodeLine{00101\ \ \ \ \textcolor{keywordflow}{return}\ anterior;}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_nodo_a539e1174295839f128b58320457d4fdd}{Nodo<T>::set\_anterior}}(\mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{new\_anterior}})}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \ anterior\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{new\_anterior}};}
+\DoxyCodeLine{00112\ \}}
+
+\end{DoxyCode}

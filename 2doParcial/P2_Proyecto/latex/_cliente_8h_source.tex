@@ -1,0 +1,46 @@
+\doxysection{Cliente.\+h}
+\hypertarget{_cliente_8h_source}{}\label{_cliente_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ UFA\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Module:\ \ Cliente.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ \ Edison\ Verdesoto,\ Joan\ Cobeña}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Modified:\ viernes,\ 2\ de\ febrero\ de\ 2024\ 19:31:11}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Purpose:\ Declaration\ of\ the\ class\ Cliente}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#if\ !defined(\_\_Class\_Diagram\_1\_Cliente\_h)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ \_\_Class\_Diagram\_1\_Cliente\_h}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cuenta}{Cuenta}};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Persona.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_cliente}{Cliente}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_cliente_ab0df6f7088c84a0b735758179018def9}{Cliente}}(\mbox{\hyperlink{class_persona}{Persona}}*);}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_cliente_ab0df6f7088c84a0b735758179018def9}{Cliente}}(\mbox{\hyperlink{class_persona}{Persona}}*,\ std::string);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ apertura\_cuenta(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ \mbox{\hyperlink{class_cliente_abfd58ec859eab99aaaa365347fe786b2}{es\_moroso}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cliente_a00115c481ada9218184693d46dc7cd9e}{generar\_ID\_cliente}}(\textcolor{keywordtype}{char}\ ID[7],\ \textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{bool}\ \&guardado);}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ \mbox{\hyperlink{class_cliente_a6cd7571a23d3590a9f416cb867b344d7}{generar\_ID}}(std::string\ nombre,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_cliente_ac66914e563b0e23b3b795c479d501188}{guardar\_ID\_en\_archivo}}(\textcolor{keyword}{const}\ std::string\ \&archivo,\ \textcolor{keyword}{const}\ std::string\ \&ID);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_cliente_a8d1eb7fb0244d63c4ab62d4e66c26c73}{ID\_existe\_en\_archivo}}(\textcolor{keyword}{const}\ std::string\ \&archivo,\ \textcolor{keyword}{const}\ std::string\ \&ID);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_persona}{Persona}}*\ \mbox{\hyperlink{class_cliente_ad8e6bebcb5fac3dd1fc1a4b1326ab5cc}{get\_persona}}();}
+\DoxyCodeLine{00031\ \ \ \ \ std::string\ \mbox{\hyperlink{class_cliente_ac740155d426072d3115ed2bc6ef759a6}{get\_id}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00034\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \mbox{\hyperlink{class_persona}{Persona}}*\ persona;}
+\DoxyCodeLine{00036\ \ \ \ std::string\ ID\_cliente;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

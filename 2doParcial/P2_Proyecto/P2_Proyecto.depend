@@ -216,7 +216,7 @@
 	"Movimientos.h"
 	"GestorArchivos.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\arbol_bplus.cpp
+1707097654 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\arbol_bplus.cpp
 	<iostream>
 	<string>
 	"Arbol_Bplus.h"
@@ -262,7 +262,7 @@
 	<iostream>
 	"ListaDoble.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\calculoscredito.cpp
+1707097654 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\calculoscredito.cpp
 	"CalculosCredito.h"
 	"ListaDoble.cpp"
 	"Nodo.cpp"
@@ -271,19 +271,19 @@
 1707089136 e:\cooperativaesperanza\2doparcial\p2_proyecto\calculoscredito.h
 	"ListaDoble.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\cliente.cpp
+1707097654 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\cliente.cpp
 	<iostream>
 	<fstream>
 	"Cuenta.h"
 	"Cliente.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\credito.cpp
+1707097659 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\credito.cpp
 	"Credito.h"
 
 1707089136 e:\cooperativaesperanza\2doparcial\p2_proyecto\credito.h
 	"Fecha.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\cuenta.cpp
+1707097659 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\cuenta.cpp
 	<iostream>
 	"Movimientos.h"
 	"Cuenta.h"
@@ -313,7 +313,7 @@
 
 1707089136 e:\cooperativaesperanza\2doparcial\p2_proyecto\easybmp_variousbmputilities.h
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\fecha.cpp
+1707097654 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\fecha.cpp
 	<iostream>
 	"Fecha.h"
 	<ctime>
@@ -330,7 +330,7 @@
 	<windows.h>
 	"EasyBMP.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\listadoble.cpp
+1707097659 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\listadoble.cpp
 	<iostream>
 	"ListaDoble.h"
 
@@ -339,7 +339,7 @@
 	<ctime>
 	"menus.h"
 
-1707089136 e:\cooperativaesperanza\2doparcial\p2_proyecto\menus.h
+1707098601 e:\cooperativaesperanza\2doparcial\p2_proyecto\menus.h
 	<iostream>
 	<conio.h>
 	<windows.h>
@@ -393,7 +393,7 @@
 	"Credito.h"
 	"Fecha.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\movimientos.cpp
+1707097654 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\movimientos.cpp
 	"Movimientos.h"
 	<iostream>
 	<fstream>
@@ -402,17 +402,17 @@
 	<stdlib.h>
 	<direct.h>
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\nodo.cpp
+1707097659 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\nodo.cpp
 	"Nodo.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\nodob.cpp
+1707097659 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\nodob.cpp
 	"NodoB.h"
 	"ListaDoble.cpp"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\persona.cpp
+1707097659 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\persona.cpp
 	"Persona.h"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\tablaamortizacion.cpp
+1707097659 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\tablaamortizacion.cpp
 	<iostream>
 	<iomanip>
 	"TablaAmortizacion.h"
@@ -421,7 +421,7 @@
 	"ListaDoble.cpp"
 	"Nodo.cpp"
 
-1707089136 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\tablahash.cpp
+1707097654 source:e:\cooperativaesperanza\2doparcial\p2_proyecto\tablahash.cpp
 	"TablaHash.h"
 	<iostream>
 	"ListaDoble.h"

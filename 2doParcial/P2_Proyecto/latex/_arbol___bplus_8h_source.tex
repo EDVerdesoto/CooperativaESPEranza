@@ -1,0 +1,36 @@
+\doxysection{Arbol\+\_\+\+Bplus.\+h}
+\hypertarget{_arbol___bplus_8h_source}{}\label{_arbol___bplus_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ARBOL\_BPLUS\_H\_INCLUDED}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ARBOL\_BPLUS\_H\_INCLUDED}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}NodoB.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}ListaDoble.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_arbol___bplus}{Arbol\_Bplus}}\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_arbol___bplus_a6baf6a8350004ff88754e9f28786cfb6}{Arbol\_Bplus}}(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol___bplus_a7ca43629c387ab5292cfd6f151157176}{insertar}}(\mbox{\hyperlink{class_cuenta}{Cuenta}}*\ dato,\ \textcolor{keywordtype}{char}\ tipo);}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol___bplus_a2c3e46aba1024f62d543279488e989e3}{insertar\_rec}}(\mbox{\hyperlink{class_cuenta}{Cuenta}}*,\ \mbox{\hyperlink{class_nodo_b}{NodoB}}*,\ \textcolor{keywordtype}{char}\ tipo);}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol___bplus_ad7a6cdd64802c440e37a44ca6693fe19}{eliminar}}(\mbox{\hyperlink{class_cuenta}{Cuenta}}*);}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ imprimir\_rec(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ imprimir\_rec(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ nclaves,\ \textcolor{keywordtype}{int}\ nhijos,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ancho,\ \textcolor{keywordtype}{int}\ alto,\ \textcolor{keywordtype}{int}\ xprev,\ \textcolor{keywordtype}{int}\ yprev,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_b}{NodoB}}*\ raiz\_princ,\ \mbox{\hyperlink{class_nodo}{Nodo<int>}}*\ clave,\ \mbox{\hyperlink{class_nodo}{Nodo<Arbol\_Bplus*>}}*\ hijo,\ \textcolor{keywordtype}{int}*\ tam);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ imprimir\_rec(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ imprimir();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_b}{NodoB}}*\ \mbox{\hyperlink{class_arbol___bplus_a767b48e42287ac60727e60b1803e3f0f}{get\_raiz}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_arbol___bplus_ab7ab5a59e2dbdedfe5ff04d5aac48dfe}{\string~Arbol\_Bplus}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_arbol___bplus_aae477a30496e8404401404ca28c1601b}{partir}}(\mbox{\hyperlink{class_nodo_b}{NodoB}}*\ raiz,\ \mbox{\hyperlink{class_nodo_b}{NodoB}}*\ raiz\_anterior,\ \textcolor{keywordtype}{char}\ tipo);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ grado;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_nodo_b}{NodoB}}*\ raiz;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_lista_doble}{ListaDoble<Cuenta**>}}*\ datos\_hojas;}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ARBOL\_B+\_H}}
+
+\end{DoxyCode}

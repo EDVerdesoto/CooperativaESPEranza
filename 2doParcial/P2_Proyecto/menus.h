@@ -236,7 +236,7 @@ void desplegar_menu_principal(){
             abrir_menu_ayuda();
         else if(opcion == 7){
             system("cls");
-            Imagen imagen("Sin titulo.bmp");
+            Imagen imagen("prueba.bmp");
             imagen.imprimirImagenEnConsola();
         }
         visibilidad_cursor(false);
@@ -246,7 +246,7 @@ void desplegar_menu_principal(){
 }
 
 void abrir_menu_ayuda(){
-    const char* nombreArchivo = "Menu de ayuda tabla de amortizacion.pdf";
+    const char* nombreArchivo = R"(E:\\html\\index.html)";
 
     ShellExecuteA(nullptr, "open", nombreArchivo, nullptr, nullptr, SW_SHOWNORMAL);
 }

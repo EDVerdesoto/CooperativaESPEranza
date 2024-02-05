@@ -1,0 +1,53 @@
+\doxysection{Tabla\+Amortizacion.\+h}
+\hypertarget{_tabla_amortizacion_8h_source}{}\label{_tabla_amortizacion_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ UFA\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Module:\ \ TablaAmortizacion.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ \ Joan\ Cobeña, Edison\ Verdesoto}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Modified:\ viernes,\ 8\ de\ diciembre\ de\ 2023}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Purpose:\ Declaracion\ de\ clase\ TablaAmortizacion}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ TABLAAMORTIZACION\_H\_INCLUDED}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ TABLAAMORTIZACION\_H\_INCLUDED}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}ListaDoble.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Credito.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Fecha.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_tabla_amortizacion}{TablaAmortizacion}}\{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a052b66deeb239cb968c6e4daabc0c05a}{llenar\_tabla\_amortizacion}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a499b6f6158c3a01c30e8b0f29b295fce}{generar\_fechas\_pago}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_afdd342a581d6cb3a0fa0a8e0703a5468}{imprimir}}();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_amortizacion_a26b7c5454376c1c00b121b60ac7324ed}{TablaAmortizacion}}(\mbox{\hyperlink{class_credito}{Credito}});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_credito}{Credito}}\ \mbox{\hyperlink{class_tabla_amortizacion_a7c8672e23ad1332d0f72402e930e50b8}{get\_credito}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<int>}}*\ \mbox{\hyperlink{class_tabla_amortizacion_a9be38b8802af8f00bfb431f36c29fe55}{get\_cuotas\_ord}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_amortizacion_a7a93387dcbb75aacfe8f562c77ed7f28}{get\_saldos\_capital}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_amortizacion_a7e580456f3b858e88781ccbadf825103}{get\_intereses}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_amortizacion_a0715a93f4fc6810166c4524e0ac9d6c1}{get\_pagos\_capital}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_amortizacion_a6a4804adc727bb9fa52cdb47e2d08cf8}{get\_valor\_cuotas}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<Fecha>}}*\ \mbox{\hyperlink{class_tabla_amortizacion_ac5585d0352555afc02fbb411e3dfd5c5}{get\_fechas\_pago}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a249b1a327f8834a801a5e13b52e6fd46}{set\_credito}}(\mbox{\hyperlink{class_credito}{Credito}}\ \mbox{\hyperlink{class_tabla_hash}{nuevo\_credito}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a9b68fa4abc1140c6e39d8e2f2f410e34}{set\_cuotas\_ord}}(\mbox{\hyperlink{class_tabla_hash}{ListaDoble<int>}}*\ \mbox{\hyperlink{class_tabla_hash}{nuevo\_cuotas\_ord}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a8a6bc4d5d6ef34923b2b4b629d2526df}{set\_saldos\_capital}}(\mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_hash}{nuevo\_saldos\_capital}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a2911e6727cb37d798049e5d799cc5e10}{set\_intereses}}(\mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_hash}{nuevo\_intereses}});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a3c5b2796e9d9c99bc60224dd6f88a265}{set\_pagos\_capital}}(\mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_hash}{nuevo\_pagos\_capital}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_a83bb03d0fb5238d8a3546f5b85da32ae}{set\_valor\_cuotas}}(\mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ \mbox{\hyperlink{class_tabla_hash}{nuevo\_valor\_cuotas}});}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_amortizacion_aefe87bddfb4f26015a0201d47baae5fc}{set\_fechas\_pago}}(\mbox{\hyperlink{class_tabla_hash}{ListaDoble<Fecha>}}*\ \mbox{\hyperlink{class_tabla_hash}{nuevo\_fechas\_pago}});}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_credito}{Credito}}\ credito;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<int>}}*\ cuotas\_ord;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ saldos\_capital;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ intereses;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ pagos\_capital;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<double>}}*\ valor\_cuotas;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<Fecha>}}*\ fechas\_pago;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TABLAAMORTIZACION\_H\_INCLUDED}}
+
+\end{DoxyCode}

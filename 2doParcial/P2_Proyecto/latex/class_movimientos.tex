@@ -1,0 +1,149 @@
+\doxysection{Movimientos Class Reference}
+\hypertarget{class_movimientos}{}\label{class_movimientos}\index{Movimientos@{Movimientos}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_movimientos_ae8b772a9c13748d3a96789aec55e44ab}{Movimientos}} (\mbox{\hyperlink{class_cuenta}{Cuenta}} \texorpdfstring{$\ast$}{*})
+\begin{DoxyCompactList}\small\item\em Constructor de la clase \doxylink{class_movimientos}{Movimientos}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{bool}} \mbox{\hyperlink{class_movimientos_a47e7b1cd647ed835d8aec7e209f91cd4}{deposito}} (\mbox{\hyperlink{class_tabla_hash}{double}})
+\begin{DoxyCompactList}\small\item\em Realiza un depósito en la cuenta y guarda el movimiento. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{bool}} \mbox{\hyperlink{class_movimientos_a3fa94b398581cf0a4d54bc520c4f033d}{retiro}} (\mbox{\hyperlink{class_tabla_hash}{double}})
+\begin{DoxyCompactList}\small\item\em Realiza un retiro en la cuenta y guarda el movimiento. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{bool}} \mbox{\hyperlink{class_movimientos_ab00d11efe9dc85d255630e6cafcc5195}{guardar\+\_\+movimientos}} ()
+\begin{DoxyCompactList}\small\item\em Guarda los movimientos en un archivo CSV asociado a la cuenta. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cuenta}{Cuenta}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_movimientos_aff207b507e52683f539cde066070ee94}{get\+\_\+cuenta}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el puntero a la cuenta asociada a los movimientos. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{char}} \mbox{\hyperlink{class_movimientos_a7a5af971f14ba3c262b1e8035cd56a25}{get\+\_\+tipo}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el tipo de movimiento (\textquotesingle{}D\textquotesingle{} para depósito, \textquotesingle{}R\textquotesingle{} para retiro). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{double}} \mbox{\hyperlink{class_movimientos_a46a246833512ad9b20369e15001f579b}{get\+\_\+monto}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el monto del último movimiento realizado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tabla_hash}{double}} \mbox{\hyperlink{class_movimientos_a48a39b4fa4c644d244808b3e8042d77e}{get\+\_\+saldo}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el saldo actual de la cuenta. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_movimientos_ae8b772a9c13748d3a96789aec55e44ab}\label{class_movimientos_ae8b772a9c13748d3a96789aec55e44ab} 
+\index{Movimientos@{Movimientos}!Movimientos@{Movimientos}}
+\index{Movimientos@{Movimientos}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{Movimientos()}{Movimientos()}}
+{\footnotesize\ttfamily Movimientos\+::\+Movimientos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cuenta}{Cuenta}} \texorpdfstring{$\ast$}{*}}]{cuenta\+\_\+asignada }\end{DoxyParamCaption})}
+
+
+
+Constructor de la clase \doxylink{class_movimientos}{Movimientos}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cuenta\+\_\+asignada} & Puntero a la cuenta asociada a los movimientos. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_movimientos_a47e7b1cd647ed835d8aec7e209f91cd4}\label{class_movimientos_a47e7b1cd647ed835d8aec7e209f91cd4} 
+\index{Movimientos@{Movimientos}!deposito@{deposito}}
+\index{deposito@{deposito}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{deposito()}{deposito()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{bool}} Movimientos\+::deposito (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{depositado }\end{DoxyParamCaption})}
+
+
+
+Realiza un depósito en la cuenta y guarda el movimiento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em depositado} & Monto a depositar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el depósito se realiza correctamente, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_movimientos_aff207b507e52683f539cde066070ee94}\label{class_movimientos_aff207b507e52683f539cde066070ee94} 
+\index{Movimientos@{Movimientos}!get\_cuenta@{get\_cuenta}}
+\index{get\_cuenta@{get\_cuenta}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{get\_cuenta()}{get\_cuenta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cuenta}{Cuenta}} \texorpdfstring{$\ast$}{*} Movimientos\+::get\+\_\+cuenta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el puntero a la cuenta asociada a los movimientos. 
+
+\begin{DoxyReturn}{Returns}
+Puntero a la cuenta asociada. 
+\end{DoxyReturn}
+\Hypertarget{class_movimientos_a46a246833512ad9b20369e15001f579b}\label{class_movimientos_a46a246833512ad9b20369e15001f579b} 
+\index{Movimientos@{Movimientos}!get\_monto@{get\_monto}}
+\index{get\_monto@{get\_monto}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{get\_monto()}{get\_monto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{double}} Movimientos\+::get\+\_\+monto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el monto del último movimiento realizado. 
+
+\begin{DoxyReturn}{Returns}
+Monto del último movimiento. 
+\end{DoxyReturn}
+\Hypertarget{class_movimientos_a48a39b4fa4c644d244808b3e8042d77e}\label{class_movimientos_a48a39b4fa4c644d244808b3e8042d77e} 
+\index{Movimientos@{Movimientos}!get\_saldo@{get\_saldo}}
+\index{get\_saldo@{get\_saldo}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{get\_saldo()}{get\_saldo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{double}} Movimientos\+::get\+\_\+saldo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el saldo actual de la cuenta. 
+
+\begin{DoxyReturn}{Returns}
+Saldo actual de la cuenta. 
+\end{DoxyReturn}
+\Hypertarget{class_movimientos_a7a5af971f14ba3c262b1e8035cd56a25}\label{class_movimientos_a7a5af971f14ba3c262b1e8035cd56a25} 
+\index{Movimientos@{Movimientos}!get\_tipo@{get\_tipo}}
+\index{get\_tipo@{get\_tipo}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{get\_tipo()}{get\_tipo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{char}} Movimientos\+::get\+\_\+tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtiene el tipo de movimiento (\textquotesingle{}D\textquotesingle{} para depósito, \textquotesingle{}R\textquotesingle{} para retiro). 
+
+\begin{DoxyReturn}{Returns}
+Tipo de movimiento. 
+\end{DoxyReturn}
+\Hypertarget{class_movimientos_ab00d11efe9dc85d255630e6cafcc5195}\label{class_movimientos_ab00d11efe9dc85d255630e6cafcc5195} 
+\index{Movimientos@{Movimientos}!guardar\_movimientos@{guardar\_movimientos}}
+\index{guardar\_movimientos@{guardar\_movimientos}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{guardar\_movimientos()}{guardar\_movimientos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{bool}} Movimientos\+::guardar\+\_\+movimientos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Guarda los movimientos en un archivo CSV asociado a la cuenta. 
+
+\begin{DoxyReturn}{Returns}
+true si los movimientos se guardan correctamente, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{class_movimientos_a3fa94b398581cf0a4d54bc520c4f033d}\label{class_movimientos_a3fa94b398581cf0a4d54bc520c4f033d} 
+\index{Movimientos@{Movimientos}!retiro@{retiro}}
+\index{retiro@{retiro}!Movimientos@{Movimientos}}
+\doxysubsubsection{\texorpdfstring{retiro()}{retiro()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_tabla_hash}{bool}} Movimientos\+::retiro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tabla_hash}{double}}}]{retirado }\end{DoxyParamCaption})}
+
+
+
+Realiza un retiro en la cuenta y guarda el movimiento. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em retirado} & Monto a retirar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si el retiro se realiza correctamente, false en caso contrario. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Movimientos.\+h\item 
+Movimientos.\+cpp\end{DoxyCompactItemize}

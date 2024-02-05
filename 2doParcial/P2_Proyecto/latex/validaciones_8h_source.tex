@@ -1,0 +1,263 @@
+\doxysection{validaciones.\+h}
+\hypertarget{validaciones_8h_source}{}\label{validaciones_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ Module:\ \ validaciones.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Author:\ \ Edison\ Verdesoto}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Modified:\ viernes,\ 20\ de\ noviembre\ de\ 2023\ 11:05:38\ a.\ m.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Purpose:\ Declaration\ of\ the\ class\ validaciones}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ VALIDACIONES\_H\_INCLUDED}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ VALIDACIONES\_H\_INCLUDED}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <conio.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <cctype>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{int}\ ingresar\_enteros(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{int}\ borrar(\textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{datos}},\ \textcolor{keywordtype}{int}\&\ \mbox{\hyperlink{class_tabla_hash}{i}});}
+\DoxyCodeLine{00021\ \textcolor{keywordtype}{float}\ ingresar\_reales(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00022\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ ingresar\_alfabetico(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keywordtype}{bool}\ esEspecial(\textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla}})\{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'c'}\ ||\ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'s'}\ ||\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'r'}\ \ ||\ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'t'});}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keywordtype}{bool}\ esParentesis(\textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla}})\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'('}||\ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{')'});}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{bool}\ esOperador(\textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla}})\{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'+'}\ ||\ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'-\/'}\ ||\ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'*'}\ ||\ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'/'}||\ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'\string^'});}
+\DoxyCodeLine{00034\ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{int}\ ingresar\_enteros(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}})\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{datos}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[10];}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ =\ \mbox{\hyperlink{class_tabla_hash}{\_getch}}())\ !=\ 13\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{i}}\ <\ 9)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{c}}\ <=\ \textcolor{charliteral}{'9'})||\ \mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ borrar(\mbox{\hyperlink{class_tabla_hash}{datos}},\mbox{\hyperlink{class_tabla_hash}{i}});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\ \mbox{\hyperlink{class_tabla_hash}{c}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}++]\ =\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{atoi}}(\mbox{\hyperlink{class_tabla_hash}{datos}});}
+\DoxyCodeLine{00057\ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{float}\ ingresar\_reales(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}})\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{datos}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[12];}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{hay\_punto}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{posicion\_punto}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ =\ \mbox{\hyperlink{class_tabla_hash}{\_getch}}())\ !=\ 13\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{i}}\ <\ 11)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{c}}\ <=\ \textcolor{charliteral}{'9'})\ ||\ (\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ \textcolor{charliteral}{'.'}\ \&\&\ !\mbox{\hyperlink{class_tabla_hash}{hay\_punto}})||\ \mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8\ ||\ \mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ \textcolor{charliteral}{'-\/'})\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!((\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ \textcolor{charliteral}{'.'})\&\&\ \mbox{\hyperlink{class_tabla_hash}{i}}\ ==\ 0))\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!((\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ \textcolor{charliteral}{'-\/'})\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{i}}\ !=\ 0))\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ borrar(\mbox{\hyperlink{class_tabla_hash}{datos}},\ \mbox{\hyperlink{class_tabla_hash}{i}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((\mbox{\hyperlink{class_tabla_hash}{i}}+1)\ ==\ \mbox{\hyperlink{class_tabla_hash}{posicion\_punto}})\{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{hay\_punto}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\ \mbox{\hyperlink{class_tabla_hash}{c}});}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}++]\ =\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ \textcolor{charliteral}{'.'})\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{posicion\_punto}}\ =\ \mbox{\hyperlink{class_tabla_hash}{i}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{hay\_punto}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{atof}}(\mbox{\hyperlink{class_tabla_hash}{datos}});}
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ ingresar\_alfabetico(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}})\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{datos}}[21];}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00102\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{while}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ =\ \mbox{\hyperlink{class_tabla_hash}{\_getch}}())\ !=\ 13\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{i}}\ <\ 20)\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ >=\ \textcolor{charliteral}{'a'}\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{c}}\ <=\ \textcolor{charliteral}{'z'})\ ||\ (\mbox{\hyperlink{class_tabla_hash}{c}}\ >=\ \textcolor{charliteral}{'A'}\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{c}}\ <=\ \textcolor{charliteral}{'Z'})||\ \mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 32||\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ borrar(\mbox{\hyperlink{class_tabla_hash}{datos}},\ \mbox{\hyperlink{class_tabla_hash}{i}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\ \mbox{\hyperlink{class_tabla_hash}{c}});}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}++]\ =\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{datos}});}
+\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{int}\ borrar(\textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{datos}},\ \textcolor{keywordtype}{int}\&\ \mbox{\hyperlink{class_tabla_hash}{i}})\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{i}}\ >\ 0)\ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)b\ \(\backslash\)b"{}});}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{i}}-\/-\/;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{i}};}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ ingresar\_string(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}})\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{class_tabla_hash}{entrada}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[21];}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla}};}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00135\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})\{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{tecla}}\ =\ \mbox{\hyperlink{class_tabla_hash}{\_getch}}();}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'\(\backslash\)r'}\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{i}}\ >\ 0)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{tecla}}\ ==\ \textcolor{charliteral}{'\(\backslash\)b'}\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{i}}\ >\ 0)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)b\ \(\backslash\)b"{}};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{i}}-\/-\/;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{entrada}}[\mbox{\hyperlink{class_tabla_hash}{i}}]\ =\ 0;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{isalpha}}(\mbox{\hyperlink{class_tabla_hash}{tecla}}))\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{i}}\ ==\ 0)\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla\_M}}\ =\ \mbox{\hyperlink{class_tabla_hash}{toupper}}(\mbox{\hyperlink{class_tabla_hash}{tecla}});}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{entrada}}[\mbox{\hyperlink{class_tabla_hash}{i}}++]\ =\ \mbox{\hyperlink{class_tabla_hash}{tecla\_M}};}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}\ <<\ \mbox{\hyperlink{class_tabla_hash}{tecla\_M}};}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::isupper}}(\mbox{\hyperlink{class_tabla_hash}{tecla}}))\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{tecla\_m}}\ =\ \mbox{\hyperlink{class_tabla_hash}{tolower}}(\mbox{\hyperlink{class_tabla_hash}{tecla}});}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{entrada}}[\mbox{\hyperlink{class_tabla_hash}{i}}++]\ =\ \mbox{\hyperlink{class_tabla_hash}{tecla\_m}};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}\ <<\ \mbox{\hyperlink{class_tabla_hash}{tecla\_m}};}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::islower}}(\mbox{\hyperlink{class_tabla_hash}{tecla}}))\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{entrada}}[\mbox{\hyperlink{class_tabla_hash}{i}}++]\ =\ \mbox{\hyperlink{class_tabla_hash}{tecla}};}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::cout}}\ <<\ \mbox{\hyperlink{class_tabla_hash}{tecla}};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{entrada}}[\mbox{\hyperlink{class_tabla_hash}{i}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash}{entrada}};}
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{keywordtype}{bool}\ es\_cedula\_valida(\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ cedula)\{}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{suma\_verif}}\ =\ 0;}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{digito\_verificador}}\ =\ cedula[9]-\/\textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{decena\_prox}};}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{digito\_actual\_sum}};}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{codigo\_prov}}\ =\ 0;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}\ <\ 9;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{digito\_actual\_sum}}\ =\ cedula[\mbox{\hyperlink{class_tabla_hash}{i}}]-\/\textcolor{charliteral}{'0'};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{i}}\ \%\ 2\ ==\ 0)\{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{digito\_actual\_sum}}\ *=\ 2;}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{digito\_actual\_sum}}\ >\ 9)}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{digito\_actual\_sum}}\ -\/=\ 9;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{i}}<2)\{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{codigo\_prov}}\ =\ \mbox{\hyperlink{class_tabla_hash}{codigo\_prov}}*10\ +\ (cedula[\mbox{\hyperlink{class_tabla_hash}{i}}]-\/\textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{i}}==1)\{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{codigo\_prov<1\ ||\ codigo\_prov>}}30)\{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{suma\_verif}}\ +=\ \mbox{\hyperlink{class_tabla_hash}{digito\_actual\_sum}};}
+\DoxyCodeLine{00197\ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{decena\_prox}}\ =\ (\mbox{\hyperlink{class_tabla_hash}{suma\_verif}}/10);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{suma\_verif}}\ \%\ 10\ !=\ 0)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{decena\_prox}}\ +=\ 1;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{decena\_prox}}\ *=\ 10;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{class_tabla_hash}{decena\_prox}}-\/\mbox{\hyperlink{class_tabla_hash}{suma\_verif}}\ ==\ \mbox{\hyperlink{class_tabla_hash}{digito\_verificador}});}
+\DoxyCodeLine{00207\ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ ingresar\_numeros\_cedula(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{msj}})\{}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_tabla_hash}{datos}}\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[11];}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash}{es\_valida}};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%s"{}},\ \mbox{\hyperlink{class_tabla_hash}{msj}});}
+\DoxyCodeLine{00216\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ =\ \mbox{\hyperlink{class_tabla_hash}{\_getch}}())\ !=\ 13)\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{i}}<10\ ||\ \mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\{}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{class_tabla_hash}{c}}\ >=\ \textcolor{charliteral}{'0'}\ \&\&\ \mbox{\hyperlink{class_tabla_hash}{c}}\ <=\ \textcolor{charliteral}{'9'})||\ \mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_tabla_hash}{c}}\ ==\ 8)\{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ borrar(\mbox{\hyperlink{class_tabla_hash}{datos}},\mbox{\hyperlink{class_tabla_hash}{i}});}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\ \mbox{\hyperlink{class_tabla_hash}{c}});}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}++]\ =\ \mbox{\hyperlink{class_tabla_hash}{c}};}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{es\_valida}}\ =\ es\_cedula\_valida(\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{datos}}));}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!\mbox{\hyperlink{class_tabla_hash}{es\_valida}})\{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}\ =\ 0;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_tabla_hash}{borrar\_cont}};\ \mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}<10;\ \mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}++)\{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)b\ \(\backslash\)b"{}});}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}Cedula\ invalida,\ pulse\ una\ tecla\ para\ editarla"{}});}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{\_getch}}();}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}<50;\ \mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}++)\{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)b\ \(\backslash\)b"{}});}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}<\mbox{\hyperlink{class_tabla_hash}{i}};\ \mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}++)\{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{printf}}(\textcolor{stringliteral}{"{}\%c"{}},\ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{borrar\_cont}}]);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \}\textcolor{keywordflow}{while}(!\mbox{\hyperlink{class_tabla_hash}{es\_valida}});}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{datos}}[\mbox{\hyperlink{class_tabla_hash}{i}}]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}(\mbox{\hyperlink{class_tabla_hash}{datos}});}
+\DoxyCodeLine{00256\ \}}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ VALIDACIONES\_H\_INCLUDED}}
+
+\end{DoxyCode}

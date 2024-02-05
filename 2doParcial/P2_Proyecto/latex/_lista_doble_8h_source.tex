@@ -1,0 +1,43 @@
+\doxysection{Lista\+Doble.\+h}
+\hypertarget{_lista_doble_8h_source}{}\label{_lista_doble_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ UFA\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Module:\ \ ListaDoble.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ \ Joan\ Cobeña, Edison\ Verdesoto}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Modified:\ jueves,\ 7\ de\ diciembre\ de\ 2023\ 01:11:27\ p.\ m.}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Purpose:\ Declaracion\ de\ clase\ ListaDoble}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ LISTADOBLE\_H\_INCLUDED}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ LISTADOBLE\_H\_INCLUDED}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Nodo.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_lista_doble}{ListaDoble}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<T>}}(\mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{\_cabeza}});}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<T>}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_doble_a641af425fdd3ff37d91ada5fc60957d5}{get\_cabeza}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_acc5019dafb2b975b71a706d7385ccb72}{set\_cabeza}}(\mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*);}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_lista_doble_a82e5558105d40207b93d96f4c8419d7b}{get\_cola}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_a69a9f658930833f2811cad9ca9b3e1ef}{set\_cola}}(\mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_a5faf4d296d42008d94434868acf5cf80}{insertar\_entre}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{valor\_busq}},\ \mbox{\hyperlink{class_tabla_hash}{T}}\ valor);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_a41aad6af4478c425ea2816674cff2d87}{insertar\_cabeza}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ valor);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_ad4ec32069ce532541924dbaae63b5cb6}{insertar\_cola}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ valor);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_a12bb211e0e473ddca8ea436222078037}{buscar}}(\mbox{\hyperlink{class_tabla_hash}{T}});}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_acab82b27e1c808cf09240c40664eeecc}{eliminar}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ valor);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_lista_doble_aed4cf4a662be6c3bf8dbc409bebf5393}{imprimir}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_lista_doble_a8ee10b2554e1a8b59fc6071019389207}{tam}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_lista_doble_a3ff2a184d376e045a5a2384b357a9950}{esta\_vacia}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ cabeza;}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ cola;}
+\DoxyCodeLine{00036\ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LISTADOBLE\_H\_INCLUDED}}
+
+\end{DoxyCode}

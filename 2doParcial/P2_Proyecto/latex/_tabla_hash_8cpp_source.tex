@@ -1,0 +1,165 @@
+\doxysection{Tabla\+Hash.\+cpp}
+\hypertarget{_tabla_hash_8cpp_source}{}\label{_tabla_hash_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/***********************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ UFA\ -\/\ ESPE}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Module:\ \ TablaAmortizacion.cpp}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Author:\ \ Joan\ Cobeña, Edison\ Verdesoto}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Modified:\ miercoles,\ 6\ de\ diciembre\ de\ 2023}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Purpose:\ Declaracion\ de\ clase\ TablaAmortizacion}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}TablaHash.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}ListaDoble.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Persona.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Cuenta.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Nodo.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00020\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{TablaHash<T>::TablaHash}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{t}})}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ tam\ =\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{t}};}
+\DoxyCodeLine{00023\ \ \ \ \ listas\_indices\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<T>}}*[tam];}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<tam;\mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{i}}]\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_tabla_hash}{ListaDoble<T>}};}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{TablaHash<T>::insertar}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{dato}},\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}})\{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ =\ 0;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{ch}}\ :\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{hashear\_cadena}})\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ +=\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{int}}(\mbox{\hyperlink{class_tabla_hash}{ch}});}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ \%\ tam;}
+\DoxyCodeLine{00041\ \ \ \ \ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>insertar\_cola(\mbox{\hyperlink{class_tabla_hash}{dato}});}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a972433bef05acd26592db55cd8209b95}{TablaHash<T>::insertar}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{dato}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}})\{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ \%\ tam;}
+\DoxyCodeLine{00052\ \ \ \ \ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>insertar\_cola(\mbox{\hyperlink{class_tabla_hash}{dato}});}
+\DoxyCodeLine{00053\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{TablaHash<T>::buscar}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{dato}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}})\{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ \%\ tam;}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{printf}}(\textcolor{stringliteral}{"{}Lista\ \%d\ de\ la\ tabla\ hash\ "{}},\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}});}
+\DoxyCodeLine{00064\ \ \ \ \ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>\mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{buscar}}(\mbox{\hyperlink{class_tabla_hash}{dato}});}
+\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{TablaHash<T>::buscar}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}})\{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ \%\ tam;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}\ =\ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>get\_cabeza();}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}-\/>get\_valor()-\/>get\_num\_cuenta()\ ==\ \mbox{\hyperlink{class_tabla_hash}{hashear}})\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}-\/>get\_siguiente();}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00086\ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00094\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash_a8f1f14b2cff3697c555200f68d8dcb2e}{TablaHash<T>::buscar\_cedula\_persona}}(\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}})\{}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ =\ 0;}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{ch}}\ :\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{hashear\_cadena}})\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ +=\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{int}}(\mbox{\hyperlink{class_tabla_hash}{ch}});}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ \%\ tam;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}\ =\ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>get\_cabeza();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{cedula\_nodo}};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cedula\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}-\/>get\_valor()-\/>get\_cedula();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{cedula\_nodo}}\ ==\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}})\{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{persona\_nodo}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{persona\_nodo}}-\/>get\_siguiente();}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{persona\_nodo}};}
+\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00124\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash_a0ad4d8bda24515512a285a58a0ec4812}{TablaHash<T>::buscar\_cedula\_cuenta}}(\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}})\{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ =\ 0;}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{ch}}\ :\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{hashear\_cadena}})\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ +=\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{int}}(\mbox{\hyperlink{class_tabla_hash}{ch}});}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ \%\ tam;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}\ =\ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>get\_cabeza();}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{cedula\_nodo}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cedula\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}-\/>get\_valor()-\/>get\_cliente()-\/>get\_persona()-\/>get\_cedula();}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{cedula\_nodo}}\ ==\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}})\{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{cuenta\_nodo}};}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}-\/>get\_siguiente();}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{cuenta\_nodo}};}
+\DoxyCodeLine{00146\ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00154\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00155\ \mbox{\hyperlink{class_tabla_hash}{Nodo<T>}}*\ \mbox{\hyperlink{class_tabla_hash_afbb922e10f4423a809a4f9a15bfc36a8}{TablaHash<T>::buscar}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear\_cadena}}\ ,\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{std::string}}\ tipo)\{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ =\ 0;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_tabla_hash}{ch}}\ :\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{hashear\_cadena}})\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ +=\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{int}}(\mbox{\hyperlink{class_tabla_hash}{ch}});}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{hashear}}\ \%\ tam;}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{if}(tipo\ ==\ \textcolor{stringliteral}{"{}cuenta"{}})\{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{Nodo<Cuenta*>}}*\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}\ =\ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>get\_cabeza();}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{num\_cuenta\_del\_nodo}};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}!=\textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{num\_cuenta\_del\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}-\/>get\_valor()-\/>get\_num\_cuenta();}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_tabla_hash}{num\_cuenta\_del\_nodo}}\ ==\ \mbox{\hyperlink{class_tabla_hash}{hashear}})\{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{cuenta\_nodo}};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}\ =\ \mbox{\hyperlink{class_tabla_hash}{cuenta\_nodo}}-\/>get\_siguiente();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{cuenta\_nodo}};}
+\DoxyCodeLine{00178\ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00186\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a03d42442ff6533df51911f6edf185220}{TablaHash<T>::eliminar}}(\mbox{\hyperlink{class_tabla_hash}{T}}\ \mbox{\hyperlink{class_tabla_hash}{dato}})\{}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{pos\_hash}}\ =\ \mbox{\hyperlink{class_tabla_hash}{dato}}\ \%\ tam;}
+\DoxyCodeLine{00188\ \ \ \ \ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{pos\_hash}}]-\/>\mbox{\hyperlink{class_tabla_hash_a03d42442ff6533df51911f6edf185220}{eliminar}}(\mbox{\hyperlink{class_tabla_hash}{dato}});}
+\DoxyCodeLine{00189\ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00194\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00195\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_tabla_hash_a5f31836e7c1e5907e631b4c66d5df1ed}{TablaHash<T>::imprimir}}()\{}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_tabla_hash}{i}}\ =\ 0;\ \mbox{\hyperlink{class_tabla_hash}{i}}<tam;\ \mbox{\hyperlink{class_tabla_hash}{i}}++)\{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{printf}}(\textcolor{stringliteral}{"{}\%d\(\backslash\)t"{}},\ \mbox{\hyperlink{class_tabla_hash}{i}});}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ listas\_indices[\mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{i}}]-\/>\mbox{\hyperlink{class_tabla_hash_a5f31836e7c1e5907e631b4c66d5df1ed}{imprimir}}();}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_tabla_hash_af119c0124971a4dc3685ff3ed22d69ba}{printf}}(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00207\ \mbox{\hyperlink{class_tabla_hash_a99f6630e5b222f174334385b1423edbd}{TablaHash<T>::\string~TablaHash}}()}
+\DoxyCodeLine{00208\ \{}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \}}
+
+\end{DoxyCode}
