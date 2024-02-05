@@ -172,7 +172,6 @@ void cargar_cuentas_al_arbol(TablaHash<Persona*>* personas, ArbolBinario<Cuenta*
     std::string linea;
 
     Persona* persona;
-    Cliente* cliente;
     Cuenta* cuenta;
     int num_cuenta;
 
@@ -198,12 +197,11 @@ void cargar_cuentas_al_arbol(TablaHash<Persona*>* personas, ArbolBinario<Cuenta*
         std::getline(ss, apellido, ',');
 
         persona = personas->buscar_cedula_persona(cedula)->get_valor();
-        cliente = new Cliente(persona, id);
+        Cliente* cliente = new Cliente(persona, id);
         num_cuenta = std::stoi(snocuenta);
         cuenta = new Cuenta(cliente, num_cuenta, std::stof(ssaldo));
 
         arbol_ID->insertar(cuenta, 1);
-
     }
 
     archivo_original.close();
@@ -356,48 +354,52 @@ bool actualizar_cuenta(Cuenta cuenta)
     ruta = std::string(tmp);
 
     std::string nombre_original = ruta + "//" + "Cuentas.csv";
-    std::fstream archivo_original(nombre_original, std::ios::in | std::ios::out);
+    std::string nombre_temporal = ruta + "//" + "Cuentas_temp.csv";
 
-    if(!archivo_original)
-    {
+    std::fstream archivo_original(nombre_original, std::ios::in);
+    std::ofstream archivo_temporal(nombre_temporal);
+
+    if (!archivo_original || !archivo_temporal) {
         _chdir(ruta_inicial.c_str());
         return false;
-    }
-    else
-    {
-        if(!esta_vacio(nombre_original))
-        {
+    } else {
+        if (!esta_vacio(nombre_original)) {
             int num_cuenta = cuenta.get_num_cuenta();
             std::string linea;
             std::string snocuenta;
 
-            std::getline(archivo_original, linea);
+            std::getline(archivo_original, linea);  // Leer la cabecera
+            archivo_temporal << linea << "\n";  // Escribir la cabecera en el nuevo archivo
 
-            while (std::getline(archivo_original, linea))
-            {
+            while (std::getline(archivo_original, linea)) {
                 std::istringstream ss(linea);
                 std::getline(ss, snocuenta, ',');
 
                 if (num_cuenta == std::stoi(snocuenta)) {
-                    // Mover el puntero al inicio de la línea actual
-                    archivo_original.seekp(archivo_original.tellg() - linea.length() - 2);
-
-                    // Escribir la nueva línea
-                    archivo_original<<cuenta.get_num_cuenta()<<","<<cuenta.get_saldo()<<","
-                        <<cuenta.get_cliente()->get_id()<<","<<cuenta.get_cliente()->get_persona()->get_cedula()<<","
-                        <<cuenta.get_cliente()->get_persona()->get_nombre()<<","<<cuenta.get_cliente()->get_persona()->get_apellido()<<"\n";
-                    break;
+                    // Escribir la nueva línea en el nuevo archivo
+                    archivo_temporal << cuenta.get_num_cuenta() << "," << cuenta.get_saldo() << ","
+                        << cuenta.get_cliente()->get_id() << "," << cuenta.get_cliente()->get_persona()->get_cedula() << ","
+                        << cuenta.get_cliente()->get_persona()->get_nombre() << "," << cuenta.get_cliente()->get_persona()->get_apellido() << "\n";
+                } else {
+                    // Conservar la línea original
+                    archivo_temporal << linea << "\n";
                 }
             }
-
         }
 
-    archivo_original.close();
-    _chdir(ruta_inicial.c_str());
-    return true;
+        archivo_original.close();
+        archivo_temporal.close();
 
+        std::remove(nombre_original.c_str());
+
+        if (std::rename(nombre_temporal.c_str(), nombre_original.c_str()) == 0) {
+            _chdir(ruta_inicial.c_str());
+            return true;
+        } else {
+            _chdir(ruta_inicial.c_str());
+            return false;
+        }
     }
-
 }
 
 bool guardar_cuenta(Cuenta cuenta)

@@ -5,6 +5,7 @@
 
 template <typename T>
 class ArbolBinario {
+
 private:
     Nodo_Arbol<T>* raiz;
 
@@ -14,7 +15,6 @@ private:
     void postorden(Nodo_Arbol<T>* nodo, int opcion);
 
     Nodo_Arbol<T>* encontrarMinimo(Nodo_Arbol<T>* nodo);
-    Nodo_Arbol<T>* encontrarMaximo(Nodo_Arbol<T>* nodo);
     Nodo_Arbol<T>* eliminar(Nodo_Arbol<T>* nodo, T valor, int opcion);
 
     int altura(Nodo_Arbol<T>* nodo);
@@ -29,7 +29,9 @@ private:
 
 public:
     ArbolBinario();
+    Nodo_Arbol<T>* get_raiz();
     void insertar(Cuenta* valor, int opcion);
+    Nodo_Arbol<T>* encontrarMaximo(Nodo_Arbol<T>* nodo);
     void recorridoInorden();
     void eliminar(T valor);
     void balancearArbol();

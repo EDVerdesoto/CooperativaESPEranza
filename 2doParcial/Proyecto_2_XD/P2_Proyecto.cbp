@@ -32,8 +32,6 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Arbol_Bplus.cpp" />
-		<Unit filename="Arbol_Bplus.h" />
 		<Unit filename="CalculosCredito.cpp" />
 		<Unit filename="CalculosCredito.h" />
 		<Unit filename="Cliente.cpp" />
@@ -58,14 +56,16 @@
 		<Unit filename="Movimientos.h" />
 		<Unit filename="Nodo.cpp" />
 		<Unit filename="Nodo.h" />
-		<Unit filename="NodoB.cpp" />
-		<Unit filename="NodoB.h" />
+		<Unit filename="Nodo_Arbol.cpp" />
+		<Unit filename="Nodo_Arbol.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
 		<Unit filename="TablaAmortizacion.cpp" />
 		<Unit filename="TablaAmortizacion.h" />
 		<Unit filename="TablaHash.cpp" />
 		<Unit filename="TablaHash.h" />
+		<Unit filename="arbolBinario.cpp" />
+		<Unit filename="arbolBinario.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menus.h" />
 		<Unit filename="validaciones.h" />

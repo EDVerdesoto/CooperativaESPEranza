@@ -45,7 +45,9 @@ private:
     double valor_cuota;
     int meses_gracia;
     int intervalo_pagos_mes;
+
     Fecha fecha_realizado;
+
 };
 
 

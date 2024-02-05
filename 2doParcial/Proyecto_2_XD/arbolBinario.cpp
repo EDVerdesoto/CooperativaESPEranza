@@ -10,6 +10,11 @@ ArbolBinario<T>::ArbolBinario() : raiz(nullptr) {
 }
 
 template <typename T>
+Nodo_Arbol<T>* ArbolBinario<T>::get_raiz(){
+    return raiz;
+}
+
+template <typename T>
 Nodo_Arbol<T>* ArbolBinario<T>::insertar_arb(Nodo_Arbol<T>* nodo, Cuenta* valor, int opcion) {
     if (nodo == nullptr) {
         return new Nodo_Arbol<T>(valor);

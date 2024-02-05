@@ -132,7 +132,7 @@ int Cuenta::generar_ID_cuenta(){
         primeros_digitos = cifrar_numero(primeros_digitos, 0);
     }
 
-    int numero_cuentas = 2;
+    int numero_cuentas = std::stoi(cliente->get_id());
 
     num_cuenta = primeros_digitos*pow(10,6) + numero_cuentas;
     num_cuenta = num_cuenta*10 + verificador(num_cuenta);
@@ -156,25 +156,24 @@ void Cuenta::imprimir(){
  * @return dependiendo del valor del dato, retorna un valor diferente
  */
 std::string Cuenta::getter_general(int dato) {
-    Cuenta* cuenta;
     if (dato == 1) {
-        return cuenta->get_cliente()->get_id();
+        return cliente->get_id();
     }
     else if (dato == 2) {
-        std::string str_num_cuenta = std::to_string(cuenta->get_num_cuenta());
+        std::string str_num_cuenta = std::to_string(num_cuenta);
         return str_num_cuenta;
     }
     else if (dato == 3) {
-        return cuenta->get_cliente()->get_persona()->get_nombre();
+        return cliente->get_persona()->get_nombre();
     }
     else if (dato == 4) {
-        cuenta->imprimir();
+        imprimir();
     }
     else if (dato == 5) {
-        return cuenta->get_cliente()->get_persona()->get_apellido();
+        return cliente->get_persona()->get_apellido();
     }
     else if (dato == 6) {
-        return cuenta->get_cliente()->get_persona()->get_cedula();
+        return cliente->get_persona()->get_cedula();
     }
 }
 

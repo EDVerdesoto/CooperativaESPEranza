@@ -217,3 +217,226 @@
 	"Movimientos.h"
 	"GestorArchivos.h"
 
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\calculoscredito.cpp
+	"CalculosCredito.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	<cmath>
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\calculoscredito.h
+	"ListaDoble.h"
+
+1706677910 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\listadoble.h
+	"Nodo.h"
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\nodo.h
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\listadoble.cpp
+	<iostream>
+	"ListaDoble.h"
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\nodo.cpp
+	"Nodo.h"
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\cliente.cpp
+	<iostream>
+	<fstream>
+	"Cuenta.h"
+	"Cliente.h"
+
+1707128794 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\cuenta.h
+	<iostream>
+	"Cliente.h"
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\cliente.h
+	"Persona.h"
+
+1707067055 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\persona.h
+	"Fecha.h"
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\fecha.h
+	<iostream>
+	"Nodo.h"
+	<ctime>
+	<iomanip>
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\credito.cpp
+	"Credito.h"
+
+1707131145 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\credito.h
+	"Fecha.h"
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\easybmp.cpp
+	"EasyBMP.h"
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\easybmp.h
+	<iostream>
+	<cmath>
+	<cctype>
+	<cstring>
+	<stdio.h>
+	<cstdio>
+	"EasyBMP_DataStructures.h"
+	"EasyBMP_BMP.h"
+	"EasyBMP_VariousBMPutilities.h"
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\easybmp_datastructures.h
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\easybmp_bmp.h
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\easybmp_variousbmputilities.h
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\fecha.cpp
+	<iostream>
+	"Fecha.h"
+	<ctime>
+	<iomanip>
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\imagen.cpp
+	"Imagen.h"
+	<conio.h>
+	<windows.h>
+	<wchar.h>
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\imagen.h
+	<string>
+	<windows.h>
+	"EasyBMP.h"
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\listadoble.cpp
+	<iostream>
+	"ListaDoble.h"
+
+1702913950 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\main.cpp
+	<iostream>
+	<ctime>
+	"menus.h"
+
+1707132358 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\menus.h
+	<iostream>
+	<conio.h>
+	<windows.h>
+	"GestorArchivos.h"
+	"validaciones.h"
+	"Fecha.h"
+	"Credito.h"
+	"TablaAmortizacion.h"
+	"Imagen.h"
+	"Persona.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+	"TablaHash.h"
+	"Movimientos.h"
+	"Cuenta.h"
+	"arbolBinario.h"
+
+1707130617 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\gestorarchivos.h
+	<iostream>
+	<fstream>
+	<string>
+	"Credito.h"
+	"Fecha.h"
+	"Persona.h"
+	"TablaHash.cpp"
+	<stdio.h>
+	<stdlib.h>
+	<direct.h>
+	"arbolBinario.cpp"
+
+1707113752 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.cpp
+	"TablaHash.h"
+	<iostream>
+	"ListaDoble.h"
+	"Persona.h"
+	"Cuenta.h"
+	"Nodo.h"
+
+1707113701 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.h
+	<string>
+	"ListaDoble.h"
+
+1707129173 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\arbolbinario.cpp
+	"arbolBinario.h"
+	"Nodo_Arbol.cpp"
+	<algorithm>
+	<iostream>
+	"Cuenta.h"
+
+1707129173 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\arbolbinario.h
+	"Cuenta.h"
+	"Nodo_Arbol.h"
+	<iostream>
+
+1707128794 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\nodo_arbol.h
+
+1707128794 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\nodo_arbol.cpp
+	"Nodo_Arbol.h"
+
+1707114094 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\validaciones.h
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+	<stdio.h>
+	<string.h>
+	<cstring>
+	<cctype>
+
+1707105148 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablaamortizacion.h
+	"ListaDoble.h"
+	"Credito.h"
+	"Fecha.h"
+
+1707121946 d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\movimientos.h
+	"Cuenta.h"
+
+1707123049 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\movimientos.cpp
+	"Movimientos.h"
+	"Fecha.h"
+	<iostream>
+	<fstream>
+	<string>
+	<stdio.h>
+	<stdlib.h>
+	<direct.h>
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\nodo.cpp
+	"Nodo.h"
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\persona.cpp
+	"Persona.h"
+
+1707105148 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablaamortizacion.cpp
+	<iostream>
+	<iomanip>
+	"TablaAmortizacion.h"
+	"CalculosCredito.h"
+	"Fecha.h"
+	"ListaDoble.cpp"
+	"Nodo.cpp"
+
+1707113752 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\tablahash.cpp
+	"TablaHash.h"
+	<iostream>
+	"ListaDoble.h"
+	"Persona.h"
+	"Cuenta.h"
+	"Nodo.h"
+
+1707129173 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\arbolbinario.cpp
+	"arbolBinario.h"
+	"Nodo_Arbol.cpp"
+	<algorithm>
+	<iostream>
+	"Cuenta.h"
+
+1707131144 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\cuenta.cpp
+	<iostream>
+	"Movimientos.h"
+	"Cuenta.h"
+	"Cliente.h"
+	<math.h>
+	<string>
+
+1707128794 source:d:\universidad\tercersemestre\estructuradedatos\proyectop1\cooperativaesperanza\2doparcial\proyecto_2_xd\nodo_arbol.cpp
+	"Nodo_Arbol.h"
+

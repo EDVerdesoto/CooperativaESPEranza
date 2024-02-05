@@ -559,7 +559,7 @@ void hacer_transacciones(TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuenta
 void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, TablaHash<Cuenta*>* cuentas_por_cedula, ArbolBinario<Cuenta*>* arbol_cuentas)
 {
     std::string cedula;
-    bool cedula_existente, cuenta_existente;
+    bool cedula_existente = false, cuenta_existente = false;
     short int opcion;
     int opcion_volver;
     const double MONTO_MINIMO = 5.0;
@@ -589,7 +589,6 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
             if(opcion==1)
             {
                 system("cls");
-                visibilidad_cursor(true);
                 std::cout<<cedula<<std::endl;
                 std::string nombre = ingresar_string("Ingrese el nombre de la persona");
                 printf("\n");
@@ -611,6 +610,7 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
         {
             cuenta_nodo = cuentas_por_cedula->buscar_cedula_cuenta(cedula);
             cuenta_existente = cuenta_nodo!=nullptr;
+
             if(cuenta_existente)
             {
                 cuenta = cuenta_nodo->get_valor();
@@ -637,9 +637,7 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
                 persona = persona_nodo->get_valor();
             }
         }
-
-    }
-    while(!cedula_existente || cuenta_existente);
+    }while(!cedula_existente || cuenta_existente);
 
     if(!cuenta_existente)
     {
@@ -657,14 +655,24 @@ void abrir_cuenta(TablaHash<Persona*>* personas, TablaHash<Cuenta*>* cuentas, Ta
                 system("pause");
             }
 
-        }
-        while(monto_inicial<MONTO_MINIMO);
+        }while(monto_inicial<MONTO_MINIMO);
 
-        Cliente* cliente = new Cliente(persona);
+        Cliente* cliente;
+        if(arbol_cuentas->get_raiz()==nullptr){
+            cliente = new Cliente(persona);
+        }
+        else{
+            Nodo_Arbol<Cuenta*>* cuenta_prev_nodo = arbol_cuentas->encontrarMaximo(arbol_cuentas->get_raiz());
+            int nuevo_id = std::stoi(cuenta_prev_nodo->dato->get_cliente()->get_id()) + 1;
+            cliente = new Cliente(persona, std::to_string(nuevo_id));
+        }
+
         cuenta = new Cuenta(cliente);
         Movimientos* movimientos = new Movimientos(cuenta);
         movimientos->deposito(monto_inicial);
         guardar_cuenta(*cuenta);
+        cuentas_por_cedula->insertar(cuenta, cuenta->get_cliente()->get_persona()->get_cedula());
+        cuentas->insertar(cuenta, cuenta->get_num_cuenta());
         arbol_cuentas->insertar(cuenta, 1);
     }
 }
